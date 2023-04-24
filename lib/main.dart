@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:pjhouse/page/about.dart';
 import 'package:pjhouse/page/home.dart';
 import 'package:pjhouse/page/project.dart';
+import 'package:pjhouse/page/contact.dart';
 
 import 'package:firebase_core/firebase_core.dart';
+import 'package:pjhouse/style.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -20,14 +22,15 @@ class PJHouse extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(primaryColor: Colors.green, primarySwatch: Colors.green),
       title: 'PJ House',
       initialRoute: "/",
       routes: {
         "/": (context) => const HomePage(),
         "/about": (context) => const AboutPage(),
-        "/project": (context) => const ProjectPage()
+        "/project": (context) => const ProjectPage(),
+        "/contact": (context) => const ContactPage()
       },
     );
   }
 }
-
