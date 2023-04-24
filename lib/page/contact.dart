@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../navItem.dart';
 import '../style.dart';
 import '../topbar.dart';
 import '../bottonbar.dart';
+
+final TextEditingController phonec = TextEditingController();
+final TextEditingController linec = TextEditingController();
+final TextEditingController moneyc = TextEditingController();
+String errormsg = '';
+bool isLoading = false;
 
 class ContactPage extends StatelessWidget {
   const ContactPage({Key? key}) : super(key: key);
@@ -40,9 +47,14 @@ class ContactPage extends StatelessWidget {
   }
 }
 
-class Contact1Desktop extends StatelessWidget {
+class Contact1Desktop extends StatefulWidget {
   const Contact1Desktop({Key? key}) : super(key: key);
 
+  @override
+  State<Contact1Desktop> createState() => _Contact1DesktopState();
+}
+
+class _Contact1DesktopState extends State<Contact1Desktop> {
   @override
   Widget build(BuildContext context) {
     double iw = DeviceSize.getWidth(context);
@@ -134,11 +146,15 @@ class Contact1Desktop extends StatelessWidget {
                     ),
                     Column(
                       children: [
-                        Text('กรุณาฝากข้อมูลการติดต่อของคุณ', style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor),),
+                        Text(
+                          'กรุณาฝากข้อมูลการติดต่อของคุณ',
+                          style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor),
+                        ),
                         SizedBox(height: 20.0),
                         Container(
                           width: iw * 0.22,
                           child: TextField(
+                            controller: phonec,
                             decoration: InputDecoration(
                               hintText: 'หมายเลขโทรศัพท์',
                               prefixIcon: Icon(Icons.phone),
@@ -149,6 +165,7 @@ class Contact1Desktop extends StatelessWidget {
                         Container(
                           width: iw * 0.22,
                           child: TextField(
+                            controller: linec,
                             decoration: InputDecoration(
                               hintText: 'ไอดีไลน์',
                               prefixIcon: Icon(Icons.chat_bubble),
@@ -159,6 +176,7 @@ class Contact1Desktop extends StatelessWidget {
                         Container(
                           width: iw * 0.22,
                           child: TextField(
+                            controller: moneyc,
                             decoration: InputDecoration(
                               hintText: 'ทุนโดยประมาณ',
                               prefixIcon: Icon(Icons.money),
@@ -167,16 +185,25 @@ class Contact1Desktop extends StatelessWidget {
                         ),
                         SizedBox(height: 30.0),
                         Text(
-                          "Error",
+                          errormsg,
                           style: GoogleFonts.prompt(color: Colors.redAccent),
                         ),
                         SizedBox(height: 30.0),
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                              shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30.0),
-                          )),
-                          onPressed: () {},
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30.0),
+                            ),
+                          ),
+                          onPressed: () async {
+                            setState(() {
+                              isLoading = true;
+                            });
+                            await saveFirestore(phonec, linec, moneyc);
+                            setState(() {
+                              isLoading = false;
+                            });
+                          },
                           child: Padding(
                             padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
                             child: Row(
@@ -234,11 +261,27 @@ class Contact1Mobile extends StatelessWidget {
   }
 }
 
-class EditTextSet extends StatelessWidget {
-  const EditTextSet({Key? key}) : super(key: key);
+Future<void> saveFirestore(TextEditingController phone, TextEditingController line, TextEditingController money) async {
+  if (phone.text == '' || line.text == '') {
 
-  @override
-  Widget build(BuildContext context) {
-    return TextField();
+  }
+  String now = DateTime.now().toString();
+  print(now);
+  CollectionReference reference = FirebaseFirestore.instance.collection('contact');
+  DocumentReference data = reference.doc(now);
+  // await data.set({
+  //   'phone': phone,
+  //   'line': line,
+  //   'money': money
+  // }).then((value) => 'successed').catchError((error) => print("failed: " + error.toString()));
+
+  try {
+    await data.set({'phone': phone.text, 'line': line.text, 'money': money.text});
+    print('Firestore data saved successfully.');
+    phone.text = '';
+    line.text = '';
+    money.text = '';
+  } catch (e) {
+    print('Failed to save Firestore data: $e');
   }
 }

@@ -52,13 +52,23 @@ class DefaultFirebaseOptions {
     }
   }
 
+  // static const FirebaseOptions web = FirebaseOptions(
+  //   apiKey: 'AIzaSyD5PZi5yMC7qRbkGsZmis74Xq-9UHFiupQ',
+  //   appId: '1:169292998939:web:457643e69c412e042e4bbe',
+  //   messagingSenderId: '169292998939',
+  //   projectId: 'pjhousewebsite',
+  //   authDomain: 'pjhousewebsite.firebaseapp.com',
+  //   storageBucket: 'pjhousewebsite.appspot.com',
+  //   measurementId: 'G-F19DR3D025',
+  // );
+
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyD5PZi5yMC7qRbkGsZmis74Xq-9UHFiupQ',
-    appId: '1:169292998939:web:457643e69c412e042e4bbe',
-    messagingSenderId: '169292998939',
-    projectId: 'pjhousewebsite',
-    authDomain: 'pjhousewebsite.firebaseapp.com',
-    storageBucket: 'pjhousewebsite.appspot.com',
-    measurementId: 'G-F19DR3D025',
+      apiKey: "AIzaSyD8C8NbcyFZVDj3Y0LQNPYyf5UBnZyak20",
+      authDomain: "pjhouseweb.firebaseapp.com",
+      projectId: "pjhouseweb",
+      storageBucket: "pjhouseweb.appspot.com",
+      messagingSenderId: "919212803186",
+      appId: "1:919212803186:web:23d1c080ac4a8c6bc6eeeb",
+      measurementId: "G-FSRDP6KH9Q"
   );
 }
