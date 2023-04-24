@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:pjhouse/page/privacy_policy.dart';
 
 import '../navItem.dart';
 import '../style.dart';
@@ -61,7 +62,7 @@ class _Contact1DesktopState extends State<Contact1Desktop> {
     double iw = DeviceSize.getWidth(context);
     double ih = iw * 0.3005;
     return Container(
-      height: 1000,
+      height: ih + (450-(ih*0.2)),
       child: Stack(
         children: [
           Positioned(
@@ -96,6 +97,7 @@ class _Contact1DesktopState extends State<Contact1Desktop> {
             top: (iw * 0.3005) * 0.8,
             child: Container(
               width: iw * 0.6,
+              height: 450.0,
               decoration: BoxDecoration(
                 color: whiteColor,
                 borderRadius: BorderRadius.circular(10.0),
@@ -114,6 +116,7 @@ class _Contact1DesktopState extends State<Contact1Desktop> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
                           constraints: BoxConstraints(maxWidth: 250.0),
@@ -146,6 +149,7 @@ class _Contact1DesktopState extends State<Contact1Desktop> {
                       ],
                     ),
                     Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
                           'กรุณาฝากข้อมูลการติดต่อของคุณ',
@@ -237,7 +241,7 @@ class _Contact1DesktopState extends State<Contact1Desktop> {
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );
@@ -270,6 +274,7 @@ class ContactPrivacyPolicy extends StatelessWidget {
     return Center(
       child: Column(
         children: [
+          SizedBox(height: 50.0),
           TextButton(
             onPressed: () {
               if (ModalRoute.of(context)!.settings.name != '/privacy_policy') {
