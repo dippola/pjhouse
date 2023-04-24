@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pjhouse/bottonbar.dart';
 import 'package:pjhouse/page/about.dart';
 import 'package:pjhouse/page/home.dart';
 import 'package:pjhouse/page/project.dart';
-import 'package:pjhouse/style.dart';
-import 'package:pjhouse/topbar.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -24,9 +21,9 @@ class PJHouse extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'PJ House',
-      initialRoute: "/home",
+      initialRoute: "/",
       routes: {
-        "/home": (context) => const HomePage(),
+        "/": (context) => const HomePage(),
         "/about": (context) => const AboutPage(),
         "/project": (context) => const ProjectPage()
       },

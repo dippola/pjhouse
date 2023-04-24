@@ -17,8 +17,8 @@ class NavItem extends StatelessWidget {
             children: [
               SizedBox(height: 20.0),
               NavItems(title: text_home, tapEvent: () {
-                if (ModalRoute.of(context)!.settings.name != '/home') {
-                  Navigator.pushNamed(context, '/home');
+                if (ModalRoute.of(context)!.settings.name != '/') {
+                  Navigator.pushNamed(context, '/');
                 }
               }),
               SizedBox(height: 20.0),

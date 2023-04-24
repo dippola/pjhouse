@@ -34,8 +34,8 @@ class TopBarDesktop extends StatelessWidget {
           children: [
             TextButton(
               onPressed: () {
-                if (ModalRoute.of(context)!.settings.name != '/home') {
-                  Navigator.pushNamed(context, '/home');
+                if (ModalRoute.of(context)!.settings.name != '/') {
+                  Navigator.pushNamed(context, '/');
                 }
               },
               child: Row(
@@ -57,8 +57,8 @@ class TopBarDesktop extends StatelessWidget {
                 TopBarDeskTopButton(
                     text: text_home,
                     click: () {
-                      if (ModalRoute.of(context)!.settings.name != '/home') {
-                        Navigator.pushNamed(context, '/home');
+                      if (ModalRoute.of(context)!.settings.name != '/') {
+                        Navigator.pushNamed(context, '/');
                       }
                     }),
                 TopBarDeskTopButton(
@@ -116,8 +116,8 @@ class TopBarMobile extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
-                  if (ModalRoute.of(context)!.settings.name != '/home') {
-                    Navigator.pushNamed(context, '/home');
+                  if (ModalRoute.of(context)!.settings.name != '/') {
+                    Navigator.pushNamed(context, '/');
                   }
                 },
                 child: Row(
