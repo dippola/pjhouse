@@ -38,6 +38,7 @@ class ContactPage extends StatelessWidget {
                   : isTab(context)
                       ? Contact1Tab()
                       : Contact1Mobile(),
+              ContactPrivacyPolicy(),
               BottomBar(),
             ],
           ),
@@ -178,7 +179,7 @@ class _Contact1DesktopState extends State<Contact1Desktop> {
                           child: TextField(
                             controller: moneyc,
                             decoration: InputDecoration(
-                              hintText: 'ทุนโดยประมาณ',
+                              hintText: 'ทุนโดยประมาณ (ตัวเลือก)',
                               prefixIcon: Icon(Icons.money),
                             ),
                           ),
@@ -261,27 +262,55 @@ class Contact1Mobile extends StatelessWidget {
   }
 }
 
+class ContactPrivacyPolicy extends StatelessWidget {
+  const ContactPrivacyPolicy({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        children: [
+          TextButton(
+            onPressed: () {
+              if (ModalRoute.of(context)!.settings.name != '/privacy_policy') {
+                Navigator.pushNamed(context, '/privacy_policy');
+              }
+            },
+            child: Text(
+              'นโยบายความเป็นส่วนตัว',
+              style: GoogleFonts.prompt(color: Colors.blueAccent),
+            ),
+          ),
+          SizedBox(height: 20.0)
+        ],
+      )
+    );
+  }
+}
+
 Future<void> saveFirestore(TextEditingController phone, TextEditingController line, TextEditingController money) async {
   if (phone.text == '' || line.text == '') {
+    errormsg = "กรุณากรอกเบอร์โทรหรือไลน์ไอดี";
+  } else {
+    errormsg = '';
+    String now = DateTime.now().toString();
+    print(now);
+    CollectionReference reference = FirebaseFirestore.instance.collection('contact');
+    DocumentReference data = reference.doc(now);
+    // await data.set({
+    //   'phone': phone,
+    //   'line': line,
+    //   'money': money
+    // }).then((value) => 'successed').catchError((error) => print("failed: " + error.toString()));
 
-  }
-  String now = DateTime.now().toString();
-  print(now);
-  CollectionReference reference = FirebaseFirestore.instance.collection('contact');
-  DocumentReference data = reference.doc(now);
-  // await data.set({
-  //   'phone': phone,
-  //   'line': line,
-  //   'money': money
-  // }).then((value) => 'successed').catchError((error) => print("failed: " + error.toString()));
-
-  try {
-    await data.set({'phone': phone.text, 'line': line.text, 'money': money.text});
-    print('Firestore data saved successfully.');
-    phone.text = '';
-    line.text = '';
-    money.text = '';
-  } catch (e) {
-    print('Failed to save Firestore data: $e');
+    try {
+      await data.set({'phone': phone.text, 'line': line.text, 'money': money.text});
+      print('Firestore data saved successfully.');
+      phone.text = '';
+      line.text = '';
+      money.text = '';
+    } catch (e) {
+      print('Failed to save Firestore data: $e');
+    }
   }
 }

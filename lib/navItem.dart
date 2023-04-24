@@ -24,7 +24,6 @@ class NavItem extends StatelessWidget {
               SizedBox(height: 20.0),
               NavItems(title: text_aboutus, tapEvent: () {
                 if (ModalRoute.of(context)!.settings.name != '/about') {
-                  print("A");
                   Navigator.pushNamed(context, '/about');
                 }
               }),

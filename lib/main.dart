@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pjhouse/page/about.dart';
 import 'package:pjhouse/page/home.dart';
+import 'package:pjhouse/page/privacy_policy.dart';
 import 'package:pjhouse/page/project.dart';
 import 'package:pjhouse/page/contact.dart';
 
@@ -30,7 +31,8 @@ class PJHouse extends StatelessWidget {
         "/": (context) => const HomePage(),
         "/about": (context) => const AboutPage(),
         "/project": (context) => const ProjectPage(),
-        "/contact": (context) => const ContactPage()
+        "/contact": (context) => const ContactPage(),
+        "/privacy_policy": (context) => const PrivacyPolicyPage()
       },
     );
   }
