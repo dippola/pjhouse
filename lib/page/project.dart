@@ -25,21 +25,43 @@ class ProjectPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               TopBar(),
-              // isDesktop(context)
-              //     ? AboutDesktop()
-              //     : isTab(context)
-              //     ? AboutDesktop()
-              //     : AboutMobile(),
-              // isDesktop(context)
-              //     ? AboutBottomDesktop()
-              //     : isTab(context)
-              //     ? AboutBottomDesktop()
-              //     : AboutBottomMobile(),
+              isDesktop(context)
+                  ? ProjectDetailDesktop()
+                  : isTab(context)
+                      ? ProjectDetailTab()
+                      : ProjectDetailMobile(),
               BottomBar()
             ],
           ),
         ),
       ),
     );
+  }
+}
+
+class ProjectDetailDesktop extends StatelessWidget {
+  const ProjectDetailDesktop({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
+
+class ProjectDetailTab extends StatelessWidget {
+  const ProjectDetailTab({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
+
+class ProjectDetailMobile extends StatelessWidget {
+  const ProjectDetailMobile({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
   }
 }
