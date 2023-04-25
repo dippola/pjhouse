@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pjhouse/style.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class BottomBar extends StatelessWidget {
   const BottomBar({Key? key}) : super(key: key);
@@ -121,7 +122,9 @@ class AboutDetail1 extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('Phone Number : '),
-            AboutDetailButton(text: pjhouse_phone_number, click: () {}),
+            AboutDetailButton(text: pjhouse_phone_number, click: () {
+              _callPhoneNumber();
+            }),
           ],
         )
       ],
@@ -144,10 +147,26 @@ class AboutDetail2 extends StatelessWidget {
             style: bottomAboutTextColor1(),
           ),
         ),
-        AboutDetailButton(text: text_home, click: () {}),
-        AboutDetailButton(text: text_aboutus, click: () {}),
-        AboutDetailButton(text: text_project, click: () {}),
-        AboutDetailButton(text: text_message, click: () {}),
+        AboutDetailButton(text: text_home, click: () {
+          if (ModalRoute.of(context)!.settings.name != '/') {
+            Navigator.pushNamed(context, '/');
+          }
+        }),
+        AboutDetailButton(text: text_aboutus, click: () {
+          if (ModalRoute.of(context)!.settings.name != '/about') {
+            Navigator.pushNamed(context, '/about');
+          }
+        }),
+        AboutDetailButton(text: text_project, click: () {
+          if (ModalRoute.of(context)!.settings.name != '/project') {
+            Navigator.pushNamed(context, '/project');
+          }
+        }),
+        AboutDetailButton(text: text_message, click: () {
+          if (ModalRoute.of(context)!.settings.name != '/contact') {
+            Navigator.pushNamed(context, '/contact');
+          }
+        }),
       ],
     );
   }
@@ -168,7 +187,11 @@ class AboutDetail3 extends StatelessWidget {
             style: bottomAboutTextColor1(),
           ),
         ),
-        AboutDetailButton(text: text_saraburi_project, click: () {}),
+        AboutDetailButton(text: text_saraburi_project, click: () {
+          if (ModalRoute.of(context)!.settings.name != '/project') {
+            Navigator.pushNamed(context, '/project');
+          }
+        }),
       ],
     );
   }
@@ -194,5 +217,14 @@ class AboutDetailButton extends StatelessWidget {
         alignment: Alignment.centerLeft,
       ),
     );
+  }
+}
+
+Future<void> _callPhoneNumber() async {
+  final pn = 'tel:3121351';
+  if (await canLaunch(pn)) {
+    await launch(pn);
+  } else {
+    throw 'Could not launch $pn';
   }
 }

@@ -1,7 +1,10 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:pjhouse/page/privacy_policy.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../navItem.dart';
 import '../style.dart';
@@ -26,22 +29,28 @@ class ContactPage extends StatelessWidget {
         child: NavItem(),
       ),
       drawerEnableOpenDragGesture: false,
-      body: Container(
-        color: logoBackgroundColor,
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              TopBar(),
-              isDesktop(context)
-                  ? Contact1Desktop()
-                  : isTab(context)
-                      ? Contact1Tab()
-                      : Contact1Mobile(),
-              ContactPrivacyPolicy(),
-              BottomBar(),
-            ],
+      body: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).unfocus();
+        },
+        child: Container(
+          color: logoBackgroundColor,
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                TopBar(),
+                isDesktop(context)
+                    ? Contact1Desktop()
+                    : isTab(context)
+                        ? Contact1Tab()
+                        : Contact1Mobile(),
+                ContactToMeDesktop(),
+                ContactPrivacyPolicy(),
+                BottomBar(),
+              ],
+            ),
           ),
         ),
       ),
@@ -61,8 +70,9 @@ class _Contact1DesktopState extends State<Contact1Desktop> {
   Widget build(BuildContext context) {
     double iw = DeviceSize.getWidth(context);
     double ih = iw * 0.3005;
-    return Container(//전체
-      height: ih + (450-(ih*0.2)) + 20,
+    return Container(
+      //전체
+      height: ih + (450 - (ih * 0.2)) + 20,
       child: Stack(
         children: [
           Positioned(
@@ -91,7 +101,8 @@ class _Contact1DesktopState extends State<Contact1Desktop> {
               ),
             ),
           ),
-          Positioned(// 여기서부터 흰색box
+          Positioned(
+            // 여기서부터 흰색box
             left: iw * 0.2,
             right: iw * 0.2,
             top: (iw * 0.3005) * 0.8,
@@ -220,7 +231,7 @@ class _Contact1DesktopState extends State<Contact1Desktop> {
                                 Padding(
                                   padding: EdgeInsets.symmetric(horizontal: 10.0),
                                   child: Text(
-                                    "ส่ง",
+                                    "คำขอสอบถาม",
                                     style: GoogleFonts.prompt(color: whiteColor, fontWeight: FontWeight.bold),
                                   ),
                                 ),
@@ -260,8 +271,9 @@ class _Contact1TabState extends State<Contact1Tab> {
   Widget build(BuildContext context) {
     double iw = DeviceSize.getWidth(context);
     double ih = iw * 0.3005;
-    return Container(//전체
-      height: ih + (450-(ih*0.2)) + 20,
+    return Container(
+      //전체
+      height: ih + (450 - (ih * 0.2)) + 20,
       child: Stack(
         children: [
           Positioned(
@@ -290,7 +302,8 @@ class _Contact1TabState extends State<Contact1Tab> {
               ),
             ),
           ),
-          Positioned(// 여기서부터 흰색box
+          Positioned(
+            // 여기서부터 흰색box
             left: iw * 0.1,
             right: iw * 0.1,
             top: (iw * 0.3005) * 0.8,
@@ -419,7 +432,7 @@ class _Contact1TabState extends State<Contact1Tab> {
                                 Padding(
                                   padding: EdgeInsets.symmetric(horizontal: 10.0),
                                   child: Text(
-                                    "ส่ง",
+                                    "คำขอสอบถาม",
                                     style: GoogleFonts.prompt(color: whiteColor, fontWeight: FontWeight.bold),
                                   ),
                                 ),
@@ -459,7 +472,8 @@ class _Contact1MobileState extends State<Contact1Mobile> {
   Widget build(BuildContext context) {
     double iw = DeviceSize.getWidth(context);
     double ih = iw * 0.3005;
-    return Container(//전체
+    return Container(
+      //전체
       // height: ih + (450-(ih*0.2)) + 20,
       height: ih + 700 + 15,
       child: Stack(
@@ -490,7 +504,8 @@ class _Contact1MobileState extends State<Contact1Mobile> {
               ),
             ),
           ),
-          Positioned(// 여기서부터 흰색box
+          Positioned(
+            // 여기서부터 흰색box
             left: iw * 0.07,
             right: iw * 0.07,
             height: 700.0,
@@ -609,7 +624,7 @@ class _Contact1MobileState extends State<Contact1Mobile> {
                             Padding(
                               padding: EdgeInsets.symmetric(horizontal: 10.0),
                               child: Text(
-                                "ส่ง",
+                                "คำขอสอบถาม",
                                 style: GoogleFonts.prompt(color: whiteColor, fontWeight: FontWeight.bold),
                               ),
                             ),
@@ -642,23 +657,357 @@ class ContactPrivacyPolicy extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
-        children: [
-          SizedBox(height: isDesktop(context) ? 40.0 : isTab(context) ? 25.0 : 15.0),
-          TextButton(
-            onPressed: () {
-              if (ModalRoute.of(context)!.settings.name != '/privacy_policy') {
-                Navigator.pushNamed(context, '/privacy_policy');
-              }
-            },
-            child: Text(
-              'นโยบายความเป็นส่วนตัว',
-              style: GoogleFonts.prompt(color: Colors.blueAccent),
+        child: Column(
+      children: [
+        SizedBox(
+            height: isDesktop(context)
+                ? 40.0
+                : isTab(context)
+                    ? 35.0
+                    : 30.0),
+        TextButton(
+          onPressed: () {
+            if (ModalRoute.of(context)!.settings.name != '/privacy_policy') {
+              Navigator.pushNamed(context, '/privacy_policy');
+            }
+          },
+          child: Text(
+            'นโยบายความเป็นส่วนตัว',
+            style: GoogleFonts.prompt(color: Colors.blueAccent),
+          ),
+        ),
+        SizedBox(height: 20.0)
+      ],
+    ));
+  }
+}
+
+class ContactToMeDesktop extends StatelessWidget {
+  const ContactToMeDesktop({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+          // width: DeviceSize.getWidth(context) * 0.65,
+          width: DeviceSize.getWidth(context) > 910 ? DeviceSize.getWidth(context) * 0.65 : DeviceSize.getWidth(context) * 0.9,
+          child: DeviceSize.getWidth(context) >= 650 ? DesktopAndTab(context) : OnlyMobile(context)),
+    );
+  }
+
+  Widget DesktopAndTab(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        Expanded(
+          child: Container(
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0), border: Border.all(color: home2Color, width: 1.0)),
+            child: Padding(
+              padding: EdgeInsets.symmetric(vertical: 20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.call,
+                    color: topBarTextColor,
+                    size: 50.0,
+                  ),
+                  SizedBox(height: 20.0),
+                  Text(
+                    'ทำการโทร',
+                    style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 20.0),
+                  Text(
+                    '082-xxx-xxxx',
+                    style: GoogleFonts.prompt(),
+                  ),
+                  SizedBox(height: 20.0),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        side: BorderSide(width: 1.0, color: home2ColorLine), backgroundColor: logoBackgroundColor, padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0)),
+                    onPressed: () async {
+                      await _callPhoneNumber();
+                    },
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(
+                          Icons.call,
+                          color: topBarTextColor,
+                        ),
+                        SizedBox(width: 10.0),
+                        Text(
+                          'ทำการโทร',
+                          style: GoogleFonts.prompt(color: topBarTextColor),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
-          SizedBox(height: 20.0)
-        ],
-      )
+        ),
+        SizedBox(width: 10.0),
+        Expanded(
+          child: Container(
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0), border: Border.all(color: home2Color, width: 1.0)),
+            child: Padding(
+              padding: EdgeInsets.symmetric(vertical: 20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    'assets/images/lineicon.png',
+                    width: 50.0,
+                    height: 50.0,
+                  ),
+                  SizedBox(height: 20.0),
+                  Text(
+                    'Line ID',
+                    style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 20.0),
+                  Text(
+                    'pjhouse',
+                    style: GoogleFonts.prompt(),
+                  ),
+                  SizedBox(height: 20.0),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        side: BorderSide(width: 1.0, color: home2ColorLine), backgroundColor: logoBackgroundColor, padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0)),
+                    onPressed: () async {
+                      await _addLine(context);
+                    },
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(
+                          Icons.add_comment,
+                          color: topBarTextColor,
+                        ),
+                        SizedBox(width: 10.0),
+                        Text(
+                          'สำเนาบัตรประจำตัว',
+                          style: GoogleFonts.prompt(color: topBarTextColor),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+        ),
+        SizedBox(width: 10.0),
+        Expanded(
+          child: Container(
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0), border: Border.all(color: home2Color, width: 1.0)),
+            child: Padding(
+              padding: EdgeInsets.symmetric(vertical: 20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    'assets/images/facebookicon.png',
+                    width: 50.0,
+                    height: 50.0,
+                  ),
+                  SizedBox(height: 20.0),
+                  Text(
+                    'Facebook Messenger',
+                    style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 20.0),
+                  Text(
+                    'pjhouse',
+                    style: GoogleFonts.prompt(),
+                  ),
+                  SizedBox(height: 20.0),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        side: BorderSide(width: 1.0, color: home2ColorLine), backgroundColor: logoBackgroundColor, padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0)),
+                    onPressed: () async {
+                      await _addFacebook(context);
+                    },
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(
+                          Icons.add_comment,
+                          color: topBarTextColor,
+                        ),
+                        SizedBox(width: 10.0),
+                        Text(
+                          'เพิ่มเป็นเพื่อน',
+                          style: GoogleFonts.prompt(color: topBarTextColor),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget OnlyMobile(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          width: DeviceSize.getWidth(context)*0.6,
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0), border: Border.all(color: home2Color, width: 1.0)),
+          child: Padding(
+            padding: EdgeInsets.symmetric(vertical: 20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.call,
+                  color: topBarTextColor,
+                  size: 50.0,
+                ),
+                SizedBox(height: 20.0),
+                Text(
+                  'ทำการโทร',
+                  style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 20.0),
+                Text(
+                  '082-xxx-xxxx',
+                  style: GoogleFonts.prompt(),
+                ),
+                SizedBox(height: 20.0),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      side: BorderSide(width: 1.0, color: home2ColorLine), backgroundColor: logoBackgroundColor, padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0)),
+                  onPressed: () async {
+                    await _callPhoneNumber();
+                  },
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        Icons.call,
+                        color: topBarTextColor,
+                      ),
+                      SizedBox(width: 10.0),
+                      Text(
+                        'ทำการโทร',
+                        style: GoogleFonts.prompt(color: topBarTextColor),
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+        SizedBox(height: 15.0),
+        Container(
+          width: DeviceSize.getWidth(context)*0.6,
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0), border: Border.all(color: home2Color, width: 1.0)),
+          child: Padding(
+            padding: EdgeInsets.symmetric(vertical: 20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Image.asset(
+                  'assets/images/lineicon.png',
+                  width: 50.0,
+                  height: 50.0,
+                ),
+                SizedBox(height: 20.0),
+                Text(
+                  'Line ID',
+                  style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 20.0),
+                Text(
+                  'pjhouse',
+                  style: GoogleFonts.prompt(),
+                ),
+                SizedBox(height: 20.0),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      side: BorderSide(width: 1.0, color: home2ColorLine), backgroundColor: logoBackgroundColor, padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0)),
+                  onPressed: () async {
+                    await _addLine(context);
+                  },
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        Icons.add_comment,
+                        color: topBarTextColor,
+                      ),
+                      SizedBox(width: 10.0),
+                      Text(
+                        'สำเนาบัตรประจำตัว',
+                        style: GoogleFonts.prompt(color: topBarTextColor),
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+        SizedBox(height: 15.0),
+        Container(
+          width: DeviceSize.getWidth(context)*0.6,
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0), border: Border.all(color: home2Color, width: 1.0)),
+          child: Padding(
+            padding: EdgeInsets.symmetric(vertical: 20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Image.asset(
+                  'assets/images/facebookicon.png',
+                  width: 50.0,
+                  height: 50.0,
+                ),
+                SizedBox(height: 20.0),
+                Text(
+                  'Facebook Messenger',
+                  style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 20.0),
+                Text(
+                  'pjhouse',
+                  style: GoogleFonts.prompt(),
+                ),
+                SizedBox(height: 20.0),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      side: BorderSide(width: 1.0, color: home2ColorLine), backgroundColor: logoBackgroundColor, padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0)),
+                  onPressed: () async {
+                    await _addFacebook(context);
+                  },
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        Icons.add_comment,
+                        color: topBarTextColor,
+                      ),
+                      SizedBox(width: 10.0),
+                      Text(
+                        'เพิ่มเป็นเพื่อน',
+                        style: GoogleFonts.prompt(color: topBarTextColor),
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
@@ -687,5 +1036,37 @@ Future<void> saveFirestore(TextEditingController phone, TextEditingController li
     } catch (e) {
       print('Failed to save Firestore data: $e');
     }
+  }
+}
+
+Future<void> _callPhoneNumber() async {
+  final pn = 'tel:3121351';
+  if (await canLaunch(pn)) {
+    await launch(pn);
+  } else {
+    throw 'Could not launch $pn';
+  }
+}
+
+Future<void> _addLine(BuildContext context) async {
+  String lineId = '2430688';
+  final scheme = 'line://ti/p/@$lineId'; // 라인 앱 URL Scheme
+
+  if (await canLaunch(scheme)) {
+    await launch(scheme);
+  } else {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('라인 앱이 설치되어 있지 않습니다.')),
+    );
+  }
+}
+
+Future<void> _addFacebook(BuildContext context) async {
+  String id = 'F.Panijda Kim';
+  final url = 'https://m.me/$id';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
   }
 }
