@@ -348,6 +348,7 @@ class ProjectDetailDesktop extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20.0),
+            ProjectPageView()
           ],
         )
       ],
@@ -679,6 +680,7 @@ class ProjectDetailTab extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20.0),
+            ProjectPageView()
           ],
         )
       ],
@@ -979,7 +981,7 @@ class ProjectDetailMobile extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 10.0),
-                  Container(height: 1.0, width: DeviceSize.getWidth(context)*0.5, color: home2Color),
+                  Container(height: 1.0, width: DeviceSize.getWidth(context) * 0.5, color: home2Color),
                   SizedBox(height: 10.0),
                   Column(
                     children: [
@@ -1002,7 +1004,7 @@ class ProjectDetailMobile extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 10.0),
-                  Container(height: 1.0, width: DeviceSize.getWidth(context)*0.5, color: home2Color),
+                  Container(height: 1.0, width: DeviceSize.getWidth(context) * 0.5, color: home2Color),
                   SizedBox(height: 10.0),
                   Column(
                     children: [
@@ -1028,6 +1030,7 @@ class ProjectDetailMobile extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20.0),
+            ProjectPageView()
           ],
         )
       ],
@@ -1137,6 +1140,123 @@ class Home2Box extends StatelessWidget {
           );
         },
       ),
+    );
+  }
+}
+
+class ProjectPageView extends StatefulWidget {
+  const ProjectPageView({Key? key}) : super(key: key);
+
+  @override
+  State<ProjectPageView> createState() => _ProjectPageViewState();
+}
+
+class _ProjectPageViewState extends State<ProjectPageView> {
+  final PageController _pageController = PageController();
+  int _currentPage = 0;
+  String pages = '0/6';
+
+  @override
+  Widget build(BuildContext context) {
+    List<String> imageUrls;
+    imageUrls = [
+      'assets/images/project1/pageview/pageview1.jpg',
+      'assets/images/project1/pageview/pageview2.jpg',
+      'assets/images/project1/pageview/pageview3.jpg',
+      'assets/images/project1/pageview/pageview4.jpg',
+      'assets/images/project1/pageview/pageview5.jpg',
+      'assets/images/project1/pageview/pageview6.jpg'
+    ];
+    return Column(
+      children: [
+        Container(height: 1.0, width: DeviceSize.getWidth(context) * 0.6, color: home2ColorLine),
+        SizedBox(height: 20.0),
+        Text(
+          "คอลเลกชันภาพถ่าย",
+          style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold, fontSize: 18.0),
+        ),
+        SizedBox(height: 20.0),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            IconButton(
+              onPressed: () {
+                if (_currentPage > 0) {
+                  _pageController.previousPage(
+                    duration: Duration(milliseconds: 500),
+                    curve: Curves.easeInOut,
+                  );
+                  setState(() {
+                    _currentPage--;
+                    pages = '$_currentPage/6';
+                  });
+                }
+              },
+              icon: Icon(
+                Icons.arrow_back_ios,
+                color: home2ColorLine,
+              ),
+            ),
+            Stack(
+              children: [
+                Container(
+                  width: isDesktop(context) ? DeviceSize.getWidth(context) * 0.6 : DeviceSize.getWidth(context) * 0.7,
+                  height: isDesktop(context) ? (DeviceSize.getWidth(context) * 0.6) * 0.625 : (DeviceSize.getWidth(context) * 0.7) * 0.625,
+                  child: PageView.builder(
+                    controller: _pageController,
+                    itemCount: imageUrls.length,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10.0),
+                          child: Image.asset(
+                            imageUrls[index],
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                Positioned(
+                  bottom: 5.0,
+                  right: 5.0,
+                  child: Container(
+                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(30.0), color: Colors.black.withOpacity(0.5)),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 3.0),
+                      child: Text(
+                        pages,
+                        style: GoogleFonts.prompt(color: whiteColor),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            IconButton(
+              onPressed: () {
+                if (_currentPage < 6) {
+                  _pageController.nextPage(
+                    duration: Duration(milliseconds: 500),
+                    curve: Curves.easeInOut,
+                  );
+                  setState(() {
+                    _currentPage++;
+                    pages = '$_currentPage/6';
+                  });
+                }
+              },
+              icon: Icon(
+                Icons.arrow_forward_ios,
+                color: home2ColorLine,
+              ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
