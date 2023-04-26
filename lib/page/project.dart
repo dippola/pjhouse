@@ -1154,7 +1154,7 @@ class ProjectPageView extends StatefulWidget {
 class _ProjectPageViewState extends State<ProjectPageView> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
-  String pages = '0/6';
+  String pages = '1/6';
 
   @override
   Widget build(BuildContext context) {
@@ -1181,7 +1181,7 @@ class _ProjectPageViewState extends State<ProjectPageView> {
           children: [
             IconButton(
               onPressed: () {
-                if (_currentPage > 0) {
+                if (_currentPage > 1) {
                   _pageController.previousPage(
                     duration: Duration(milliseconds: 500),
                     curve: Curves.easeInOut,
@@ -1219,9 +1219,9 @@ class _ProjectPageViewState extends State<ProjectPageView> {
                       );
                     },
                     onPageChanged: (index) {
-                      _currentPage = index;
+                      _currentPage = index + 1;
                       setState(() {
-                        pages = '$index/6';
+                        pages = '$_currentPage/6';
                       });
                     },
                   ),
