@@ -733,7 +733,7 @@ class _Contact1MobileState extends State<Contact1Mobile> {
                           if (phonec.text == '' && linec.text == '') {
                             print(phonec.text);
                             print(linec.text);
-                            errormsg = "กรุณากรอกเบอร์โทรหรือไลน์ไอดี 7";
+                            errormsg = "กรุณากรอกเบอร์โทรหรือไลน์ไอดี";
                           } else {
                             String now = DateTime.now().toString();
                             print(now);
