@@ -1218,6 +1218,12 @@ class _ProjectPageViewState extends State<ProjectPageView> {
                         ),
                       );
                     },
+                    onPageChanged: (index) {
+                      _currentPage = index;
+                      setState(() {
+                        pages = '$index/6';
+                      });
+                    },
                   ),
                 ),
                 Positioned(
