@@ -17,24 +17,28 @@ class NavItem extends StatelessWidget {
             children: [
               SizedBox(height: 20.0),
               NavItems(title: text_home, tapEvent: () {
+                Navigator.of(context).pop();
                 if (ModalRoute.of(context)!.settings.name != '/') {
                   Navigator.pushNamed(context, '/');
                 }
               }),
               SizedBox(height: 20.0),
               NavItems(title: text_aboutus, tapEvent: () {
+                Navigator.of(context).pop();
                 if (ModalRoute.of(context)!.settings.name != '/about') {
                   Navigator.pushNamed(context, '/about');
                 }
               }),
               SizedBox(height: 20.0),
               NavItems(title: text_project, tapEvent: () {
+                Navigator.of(context).pop();
                 if (ModalRoute.of(context)!.settings.name != '/project') {
                   Navigator.pushNamed(context, '/project');
                 }
               }),
               SizedBox(height: 20.0),
               NavItems(title: text_contact, tapEvent: () {
+                Navigator.of(context).pop();
                 if (ModalRoute.of(context)!.settings.name != '/contact') {
                   Navigator.pushNamed(context, '/contact');
                 }

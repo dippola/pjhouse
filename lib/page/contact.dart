@@ -14,26 +14,54 @@ import '../bottonbar.dart';
 final TextEditingController phonec = TextEditingController();
 final TextEditingController linec = TextEditingController();
 final TextEditingController moneyc = TextEditingController();
-String errormsg = '';
 bool isLoading = false;
+String errormsg = '';
+final FocusNode _fnPhone = FocusNode();
+final FocusNode _fnLine = FocusNode();
+final FocusNode _fnMoney = FocusNode();
 
-class ContactPage extends StatelessWidget {
+class ContactPage extends StatefulWidget {
   const ContactPage({Key? key}) : super(key: key);
 
   @override
+  State<ContactPage> createState() => _ContactPageState();
+}
+
+class _ContactPageState extends State<ContactPage> {
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      endDrawerEnableOpenDragGesture: false,
-      endDrawer: ConstrainedBox(
-        constraints: BoxConstraints(minWidth: 180, maxWidth: 190),
-        child: NavItem(),
-      ),
-      drawerEnableOpenDragGesture: false,
-      body: GestureDetector(
-        onTap: () {
-          FocusScope.of(context).unfocus();
-        },
-        child: Container(
+    return GestureDetector(
+      onTap: () {
+        if (_fnPhone.hasFocus) {
+          _fnPhone.unfocus();
+        }
+        if (_fnLine.hasFocus) {
+          _fnLine.unfocus();
+        }
+        if (_fnMoney.hasFocus) {
+          _fnMoney.unfocus();
+        }
+      },
+      onPanDown: (detail) {
+        if (_fnPhone.hasFocus) {
+          _fnPhone.unfocus();
+        }
+        if (_fnLine.hasFocus) {
+          _fnLine.unfocus();
+        }
+        if (_fnMoney.hasFocus) {
+          _fnMoney.unfocus();
+        }
+      },
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        endDrawerEnableOpenDragGesture: false,
+        endDrawer: ConstrainedBox(
+          constraints: BoxConstraints(minWidth: 180, maxWidth: 190),
+          child: NavItem(),
+        ),
+        drawerEnableOpenDragGesture: false,
+        body: Container(
           color: logoBackgroundColor,
           child: SingleChildScrollView(
             child: Column(
@@ -170,6 +198,7 @@ class _Contact1DesktopState extends State<Contact1Desktop> {
                         Container(
                           width: iw * 0.22,
                           child: TextField(
+                            focusNode: _fnPhone,
                             controller: phonec,
                             decoration: InputDecoration(
                               hintText: 'หมายเลขโทรศัพท์',
@@ -181,6 +210,7 @@ class _Contact1DesktopState extends State<Contact1Desktop> {
                         Container(
                           width: iw * 0.22,
                           child: TextField(
+                            focusNode: _fnLine,
                             controller: linec,
                             decoration: InputDecoration(
                               hintText: 'ไอดีไลน์',
@@ -192,6 +222,7 @@ class _Contact1DesktopState extends State<Contact1Desktop> {
                         Container(
                           width: iw * 0.22,
                           child: TextField(
+                            focusNode: _fnMoney,
                             controller: moneyc,
                             decoration: InputDecoration(
                               hintText: 'ทุนโดยประมาณ (ตัวเลือก)',
@@ -207,41 +238,82 @@ class _Contact1DesktopState extends State<Contact1Desktop> {
                         SizedBox(height: 30.0),
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30.0),
-                            ),
-                          ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30.0),
+                              ),
+                              backgroundColor: !isLoading ? topBarTextColor : Colors.grey),
                           onPressed: () async {
-                            setState(() {
-                              isLoading = true;
-                            });
-                            await saveFirestore(phonec, linec, moneyc);
-                            setState(() {
-                              isLoading = false;
-                            });
+                            FocusScope.of(context).unfocus();
+                            if (!isLoading) {
+                              setState(() {
+                                errormsg = '';
+                                isLoading = true;
+                              });
+                              if (phonec.text == '' && linec.text == '') {
+                                errormsg = "กรุณากรอกเบอร์โทรหรือไลน์ไอดี";
+                              } else {
+                                String now = DateTime.now().toString();
+                                print(now);
+                                CollectionReference reference = FirebaseFirestore.instance.collection('contact');
+                                DocumentReference data = reference.doc(now);
+                                // await data.set({
+                                //   'phone': phone,
+                                //   'line': line,
+                                //   'money': money
+                                // }).then((value) => 'successed').catchError((error) => print("failed: " + error.toString()));
+
+                                try {
+                                  await data.set({'phone': phonec.text, 'line': linec.text, 'money': moneyc.text});
+                                  print('Firestore data saved successfully.');
+                                  phonec.text = '';
+                                  linec.text = '';
+                                  moneyc.text = '';
+                                  showDialog(
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return MyDialog();
+                                      });
+                                } catch (e) {
+                                  print('Failed to save Firestore data: $e');
+                                }
+                              }
+                              setState(() {
+                                isLoading = false;
+                              });
+                            } else {
+                              null;
+                            }
                           },
                           child: Padding(
                             padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                            child: Row(
+                            child: Stack(
                               children: [
-                                Icon(
-                                  Icons.email,
-                                  color: whiteColor,
+                                Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Icon(
+                                      Icons.email,
+                                      color: whiteColor,
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.symmetric(horizontal: 10.0),
+                                      child: Text(
+                                        "คำขอสอบถาม",
+                                        style: GoogleFonts.prompt(color: whiteColor, fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                    Opacity(
+                                      opacity: isLoading ? 1.0 : 0.0,
+                                      child: Container(
+                                        width: 20.0,
+                                        height: 20.0,
+                                        child: CircularProgressIndicator(
+                                          color: whiteColor,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                                Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 10.0),
-                                  child: Text(
-                                    "คำขอสอบถาม",
-                                    style: GoogleFonts.prompt(color: whiteColor, fontWeight: FontWeight.bold),
-                                  ),
-                                ),
-                                Opacity(
-                                  opacity: 0.0,
-                                  child: Icon(
-                                    Icons.email,
-                                    color: whiteColor,
-                                  ),
-                                )
                               ],
                             ),
                           ),
@@ -371,6 +443,7 @@ class _Contact1TabState extends State<Contact1Tab> {
                         Container(
                           width: iw * 0.32,
                           child: TextField(
+                            focusNode: _fnPhone,
                             controller: phonec,
                             decoration: InputDecoration(
                               hintText: 'หมายเลขโทรศัพท์',
@@ -382,6 +455,7 @@ class _Contact1TabState extends State<Contact1Tab> {
                         Container(
                           width: iw * 0.32,
                           child: TextField(
+                            focusNode: _fnLine,
                             controller: linec,
                             decoration: InputDecoration(
                               hintText: 'ไอดีไลน์',
@@ -393,6 +467,7 @@ class _Contact1TabState extends State<Contact1Tab> {
                         Container(
                           width: iw * 0.32,
                           child: TextField(
+                            focusNode: _fnMoney,
                             controller: moneyc,
                             decoration: InputDecoration(
                               hintText: 'ทุนโดยประมาณ (ตัวเลือก)',
@@ -408,41 +483,82 @@ class _Contact1TabState extends State<Contact1Tab> {
                         SizedBox(height: 30.0),
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30.0),
-                            ),
-                          ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30.0),
+                              ),
+                              backgroundColor: !isLoading ? topBarTextColor : Colors.grey),
                           onPressed: () async {
-                            setState(() {
-                              isLoading = true;
-                            });
-                            await saveFirestore(phonec, linec, moneyc);
-                            setState(() {
-                              isLoading = false;
-                            });
+                            FocusScope.of(context).unfocus();
+                            if (!isLoading) {
+                              setState(() {
+                                errormsg = '';
+                                isLoading = true;
+                              });
+                              if (phonec.text == '' && linec.text == '') {
+                                errormsg = "กรุณากรอกเบอร์โทรหรือไลน์ไอดี";
+                              } else {
+                                String now = DateTime.now().toString();
+                                print(now);
+                                CollectionReference reference = FirebaseFirestore.instance.collection('contact');
+                                DocumentReference data = reference.doc(now);
+                                // await data.set({
+                                //   'phone': phone,
+                                //   'line': line,
+                                //   'money': money
+                                // }).then((value) => 'successed').catchError((error) => print("failed: " + error.toString()));
+
+                                try {
+                                  await data.set({'phone': phonec.text, 'line': linec.text, 'money': moneyc.text});
+                                  print('Firestore data saved successfully.');
+                                  phonec.text = '';
+                                  linec.text = '';
+                                  moneyc.text = '';
+                                  showDialog(
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return MyDialog();
+                                      });
+                                } catch (e) {
+                                  print('Failed to save Firestore data: $e');
+                                }
+                              }
+                              setState(() {
+                                isLoading = false;
+                              });
+                            } else {
+                              null;
+                            }
                           },
                           child: Padding(
                             padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                            child: Row(
+                            child: Stack(
                               children: [
-                                Icon(
-                                  Icons.email,
-                                  color: whiteColor,
+                                Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Icon(
+                                      Icons.email,
+                                      color: whiteColor,
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.symmetric(horizontal: 10.0),
+                                      child: Text(
+                                        "คำขอสอบถาม",
+                                        style: GoogleFonts.prompt(color: whiteColor, fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                    Opacity(
+                                      opacity: isLoading ? 1.0 : 0.0,
+                                      child: Container(
+                                        width: 20.0,
+                                        height: 20.0,
+                                        child: CircularProgressIndicator(
+                                          color: whiteColor,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                                Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 10.0),
-                                  child: Text(
-                                    "คำขอสอบถาม",
-                                    style: GoogleFonts.prompt(color: whiteColor, fontWeight: FontWeight.bold),
-                                  ),
-                                ),
-                                Opacity(
-                                  opacity: 0.0,
-                                  child: Icon(
-                                    Icons.email,
-                                    color: whiteColor,
-                                  ),
-                                )
                               ],
                             ),
                           ),
@@ -563,6 +679,7 @@ class _Contact1MobileState extends State<Contact1Mobile> {
                     Container(
                       width: iw * 0.7,
                       child: TextField(
+                        focusNode: _fnPhone,
                         controller: phonec,
                         decoration: InputDecoration(
                           hintText: 'หมายเลขโทรศัพท์',
@@ -574,6 +691,7 @@ class _Contact1MobileState extends State<Contact1Mobile> {
                     Container(
                       width: iw * 0.7,
                       child: TextField(
+                        focusNode: _fnLine,
                         controller: linec,
                         decoration: InputDecoration(
                           hintText: 'ไอดีไลน์',
@@ -585,6 +703,7 @@ class _Contact1MobileState extends State<Contact1Mobile> {
                     Container(
                       width: iw * 0.7,
                       child: TextField(
+                        focusNode: _fnMoney,
                         controller: moneyc,
                         decoration: InputDecoration(
                           hintText: 'ทุนโดยประมาณ (ตัวเลือก)',
@@ -600,41 +719,88 @@ class _Contact1MobileState extends State<Contact1Mobile> {
                     SizedBox(height: 15.0),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0),
-                        ),
-                      ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                          ),
+                          backgroundColor: !isLoading ? topBarTextColor : Colors.grey),
                       onPressed: () async {
-                        setState(() {
-                          isLoading = true;
-                        });
-                        await saveFirestore(phonec, linec, moneyc);
-                        setState(() {
-                          isLoading = false;
-                        });
+                        FocusScope.of(context).unfocus();
+                        if (!isLoading) {
+                          setState(() {
+                            errormsg = '';
+                            isLoading = true;
+                          });
+                          if (phonec.text == '' && linec.text == '') {
+                            print(phonec.text);
+                            print(linec.text);
+                            errormsg = "กรุณากรอกเบอร์โทรหรือไลน์ไอดี 7";
+                          } else {
+                            String now = DateTime.now().toString();
+                            print(now);
+                            CollectionReference reference = FirebaseFirestore.instance.collection('contact');
+                            DocumentReference data = reference.doc(now);
+                            // await data.set({
+                            //   'phone': phone,
+                            //   'line': line,
+                            //   'money': money
+                            // }).then((value) => 'successed').catchError((error) => print("failed: " + error.toString()));
+
+                            try {
+                              await data.set({'phone': phonec.text, 'line': linec.text, 'money': moneyc.text});
+                              print('Firestore data saved successfully.');
+                              phonec.text = '';
+                              linec.text = '';
+                              moneyc.text = '';
+                              showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return MyDialog();
+                                  });
+                            } catch (e) {
+                              print('Failed to save Firestore data: $e');
+                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                content: Text('filed: $e'),
+                                duration: Duration(seconds: 10),
+                              ));
+                            }
+                          }
+                          setState(() {
+                            isLoading = false;
+                          });
+                        } else {
+                          null;
+                        }
                       },
                       child: Padding(
                         padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                        child: Row(
+                        child: Stack(
                           children: [
-                            Icon(
-                              Icons.email,
-                              color: whiteColor,
+                            Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(
+                                  Icons.email,
+                                  color: whiteColor,
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(horizontal: 10.0),
+                                  child: Text(
+                                    "คำขอสอบถาม",
+                                    style: GoogleFonts.prompt(color: whiteColor, fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                                Opacity(
+                                  opacity: isLoading ? 1.0 : 0.0,
+                                  child: Container(
+                                    width: 20.0,
+                                    height: 20.0,
+                                    child: CircularProgressIndicator(
+                                      color: whiteColor,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
-                            Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 10.0),
-                              child: Text(
-                                "คำขอสอบถาม",
-                                style: GoogleFonts.prompt(color: whiteColor, fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                            Opacity(
-                              opacity: 0.0,
-                              child: Icon(
-                                Icons.email,
-                                color: whiteColor,
-                              ),
-                            )
                           ],
                         ),
                       ),
@@ -859,7 +1025,7 @@ class ContactToMeDesktop extends StatelessWidget {
     return Column(
       children: [
         Container(
-          width: DeviceSize.getWidth(context)*0.6,
+          width: DeviceSize.getWidth(context) * 0.6,
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0), border: Border.all(color: home2Color, width: 1.0)),
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 20.0),
@@ -909,7 +1075,7 @@ class ContactToMeDesktop extends StatelessWidget {
         ),
         SizedBox(height: 15.0),
         Container(
-          width: DeviceSize.getWidth(context)*0.6,
+          width: DeviceSize.getWidth(context) * 0.6,
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0), border: Border.all(color: home2Color, width: 1.0)),
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 20.0),
@@ -959,7 +1125,7 @@ class ContactToMeDesktop extends StatelessWidget {
         ),
         SizedBox(height: 15.0),
         Container(
-          width: DeviceSize.getWidth(context)*0.6,
+          width: DeviceSize.getWidth(context) * 0.6,
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0), border: Border.all(color: home2Color, width: 1.0)),
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 20.0),
@@ -1012,33 +1178,6 @@ class ContactToMeDesktop extends StatelessWidget {
   }
 }
 
-Future<void> saveFirestore(TextEditingController phone, TextEditingController line, TextEditingController money) async {
-  if (phone.text == '' || line.text == '') {
-    errormsg = "กรุณากรอกเบอร์โทรหรือไลน์ไอดี";
-  } else {
-    errormsg = '';
-    String now = DateTime.now().toString();
-    print(now);
-    CollectionReference reference = FirebaseFirestore.instance.collection('contact');
-    DocumentReference data = reference.doc(now);
-    // await data.set({
-    //   'phone': phone,
-    //   'line': line,
-    //   'money': money
-    // }).then((value) => 'successed').catchError((error) => print("failed: " + error.toString()));
-
-    try {
-      await data.set({'phone': phone.text, 'line': line.text, 'money': money.text});
-      print('Firestore data saved successfully.');
-      phone.text = '';
-      line.text = '';
-      money.text = '';
-    } catch (e) {
-      print('Failed to save Firestore data: $e');
-    }
-  }
-}
-
 Future<void> _callPhoneNumber() async {
   final pn = 'tel:3121351';
   if (await canLaunch(pn)) {
@@ -1068,5 +1207,41 @@ Future<void> _addFacebook(BuildContext context) async {
     await launch(url);
   } else {
     throw 'Could not launch $url';
+  }
+}
+
+class MyDialog extends StatefulWidget {
+  const MyDialog({Key? key}) : super(key: key);
+
+  @override
+  State<MyDialog> createState() => _MyDialogState();
+}
+
+class _MyDialogState extends State<MyDialog> {
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: Center(
+        child: Text(
+          "การจองการให้คำปรึกษาเสร็จสมบูรณ์",
+          style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold, fontSize: 17.0),
+        ),
+      ),
+      content: Text(
+        "เราจะติดต่อคุณโดยเร็วที่สุด\nขอขอบคุณที่ออกจากคำถามของคุณ",
+        style: GoogleFonts.prompt(),
+      ),
+      actions: [
+        Padding(
+          padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+          child: TextButton(
+            child: Text('ตรวจสอบ'),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ),
+      ],
+    );
   }
 }
