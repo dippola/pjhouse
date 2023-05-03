@@ -885,7 +885,7 @@ class ContactToMeDesktop extends StatelessWidget {
                   ),
                   SizedBox(height: 20.0),
                   Text(
-                    '082-xxx-xxxx',
+                    pjhouse_phone_number,
                     style: GoogleFonts.prompt(),
                   ),
                   SizedBox(height: 20.0),
@@ -1044,7 +1044,7 @@ class ContactToMeDesktop extends StatelessWidget {
                 ),
                 SizedBox(height: 20.0),
                 Text(
-                  '082-xxx-xxxx',
+                  pjhouse_phone_number,
                   style: GoogleFonts.prompt(),
                 ),
                 SizedBox(height: 20.0),

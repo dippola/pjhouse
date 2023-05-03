@@ -221,7 +221,7 @@ class AboutDetailButton extends StatelessWidget {
 }
 
 Future<void> _callPhoneNumber() async {
-  final pn = 'tel:3121351';
+  final pn = pjhouse_phone_number;
   if (await canLaunch(pn)) {
     await launch(pn);
   } else {

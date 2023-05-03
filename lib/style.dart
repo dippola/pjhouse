@@ -69,7 +69,7 @@ var home2IconColor = Color(0xff428b6a);
 var home2ColorLine = Color(0xffa2d096);
 
 var pjhouse_email = 'pjhouseproject@gmail.com';
-var pjhouse_phone_number = '082-xxx-xxxx';
+var pjhouse_phone_number = '082-267-6108';
 var text_contact = 'ติดต่อ บริษัท';
 var text_info = 'ข้อมูลองค์กร';
 var text_home = 'หน้าแรก';
