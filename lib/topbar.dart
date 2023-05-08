@@ -71,8 +71,8 @@ class TopBarDesktop extends StatelessWidget {
                 TopBarDeskTopButton(
                     text: text_project,
                     click: () {
-                      if (ModalRoute.of(context)!.settings.name != '/project') {
-                        Navigator.pushNamed(context, '/project');
+                      if (ModalRoute.of(context)!.settings.name != '/projects') {
+                        Navigator.pushNamed(context, '/projects');
                       }
                     }),
                 TopBarDeskTopButton(

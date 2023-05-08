@@ -312,8 +312,8 @@ class AboutBottomProjectDesktop extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: () {
-                      if (ModalRoute.of(context)!.settings.name != '/project') {
-                        Navigator.pushNamed(context, '/project');
+                      if (ModalRoute.of(context)!.settings.name != '/projects') {
+                        Navigator.pushNamed(context, '/projects');
                       }
                     },
                     child: Container(
@@ -354,8 +354,8 @@ class AboutBottomProjectDesktop extends StatelessWidget {
                     SizedBox(height: 40.0),
                     ElevatedButton.icon(
                       onPressed: () {
-                        if (ModalRoute.of(context)!.settings.name != '/project') {
-                          Navigator.pushNamed(context, '/project');
+                        if (ModalRoute.of(context)!.settings.name != '/projects') {
+                          Navigator.pushNamed(context, '/projects');
                         }
                       },
                       label: Text(
@@ -402,8 +402,8 @@ class AboutBottomProjectTab extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: () {
-                      if (ModalRoute.of(context)!.settings.name != '/project') {
-                        Navigator.pushNamed(context, '/project');
+                      if (ModalRoute.of(context)!.settings.name != '/projects') {
+                        Navigator.pushNamed(context, '/projects');
                       }
                     },
                     child: Container(
@@ -443,8 +443,8 @@ class AboutBottomProjectTab extends StatelessWidget {
                     SizedBox(height: 40.0),
                     ElevatedButton.icon(
                       onPressed: () {
-                        if (ModalRoute.of(context)!.settings.name != '/project') {
-                          Navigator.pushNamed(context, '/project');
+                        if (ModalRoute.of(context)!.settings.name != '/projects') {
+                          Navigator.pushNamed(context, '/projects');
                         }
                       },
                       label: Text(
@@ -491,8 +491,8 @@ class AboutBottomProjectMobile extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: () {
-                      if (ModalRoute.of(context)!.settings.name != '/project') {
-                        Navigator.pushNamed(context, '/project');
+                      if (ModalRoute.of(context)!.settings.name != '/projects') {
+                        Navigator.pushNamed(context, '/projects');
                       }
                     },
                     child: Container(
@@ -528,8 +528,8 @@ class AboutBottomProjectMobile extends StatelessWidget {
                   SizedBox(height: 40.0),
                   ElevatedButton.icon(
                     onPressed: () {
-                      if (ModalRoute.of(context)!.settings.name != '/project') {
-                        Navigator.pushNamed(context, '/project');
+                      if (ModalRoute.of(context)!.settings.name != '/projects') {
+                        Navigator.pushNamed(context, '/projects');
                       }
                     },
                     label: Text(

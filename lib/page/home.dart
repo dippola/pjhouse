@@ -130,8 +130,8 @@ class Home1 extends StatelessWidget {
                           : 2.0),
               ElevatedButton(
                 onPressed: () {
-                  if (ModalRoute.of(context)!.settings.name != '/project') {
-                    Navigator.pushNamed(context, '/project');
+                  if (ModalRoute.of(context)!.settings.name != '/projects') {
+                    Navigator.pushNamed(context, '/projects');
                   }
                 },
                 child: Text('ดูเพิ่มเติม',
@@ -338,8 +338,8 @@ class Home3 extends StatelessWidget {
         SizedBox(height: 30.0),
         ElevatedButton(
           onPressed: () {
-            if (ModalRoute.of(context)!.settings.name != '/project') {
-              Navigator.pushNamed(context, '/project');
+            if (ModalRoute.of(context)!.settings.name != '/projects') {
+              Navigator.pushNamed(context, '/projects');
             }
           },
           child: Text(
@@ -375,8 +375,8 @@ class Home3 extends StatelessWidget {
         SizedBox(height: 30.0),
         ElevatedButton(
           onPressed: () {
-            if (ModalRoute.of(context)!.settings.name != '/project') {
-              Navigator.pushNamed(context, '/project');
+            if (ModalRoute.of(context)!.settings.name != '/projects') {
+              Navigator.pushNamed(context, '/projects');
             }
           },
           child: Text(
@@ -412,8 +412,8 @@ class Home3 extends StatelessWidget {
         SizedBox(height: 14.0),
         ElevatedButton(
           onPressed: () {
-            if (ModalRoute.of(context)!.settings.name != '/project') {
-              Navigator.pushNamed(context, '/project');
+            if (ModalRoute.of(context)!.settings.name != '/projects') {
+              Navigator.pushNamed(context, '/projects');
             }
           },
           child: Text(
@@ -472,8 +472,8 @@ class Home3 extends StatelessWidget {
                   Text('ห้องน้ำ2 | ที่จอดรถ1 | ลาน', style: GoogleFonts.prompt()),
                   ElevatedButton.icon(
                     onPressed: () {
-                      if (ModalRoute.of(context)!.settings.name != '/project') {
-                        Navigator.pushNamed(context, '/project');
+                      if (ModalRoute.of(context)!.settings.name != '/projects') {
+                        Navigator.pushNamed(context, '/projects');
                       }
                     },
                     label: Text(
@@ -541,8 +541,8 @@ class Home3 extends StatelessWidget {
                   Text('ห้องน้ำ2 | ที่จอดรถ1 | ลาน', style: GoogleFonts.prompt()),
                   ElevatedButton.icon(
                     onPressed: () {
-                      if (ModalRoute.of(context)!.settings.name != '/project') {
-                        Navigator.pushNamed(context, '/project');
+                      if (ModalRoute.of(context)!.settings.name != '/projects') {
+                        Navigator.pushNamed(context, '/projects');
                       }
                     },
                     label: Text(
@@ -610,8 +610,8 @@ class Home3 extends StatelessWidget {
                   Text('ห้องน้ำ2 | ที่จอดรถ1 | ลาน', style: GoogleFonts.prompt()),
                   ElevatedButton.icon(
                     onPressed: () {
-                      if (ModalRoute.of(context)!.settings.name != '/project') {
-                        Navigator.pushNamed(context, '/project');
+                      if (ModalRoute.of(context)!.settings.name != '/projects') {
+                        Navigator.pushNamed(context, '/projects');
                       }
                     },
                     label: Text(
