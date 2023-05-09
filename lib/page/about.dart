@@ -5,6 +5,7 @@ import 'package:pjhouse/style.dart';
 import 'package:pjhouse/topbar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:lottie/lottie.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({Key? key}) : super(key: key);
@@ -31,6 +32,7 @@ class AboutPage extends StatelessWidget {
                   : isTab(context)
                       ? AboutDesktop()
                       : AboutMobile(),
+              AboutLottie(),
               isDesktop(context)
                   ? AboutBottomDesktop()
                   : isTab(context)
@@ -246,6 +248,165 @@ class AboutMobile extends StatelessWidget {
     );
   }
 }
+
+class AboutLottie extends StatelessWidget {
+  const AboutLottie({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    double w = DeviceSize.getWidth(context);
+    return isDesktop(context) ? AboutLottieDesktop(w) : isTab(context) ? AboutLottieTab(w) : AboutLottieMobile(w);
+  }
+
+  Widget AboutLottieDesktop(double w) {
+    return Center(
+      child: Container(
+        width: w*0.6,
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Container(
+                  width: w*0.3,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('สำหรับลูกค้า', style: GoogleFonts.prompt(fontSize: 19.0, fontWeight: FontWeight.bold)),
+                      SizedBox(height: 15.0),
+                      Text('เรามุ่งมั่นที่จะมอบความพึงพอใจสูงสุดให้กับลูกค้าของเราด้วยการออกแบบอย่างรอบคอบและถี่ถ้วนเพื่อบ้านที่เงียบสงบ', style: GoogleFonts.prompt(fontSize: 18.0))
+                    ],
+                  ),
+                ),
+                Container(
+                  width: w*0.3,
+                  child: Lottie.asset('assets/lottie/lottie1.json'),
+                ),
+              ],
+            ),
+            Container(height: 1.0, width: w*0.6, color: home2ColorLine),
+            Row(
+              children: [
+                Container(
+                  width: w*0.2,
+                  child: Lottie.asset('assets/lottie/lottie2.json'),
+                ),
+                Container(
+                  width: w*0.4,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text('ความซื่อสัตย์', style: GoogleFonts.prompt(fontSize: 19.0, fontWeight: FontWeight.bold)),
+                      SizedBox(height: 15.0),
+                      Text('เราสร้างมันขึ้นมาอย่างตรงไปตรงมาเพื่อให้คุณรู้สึกได้ถึงความมั่นคงด้วยการสร้างมันให้แข็งแรงและปลอดภัย', style: GoogleFonts.prompt(fontSize: 18.0), textAlign: TextAlign.end,)
+                    ],
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+  Widget AboutLottieTab(double w) {
+    return Center(
+      child: Container(
+        width: w*0.7,
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Container(
+                  width: w*0.35,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('สำหรับลูกค้า', style: GoogleFonts.prompt(fontSize: 19.0, fontWeight: FontWeight.bold)),
+                      SizedBox(height: 15.0),
+                      Text('เรามุ่งมั่นที่จะมอบความพึงพอใจสูงสุดให้กับลูกค้าของเราด้วยการออกแบบอย่างรอบคอบและถี่ถ้วนเพื่อบ้านที่เงียบสงบ', style: GoogleFonts.prompt(fontSize: 18.0))
+                    ],
+                  ),
+                ),
+                Container(
+                  width: w*0.35,
+                  child: Lottie.asset('assets/lottie/lottie1.json'),
+                ),
+              ],
+            ),
+            Container(height: 1.0, width: w*0.7 , color: home2ColorLine),
+            Row(
+              children: [
+                Container(
+                  width: w*0.25,
+                  child: Lottie.asset('assets/lottie/lottie2.json'),
+                ),
+                Container(
+                  width: w*0.45,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text('ความซื่อสัตย์', style: GoogleFonts.prompt(fontSize: 19.0, fontWeight: FontWeight.bold)),
+                      SizedBox(height: 15.0),
+                      Text('เราสร้างมันขึ้นมาอย่างตรงไปตรงมาเพื่อให้คุณรู้สึกได้ถึงความมั่นคงด้วยการสร้างมันให้แข็งแรงและปลอดภัย', style: GoogleFonts.prompt(fontSize: 18.0), textAlign: TextAlign.end,)
+                    ],
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+  Widget AboutLottieMobile(double w) {
+    return Center(
+      child: Container(
+        width: w*0.7,
+        child: Column(
+          children: [
+            SizedBox(height: 15.0),
+            Container(
+              width: w*0.35,
+              child: Lottie.asset('assets/lottie/lottie1.json'),
+            ),
+            Container(
+              width: w*0.7,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text('สำหรับลูกค้า', style: GoogleFonts.prompt(fontSize: 19.0, fontWeight: FontWeight.bold)),
+                  SizedBox(height: 15.0),
+                  Text('เรามุ่งมั่นที่จะมอบความพึงพอใจสูงสุดให้กับลูกค้าของเราด้วยการออกแบบอย่างรอบคอบและถี่ถ้วนเพื่อบ้านที่เงียบสงบ', style: GoogleFonts.prompt(fontSize: 18.0), textAlign: TextAlign.center)
+                ],
+              ),
+            ),
+            SizedBox(height: 15.0),
+            Container(height: 1.0, width: w*0.7 , color: home2ColorLine),
+            SizedBox(height: 15.0),
+            Container(
+              width: w*0.25,
+              child: Lottie.asset('assets/lottie/lottie2.json'),
+            ),
+            SizedBox(height: 15.0),
+            Container(
+              width: w*0.7,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text('ความซื่อสัตย์', style: GoogleFonts.prompt(fontSize: 19.0, fontWeight: FontWeight.bold)),
+                  SizedBox(height: 15.0),
+                  Text('เราสร้างมันขึ้นมาอย่างตรงไปตรงมาเพื่อให้คุณรู้สึกได้ถึงความมั่นคงด้วยการสร้างมันให้แข็งแรงและปลอดภัย', style: GoogleFonts.prompt(fontSize: 18.0), textAlign: TextAlign.center)
+                ],
+              ),
+            ),
+            SizedBox(height: 15.0),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 
 class AboutBottomDesktop extends StatelessWidget {
   const AboutBottomDesktop({Key? key}) : super(key: key);
