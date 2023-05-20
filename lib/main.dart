@@ -4,6 +4,7 @@ import 'package:pjhouse/page/home.dart';
 import 'package:pjhouse/page/privacy_policy.dart';
 import 'package:pjhouse/page/projects.dart';
 import 'package:pjhouse/page/contact.dart';
+import 'package:flutter_web_plugins/url_strategy.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:pjhouse/style.dart';
@@ -14,6 +15,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  usePathUrlStrategy();
   runApp(const PJHouse());
 }
 
