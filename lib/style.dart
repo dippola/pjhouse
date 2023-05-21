@@ -79,6 +79,8 @@ var text_message = 'ข่าวสาร';
 var text_new_home_project = 'โครงการบ้านใหม่';
 var text_saraburi_project = 'สระบุรี';
 
+var license = 'All content © PJ House 2023 • All rights reserved';
+
 //home = หน้าแรก
 //about us = เกี่ยวกับเรา
 //project = โครงการ

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pjhouse/style.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class BottomBar extends StatelessWidget {
   const BottomBar({Key? key}) : super(key: key);
@@ -24,8 +25,9 @@ class BottomBar extends StatelessWidget {
         ),
         BottomAbout(),
         SizedBox(
-          height: 50.0,
-        )
+          height: 30.0,
+        ),
+        BottomLicense()
       ],
     );
   }
@@ -219,6 +221,21 @@ class AboutDetailButton extends StatelessWidget {
     );
   }
 }
+
+class BottomLicense extends StatelessWidget {
+  const BottomLicense({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 30.0),
+      child: Center(
+        child: Text(license, style: GoogleFonts.prompt(fontSize: 13.0)),
+      ),
+    );
+  }
+}
+
 
 Future<void> _callPhoneNumber() async {
   final pn = pjhouse_phone_number;
