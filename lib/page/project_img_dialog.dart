@@ -3,23 +3,29 @@ import 'package:pjhouse/style.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 Widget showZoomDialog(BuildContext context, List<String> urlList, int position) {
-  isDesktop(context)
-      ? showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return ZoomDialogDesktop(urlList: urlList, position: position);
-          })
-      : isTab(context)
-          ? showDialog(
-              context: context,
-              builder: (BuildContext context) {
-                return ZoomDialogTab(urlList: urlList, position: position);
-              })
-          : showDialog(
-              context: context,
-              builder: (BuildContext context) {
-                return ZoomDialogMobile(urlList: urlList, position: position);
-              });
+  // isDesktop(context)
+  //     ? showDialog(
+  //         context: context,
+  //         builder: (BuildContext context) {
+  //           return ZoomDialogDesktop(urlList: urlList, position: position);
+  //         })
+  //     : isTab(context)
+  //         ? showDialog(
+  //             context: context,
+  //             builder: (BuildContext context) {
+  //               return ZoomDialogTab(urlList: urlList, position: position);
+  //             })
+  //         : showDialog(
+  //             context: context,
+  //             builder: (BuildContext context) {
+  //               return ZoomDialogMobile(urlList: urlList, position: position);
+  //             });
+  // return Container();
+  showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return ZoomDialogMobile(urlList: urlList, position: position);
+      });
   return Container();
 }
 

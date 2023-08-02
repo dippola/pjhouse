@@ -1213,6 +1213,7 @@ class _ProjectPageViewState extends State<ProjectPageView> {
                         ),
                         child: InkWell(
                           onTap: () {
+                            print("click");
                             showZoomDialog(context, imageUrls, _currentPage);
                           },
                           child: ClipRRect(
