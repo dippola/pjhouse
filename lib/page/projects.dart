@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pjhouse/page/project_img_dialog.dart';
 
 import '../bottonbar.dart';
 import '../navItem.dart';
@@ -1153,7 +1154,7 @@ class ProjectPageView extends StatefulWidget {
 
 class _ProjectPageViewState extends State<ProjectPageView> {
   final PageController _pageController = PageController();
-  int _currentPage = 0;
+  int _currentPage = 1;
   String pages = '1/6';
 
   @override
@@ -1210,10 +1211,15 @@ class _ProjectPageViewState extends State<ProjectPageView> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
                         ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10.0),
-                          child: Image.asset(
-                            imageUrls[index],
+                        child: InkWell(
+                          onTap: () {
+                            showZoomDialog(context, imageUrls, _currentPage);
+                          },
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10.0),
+                            child: Image.asset(
+                              imageUrls[index],
+                            ),
                           ),
                         ),
                       );

@@ -20,6 +20,14 @@ class DeviceSize {
   }
 }
 
+class DeviceOrientation {
+  static getDeviceOrientation(BuildContext context) {
+    // return MediaQuery.orientationOf(context);
+    Orientation orientation = MediaQuery.of(context).orientation;
+    return orientation;
+  }
+}
+
 //desktop
 // desktopTopBarTitleTextStyle(BuildContext context, bool isSelected) {
 //   if (MediaQuery.of(context).size.width < 705) {
