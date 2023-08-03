@@ -86,7 +86,12 @@ class ProjectDetailDesktop extends StatelessWidget {
                         ),
                         SizedBox(height: 20.0),
                         Text(
-                          'ง่ายต่อการเข้าถึงสิ่งอำนวยความสะดวกต่าง ๆ ร้านสะดวกซื้อ ตลาด และเมืองที่อยู่ไม่ไกล\nปลอดภัยด้วยการติดตั้งผนังทุกด้านเพื่อความเป็นส่วนตัว',
+                          'ง่ายต่อการเข้าถึงสิ่งอำนวยความสะดวกต่าง ๆ ร้านสะดวกซื้อ ตลาด และเมืองที่อยู่ไม่ไกล',
+                          style: GoogleFonts.prompt(height: 2, fontSize: 17.0),
+                          textAlign: TextAlign.center,
+                        ),
+                        Text(
+                          'ปลอดภัยด้วยการติดตั้งผนังทุกด้านเพื่อความเป็นส่วนตัว',
                           style: GoogleFonts.prompt(height: 2, fontSize: 17.0),
                           textAlign: TextAlign.center,
                         )
@@ -403,7 +408,12 @@ class ProjectDetailTab extends StatelessWidget {
                         ),
                         SizedBox(height: 20.0),
                         Text(
-                          'ง่ายต่อการเข้าถึงสิ่งอำนวยความสะดวกต่าง ๆ ร้านสะดวกซื้อ ตลาด และเมืองที่อยู่ไม่ไกล\nปลอดภัยด้วยการติดตั้งผนังทุกด้านเพื่อความเป็นส่วนตัว',
+                          'ง่ายต่อการเข้าถึงสิ่งอำนวยความสะดวกต่าง ๆ ร้านสะดวกซื้อ ตลาด และเมืองที่อยู่ไม่ไกล',
+                          style: GoogleFonts.prompt(height: DeviceSize.getWidth(context) > 670 ? 2 : 1.5, fontSize: DeviceSize.getWidth(context) > 670 ? 17.0 : 16.0),
+                          textAlign: TextAlign.center,
+                        ),
+                        Text(
+                          'ปลอดภัยด้วยการติดตั้งผนังทุกด้านเพื่อความเป็นส่วนตัว',
                           style: GoogleFonts.prompt(height: DeviceSize.getWidth(context) > 670 ? 2 : 1.5, fontSize: DeviceSize.getWidth(context) > 670 ? 17.0 : 16.0),
                           textAlign: TextAlign.center,
                         )
@@ -735,7 +745,12 @@ class ProjectDetailMobile extends StatelessWidget {
                         ),
                         SizedBox(height: 5.0),
                         Text(
-                          'ง่ายต่อการเข้าถึงสิ่งอำนวยความสะดวกต่าง ๆ ร้านสะดวกซื้อ ตลาด และเมืองที่อยู่ไม่ไกล\nปลอดภัยด้วยการติดตั้งผนังทุกด้านเพื่อความเป็นส่วนตัว',
+                          'ง่ายต่อการเข้าถึงสิ่งอำนวยความสะดวกต่าง ๆ ร้านสะดวกซื้อ ตลาด และเมืองที่อยู่ไม่ไกล',
+                          style: GoogleFonts.prompt(height: 1.1, fontSize: DeviceSize.getWidth(context) > 335 ? 13.0 : 11.0),
+                          textAlign: TextAlign.center,
+                        ),
+                        Text(
+                          'ปลอดภัยด้วยการติดตั้งผนังทุกด้านเพื่อความเป็นส่วนตัว',
                           style: GoogleFonts.prompt(height: 1.1, fontSize: DeviceSize.getWidth(context) > 335 ? 13.0 : 11.0),
                           textAlign: TextAlign.center,
                         )
@@ -1155,7 +1170,8 @@ class ProjectPageView extends StatefulWidget {
 class _ProjectPageViewState extends State<ProjectPageView> {
   final PageController _pageController = PageController();
   int _currentPage = 1;
-  String pages = '1/6';
+  String pages = '1/9';
+  late int size;
 
   @override
   Widget build(BuildContext context) {
@@ -1166,8 +1182,12 @@ class _ProjectPageViewState extends State<ProjectPageView> {
       'assets/images/project1/pageview/pageview3.jpg',
       'assets/images/project1/pageview/pageview4.jpg',
       'assets/images/project1/pageview/pageview5.jpg',
-      'assets/images/project1/pageview/pageview6.jpg'
+      'assets/images/project1/pageview/pageview6.jpg',
+      'assets/images/project1/pageview/pageview7.jpg',
+      'assets/images/project1/pageview/pageview8.jpg',
+      'assets/images/project1/pageview/pageview9.jpg',
     ];
+    size = imageUrls.length;
     return Column(
       children: [
         Container(height: 1.0, width: DeviceSize.getWidth(context) * 0.6, color: home2ColorLine),
@@ -1189,7 +1209,7 @@ class _ProjectPageViewState extends State<ProjectPageView> {
                   );
                   setState(() {
                     _currentPage--;
-                    pages = '$_currentPage/6';
+                    pages = '$_currentPage/$size';
                   });
                 }
               },
@@ -1228,7 +1248,7 @@ class _ProjectPageViewState extends State<ProjectPageView> {
                     onPageChanged: (index) {
                       _currentPage = index + 1;
                       setState(() {
-                        pages = '$_currentPage/6';
+                        pages = '$_currentPage/$size';
                       });
                     },
                   ),
@@ -1258,7 +1278,7 @@ class _ProjectPageViewState extends State<ProjectPageView> {
                   );
                   setState(() {
                     _currentPage++;
-                    pages = '$_currentPage/6';
+                    pages = '$_currentPage/$size';
                   });
                 }
               },

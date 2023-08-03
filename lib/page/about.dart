@@ -140,7 +140,12 @@ class AboutDesktop extends StatelessWidget {
                         ),
                         SizedBox(height: 10),
                         SelectableText(
-                          "เราให้บริการลูกค้าด้วยบ้านที่ปลอดภัย สวยงาม และเป็นครอบครัวที่กลมเกลียวกัน\nเราจะแนะนำโครงการที่ซื่อสัตย์บนพื้นฐานของความไว้วางใจ",
+                          "เราให้บริการลูกค้าด้วยบ้านที่ปลอดภัย สวยงาม และเป็นครอบครัวที่กลมเกลียวกัน",
+                          textAlign: TextAlign.start,
+                          style: GoogleFonts.prompt(fontSize: 18.0, fontWeight: FontWeight.w600),
+                        ),
+                        SelectableText(
+                          "เราจะแนะนำโครงการที่ซื่อสัตย์บนพื้นฐานของความไว้วางใจ",
                           textAlign: TextAlign.start,
                           style: GoogleFonts.prompt(fontSize: 18.0, fontWeight: FontWeight.w600),
                         ),
@@ -218,7 +223,12 @@ class AboutMobile extends StatelessWidget {
                       ),
                       SizedBox(height: 10),
                       SelectableText(
-                        "เราให้บริการลูกค้าด้วยบ้านที่ปลอดภัย สวยงาม และเป็นครอบครัวที่กลมเกลียวกัน\nเราจะแนะนำโครงการที่ซื่อสัตย์บนพื้นฐานของความไว้วางใจ",
+                        "เราให้บริการลูกค้าด้วยบ้านที่ปลอดภัย สวยงาม และเป็นครอบครัวที่กลมเกลียวกัน",
+                        textAlign: TextAlign.start,
+                        style: GoogleFonts.prompt(),
+                      ),
+                      SelectableText(
+                        "เราจะแนะนำโครงการที่ซื่อสัตย์บนพื้นฐานของความไว้วางใจ",
                         textAlign: TextAlign.start,
                         style: GoogleFonts.prompt(),
                       ),

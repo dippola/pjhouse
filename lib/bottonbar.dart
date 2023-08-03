@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pjhouse/style.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:clipboard/clipboard.dart';
 
 class BottomBar extends StatelessWidget {
   const BottomBar({Key? key}) : super(key: key);
@@ -117,7 +118,9 @@ class AboutDetail1 extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('Email : '),
-            AboutDetailButton(text: pjhouse_email, click: () {}),
+            AboutDetailButton(text: pjhouse_email, click: () {
+              _sendEmail();
+            }),
           ],
         ),
         Row(
@@ -239,9 +242,23 @@ class BottomLicense extends StatelessWidget {
 
 Future<void> _callPhoneNumber() async {
   final pn = pjhouse_phone_number;
-  if (await canLaunch(pn)) {
-    await launch(pn);
+  final url = 'tel:$pn';
+  if (await canLaunch(url)) {
+    await launch(url);
   } else {
-    throw 'Could not launch $pn';
+    FlutterClipboard.copy(pn).then(( value ) => print('คุณได้คัดลอกหมายเลขโทรศัพท์ของคุณ'));//phone number copy
+  }
+}
+
+void _sendEmail() async {
+  final email = pjhouse_email; // 수신자 이메일 주소 입력
+  final subject = 'สอบถามโครงการบ้าน'; // 이메일 제목 입력
+  final body = ''; // 이메일 내용 입력
+  final url = 'mailto:$email?subject=$subject&body=$body';
+
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'ไม่สามารถเปิดแอปอีเมลได้';
   }
 }

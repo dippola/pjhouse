@@ -181,7 +181,12 @@ class _Contact1DesktopState extends State<Contact1Desktop> {
                         ),
                         SizedBox(height: 20.0),
                         Text(
-                          'หากทิ้งเบอร์ติดต่อหรือ\nLine ID ไว้ เราจะติดต่อกลับไป',
+                          'หากทิ้งเบอร์ติดต่อหรือ',
+                          style: GoogleFonts.prompt(),
+                          textAlign: TextAlign.center,
+                        ),
+                        Text(
+                          'Line ID ไว้ เราจะติดต่อกลับไป',
                           style: GoogleFonts.prompt(),
                           textAlign: TextAlign.center,
                         )
@@ -426,7 +431,12 @@ class _Contact1TabState extends State<Contact1Tab> {
                         ),
                         SizedBox(height: 20.0),
                         Text(
-                          'หากทิ้งเบอร์ติดต่อหรือ\nLine ID ไว้ เราจะติดต่อกลับไป',
+                          'หากทิ้งเบอร์ติดต่อหรือ',
+                          style: GoogleFonts.prompt(),
+                          textAlign: TextAlign.center,
+                        ),
+                        Text(
+                          'Line ID ไว้ เราจะติดต่อกลับไป',
                           style: GoogleFonts.prompt(),
                           textAlign: TextAlign.center,
                         )
@@ -667,7 +677,12 @@ class _Contact1MobileState extends State<Contact1Mobile> {
                     ),
                     SizedBox(height: 20.0),
                     Text(
-                      'หากทิ้งเบอร์ติดต่อหรือ\nLine ID ไว้ เราจะติดต่อกลับไป',
+                      'หากทิ้งเบอร์ติดต่อหรือ',
+                      style: GoogleFonts.prompt(),
+                      textAlign: TextAlign.center,
+                    ),
+                    Text(
+                      'Line ID ไว้ เราจะติดต่อกลับไป',
                       style: GoogleFonts.prompt(),
                       textAlign: TextAlign.center,
                     ),
@@ -936,7 +951,7 @@ class ContactToMeDesktop extends StatelessWidget {
                   ),
                   SizedBox(height: 20.0),
                   Text(
-                    'pjhouse',
+                    'pj9578',
                     style: GoogleFonts.prompt(),
                   ),
                   SizedBox(height: 20.0),
@@ -987,7 +1002,7 @@ class ContactToMeDesktop extends StatelessWidget {
                   ),
                   SizedBox(height: 20.0),
                   Text(
-                    'pjhouse',
+                    'PJ House บ้านเดี่ยวสระบุรี',
                     style: GoogleFonts.prompt(),
                   ),
                   SizedBox(height: 20.0),
@@ -1094,7 +1109,7 @@ class ContactToMeDesktop extends StatelessWidget {
                 ),
                 SizedBox(height: 20.0),
                 Text(
-                  'pjhouse',
+                  'pj9578',
                   style: GoogleFonts.prompt(),
                 ),
                 SizedBox(height: 20.0),
@@ -1144,7 +1159,7 @@ class ContactToMeDesktop extends StatelessWidget {
                 ),
                 SizedBox(height: 20.0),
                 Text(
-                  'pjhouse',
+                  'PJ House บ้านเดี่ยวสระบุรี',
                   style: GoogleFonts.prompt(),
                 ),
                 SizedBox(height: 20.0),
@@ -1180,28 +1195,29 @@ class ContactToMeDesktop extends StatelessWidget {
 
 Future<void> _callPhoneNumber() async {
   final pn = pjhouse_phone_number;
-  if (await canLaunch(pn)) {
-    await launch(pn);
+  final url = 'tel:$pn';
+  if (await canLaunch(url)) {
+    await launch(url);
   } else {
     throw 'Could not launch $pn';
   }
 }
 
 Future<void> _addLine(BuildContext context) async {
-  String lineId = '2430688';
+  String lineId = 'pj9578';
   final scheme = 'line://ti/p/@$lineId'; // 라인 앱 URL Scheme
 
   if (await canLaunch(scheme)) {
     await launch(scheme);
   } else {
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('라인 앱이 설치되어 있지 않습니다.')),
+      const SnackBar(content: Text('ไม่ได้ติดตั้งแอพ Line')),
     );
   }
 }
 
 Future<void> _addFacebook(BuildContext context) async {
-  String id = 'F.Panijda Kim';
+  String id = 'PJ House บ้านเดี่ยวสระบุรี';
   final url = 'https://m.me/$id';
   if (await canLaunch(url)) {
     await launch(url);

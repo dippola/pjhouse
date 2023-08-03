@@ -140,7 +140,7 @@ class _ZoomDialogMobileState extends State<ZoomDialogMobile> {
               },
               icon: Icon(
                 Icons.arrow_back_ios,
-                color: home2ColorLine,
+                color: Colors.white.withOpacity(0.8),
               ),
             ),
           ),
@@ -162,7 +162,7 @@ class _ZoomDialogMobileState extends State<ZoomDialogMobile> {
               },
               icon: Icon(
                 Icons.arrow_forward_ios,
-                color: home2ColorLine,
+                color: Colors.white.withOpacity(0.8),
               ),
             ),
           ),
