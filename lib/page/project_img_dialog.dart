@@ -150,7 +150,7 @@ class _ZoomDialogMobileState extends State<ZoomDialogMobile> {
             right: 5.0,
             child: IconButton(
               onPressed: () {
-                if (position < 6) {
+                if (position < widget.urlList.length) {
                   _pageController.nextPage(
                     duration: Duration(milliseconds: 500),
                     curve: Curves.easeInOut,

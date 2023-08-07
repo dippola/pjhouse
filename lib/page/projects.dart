@@ -1271,7 +1271,7 @@ class _ProjectPageViewState extends State<ProjectPageView> {
             ),
             IconButton(
               onPressed: () {
-                if (_currentPage < 6) {
+                if (_currentPage < imageUrls.length) {
                   _pageController.nextPage(
                     duration: Duration(milliseconds: 500),
                     curve: Curves.easeInOut,
