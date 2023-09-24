@@ -1170,7 +1170,7 @@ class ProjectPageView extends StatefulWidget {
 class _ProjectPageViewState extends State<ProjectPageView> {
   final PageController _pageController = PageController();
   int _currentPage = 1;
-  String pages = '1/9';
+  String pages = '1/10';
   late int size;
 
   @override
@@ -1186,6 +1186,7 @@ class _ProjectPageViewState extends State<ProjectPageView> {
       'assets/images/project1/pageview/pageview7.jpg',
       'assets/images/project1/pageview/pageview8.jpg',
       'assets/images/project1/pageview/pageview9.jpg',
+      'assets/images/project1/pageview/pageview10.jpg',
     ];
     size = imageUrls.length;
     return Column(
