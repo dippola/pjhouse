@@ -76,19 +76,6 @@ var home2Color = Color(0xffd9e9d5);
 var home2IconColor = Color(0xff428b6a);
 var home2ColorLine = Color(0xffa2d096);
 
-var pjhouse_email = 'pjhouseproject@gmail.com';
-var pjhouse_phone_number = '082-267-6108';
-var text_contact = 'ติดต่อ บริษัท';
-var text_info = 'ข้อมูลองค์กร';
-var text_home = 'หน้าแรก';
-var text_aboutus = 'เกี่ยวกับเรา';
-var text_project = 'โครงการ';
-var text_message = 'ข่าวสาร';
-var text_new_home_project = 'โครงการบ้านใหม่';
-var text_saraburi_project = 'สระบุรี';
-
-var license = 'All content © PJ House 2023 • All rights reserved';
-
 //home = หน้าแรก
 //about us = เกี่ยวกับเรา
 //project = โครงการ

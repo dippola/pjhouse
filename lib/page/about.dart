@@ -7,6 +7,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:lottie/lottie.dart';
 
+import '../text.dart';
+
 class AboutPage extends StatelessWidget {
   const AboutPage({Key? key}) : super(key: key);
 
@@ -94,34 +96,6 @@ class AboutDesktop extends StatelessWidget {
                         padding: const EdgeInsets.only(left: 30.0, right: 30.0),
                         child: Divider(height: 50, thickness: 0.5),
                       ),
-                      // Row(
-                      //   mainAxisAlignment: MainAxisAlignment.center,
-                      //   children: [
-                      //     InkWell(
-                      //       onTap: () {
-                      //         (
-                      //             'https://github.com/develiny/develiny_web');
-                      //       },
-                      //       child: Image.asset('images/githubicon.png',
-                      //           width: 30, height: 30),
-                      //     ),
-                      //     SizedBox(width: 15),
-                      //     InkWell(
-                      //       onTap: () {
-                      //         _launchURL(
-                      //             'https://play.google.com/store/apps/dev?id=6375872941885163514');
-                      //       },
-                      //       child: Image.asset('images/playstoreicon.png',
-                      //           width: 30, height: 30),
-                      //     ),
-                      //     SizedBox(width: 15),
-                      //     InkWell(
-                      //       onTap: () {},
-                      //       child: Image.asset('images/appstoreicon.png',
-                      //           width: 30, height: 30),
-                      //     )
-                      //   ],
-                      // )
                     ],
                   ),
                 ),
@@ -134,24 +108,24 @@ class AboutDesktop extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SelectableText(
-                          "พีเจ เฮ้าส์ เป็นบริษัทโครงการบ้านจัดสรรในประเทศไทย",
+                          about1_1,
                           textAlign: TextAlign.start,
                           style: GoogleFonts.prompt(fontSize: 18.0, fontWeight: FontWeight.w600),
                         ),
                         SizedBox(height: 10),
                         SelectableText(
-                          "เราให้บริการลูกค้าด้วยบ้านที่ปลอดภัย สวยงาม และเป็นครอบครัวที่กลมเกลียวกัน",
+                          about1_2,
                           textAlign: TextAlign.start,
                           style: GoogleFonts.prompt(fontSize: 18.0, fontWeight: FontWeight.w600),
                         ),
                         SelectableText(
-                          "เราจะแนะนำโครงการที่ซื่อสัตย์บนพื้นฐานของความไว้วางใจ",
+                          about1_3,
                           textAlign: TextAlign.start,
                           style: GoogleFonts.prompt(fontSize: 18.0, fontWeight: FontWeight.w600),
                         ),
                         SizedBox(height: 10),
                         SelectableText(
-                          "สร้างอนาคตกับ พีเจ เฮ้าส์",
+                          about1_4,
                           textAlign: TextAlign.start,
                           style: GoogleFonts.prompt(fontSize: 18.0, fontWeight: FontWeight.w600),
                         ),
@@ -217,24 +191,24 @@ class AboutMobile extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SelectableText(
-                        "พีเจ เฮ้าส์ เป็นบริษัทโครงการบ้านจัดสรรในประเทศไทย",
+                        about1_1,
                         textAlign: TextAlign.start,
                         style: GoogleFonts.prompt(),
                       ),
                       SizedBox(height: 10),
                       SelectableText(
-                        "เราให้บริการลูกค้าด้วยบ้านที่ปลอดภัย สวยงาม และเป็นครอบครัวที่กลมเกลียวกัน",
+                        about1_2,
                         textAlign: TextAlign.start,
                         style: GoogleFonts.prompt(),
                       ),
                       SelectableText(
-                        "เราจะแนะนำโครงการที่ซื่อสัตย์บนพื้นฐานของความไว้วางใจ",
+                        about1_3,
                         textAlign: TextAlign.start,
                         style: GoogleFonts.prompt(),
                       ),
                       SizedBox(height: 10),
                       SelectableText(
-                        "สร้างอนาคตกับ พีเจ เฮ้าส์",
+                        about1_4,
                         textAlign: TextAlign.start,
                         style: GoogleFonts.prompt(),
                       ),
@@ -281,9 +255,9 @@ class AboutLottie extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('สำหรับลูกค้า', style: GoogleFonts.prompt(fontSize: 19.0, fontWeight: FontWeight.bold)),
+                      Text(about_lottie1_1, style: GoogleFonts.prompt(fontSize: 19.0, fontWeight: FontWeight.bold)),
                       SizedBox(height: 15.0),
-                      Text('เรามุ่งมั่นที่จะมอบความพึงพอใจสูงสุดให้กับลูกค้าของเราด้วยการออกแบบอย่างรอบคอบและถี่ถ้วนเพื่อบ้านที่เงียบสงบ', style: GoogleFonts.prompt(fontSize: 18.0))
+                      Text(about_lottie1_2, style: GoogleFonts.prompt(fontSize: 18.0))
                     ],
                   ),
                 ),
@@ -305,9 +279,9 @@ class AboutLottie extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Text('ความซื่อสัตย์', style: GoogleFonts.prompt(fontSize: 19.0, fontWeight: FontWeight.bold)),
+                      Text(about_lottie2_1, style: GoogleFonts.prompt(fontSize: 19.0, fontWeight: FontWeight.bold)),
                       SizedBox(height: 15.0),
-                      Text('เราสร้างมันขึ้นมาอย่างตรงไปตรงมาเพื่อให้คุณรู้สึกได้ถึงความมั่นคงด้วยการสร้างมันให้แข็งแรงและปลอดภัย', style: GoogleFonts.prompt(fontSize: 18.0), textAlign: TextAlign.end,)
+                      Text(about_lottie2_2, style: GoogleFonts.prompt(fontSize: 18.0), textAlign: TextAlign.end,)
                     ],
                   ),
                 ),
@@ -331,9 +305,9 @@ class AboutLottie extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('สำหรับลูกค้า', style: GoogleFonts.prompt(fontSize: 19.0, fontWeight: FontWeight.bold)),
+                      Text(about_lottie1_1, style: GoogleFonts.prompt(fontSize: 19.0, fontWeight: FontWeight.bold)),
                       SizedBox(height: 15.0),
-                      Text('เรามุ่งมั่นที่จะมอบความพึงพอใจสูงสุดให้กับลูกค้าของเราด้วยการออกแบบอย่างรอบคอบและถี่ถ้วนเพื่อบ้านที่เงียบสงบ', style: GoogleFonts.prompt(fontSize: 18.0))
+                      Text(about_lottie1_2, style: GoogleFonts.prompt(fontSize: 18.0))
                     ],
                   ),
                 ),
@@ -355,9 +329,9 @@ class AboutLottie extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Text('ความซื่อสัตย์', style: GoogleFonts.prompt(fontSize: 19.0, fontWeight: FontWeight.bold)),
+                      Text(about_lottie2_1, style: GoogleFonts.prompt(fontSize: 19.0, fontWeight: FontWeight.bold)),
                       SizedBox(height: 15.0),
-                      Text('เราสร้างมันขึ้นมาอย่างตรงไปตรงมาเพื่อให้คุณรู้สึกได้ถึงความมั่นคงด้วยการสร้างมันให้แข็งแรงและปลอดภัย', style: GoogleFonts.prompt(fontSize: 18.0), textAlign: TextAlign.end,)
+                      Text(about_lottie2_2, style: GoogleFonts.prompt(fontSize: 18.0), textAlign: TextAlign.end,)
                     ],
                   ),
                 ),
@@ -384,9 +358,9 @@ class AboutLottie extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text('สำหรับลูกค้า', style: GoogleFonts.prompt(fontSize: 19.0, fontWeight: FontWeight.bold)),
+                  Text(about_lottie1_1, style: GoogleFonts.prompt(fontSize: 19.0, fontWeight: FontWeight.bold)),
                   SizedBox(height: 15.0),
-                  Text('เรามุ่งมั่นที่จะมอบความพึงพอใจสูงสุดให้กับลูกค้าของเราด้วยการออกแบบอย่างรอบคอบและถี่ถ้วนเพื่อบ้านที่เงียบสงบ', style: GoogleFonts.prompt(fontSize: 18.0), textAlign: TextAlign.center)
+                  Text(about_lottie1_2, style: GoogleFonts.prompt(fontSize: 18.0), textAlign: TextAlign.center)
                 ],
               ),
             ),
@@ -403,9 +377,9 @@ class AboutLottie extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text('ความซื่อสัตย์', style: GoogleFonts.prompt(fontSize: 19.0, fontWeight: FontWeight.bold)),
+                  Text(about_lottie2_1, style: GoogleFonts.prompt(fontSize: 19.0, fontWeight: FontWeight.bold)),
                   SizedBox(height: 15.0),
-                  Text('เราสร้างมันขึ้นมาอย่างตรงไปตรงมาเพื่อให้คุณรู้สึกได้ถึงความมั่นคงด้วยการสร้างมันให้แข็งแรงและปลอดภัย', style: GoogleFonts.prompt(fontSize: 18.0), textAlign: TextAlign.center)
+                  Text(about_lottie2_2, style: GoogleFonts.prompt(fontSize: 18.0), textAlign: TextAlign.center)
                 ],
               ),
             ),
@@ -503,11 +477,11 @@ class AboutBottomProjectDesktop extends StatelessWidget {
                   SizedBox(height: 40.0),
                   Container(width: 350.0, height: 1.0, color: home2Color),
                   SizedBox(height: 20.0),
-                  Text('โครงการสระบุรี', style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
+                  Text(pj1_saraburi_project, style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
                   SizedBox(height: 20.0),
-                  Text('ห้องนั่งเล่น1 | ครัว1 | ห้อง2', style: GoogleFonts.prompt()),
+                  Text(pj1_livingroom + " | " + pj1_kitchen + " | " + pj1_bedroom, style: GoogleFonts.prompt()),
                   SizedBox(height: 20.0),
-                  Text('ห้องน้ำ2 | ที่จอดรถ1 | ลาน', style: GoogleFonts.prompt()),
+                  Text(pj1_toilet + " | " + pj1_parkcar + " | " + pj1_yard, style: GoogleFonts.prompt()),
                 ],
               ),
               SizedBox(width: 100.0),
@@ -515,13 +489,13 @@ class AboutBottomProjectDesktop extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text("5 นาทีถึงร้านสะดวกซื้อ", style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
+                    Text(about_project_box1, style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
                     SizedBox(height: 7.0),
-                    Text("5 นาทีถึงถนนใหญ่", style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
+                    Text(about_project_box2, style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
                     SizedBox(height: 7.0),
-                    Text("ใกล้บริษัทนม", style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
+                    Text(about_project_box3, style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
                     SizedBox(height: 7.0),
-                    Text("8 กม. ถึงตัวเมืองสระบุรี", style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
+                    Text(about_project_box4, style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
                     SizedBox(height: 40.0),
                     ElevatedButton.icon(
                       onPressed: () {
@@ -530,7 +504,7 @@ class AboutBottomProjectDesktop extends StatelessWidget {
                         }
                       },
                       label: Text(
-                        'ดูเพิ่มเติม',
+                        view_more,
                         style: GoogleFonts.prompt(color: topBarTextColor),
                       ),
                       icon: Icon(
@@ -593,24 +567,24 @@ class AboutBottomProjectTab extends StatelessWidget {
                   SizedBox(height: 40.0),
                   Container(width: (DeviceSize.getWidth(context) * 0.8) * 0.38, height: 1.0, color: home2Color),
                   SizedBox(height: 20.0),
-                  Text('โครงการสระบุรี', style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
+                  Text(pj1_saraburi_project, style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
                   SizedBox(height: 20.0),
-                  Text('ห้องนั่งเล่น1 | ครัว1 | ห้อง2', style: GoogleFonts.prompt()),
+                  Text(pj1_livingroom + " | " + pj1_kitchen + " | " + pj1_bedroom, style: GoogleFonts.prompt()),
                   SizedBox(height: 20.0),
-                  Text('ห้องน้ำ2 | ที่จอดรถ1 | ลาน', style: GoogleFonts.prompt()),
+                  Text(pj1_toilet + " | " + pj1_parkcar + " | " + pj1_yard, style: GoogleFonts.prompt()),
                 ],
               ),
               Center(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text("5 นาทีถึงร้านสะดวกซื้อ", style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
+                    Text(about_project_box1, style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
                     SizedBox(height: 7.0),
-                    Text("5 นาทีถึงถนนใหญ่", style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
+                    Text(about_project_box2, style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
                     SizedBox(height: 7.0),
-                    Text("ใกล้บริษัทนม", style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
+                    Text(about_project_box3, style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
                     SizedBox(height: 7.0),
-                    Text("8 กม. ถึงตัวเมืองสระบุรี", style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
+                    Text(about_project_box4, style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
                     SizedBox(height: 40.0),
                     ElevatedButton.icon(
                       onPressed: () {
@@ -619,7 +593,7 @@ class AboutBottomProjectTab extends StatelessWidget {
                         }
                       },
                       label: Text(
-                        'ดูเพิ่มเติม',
+                        view_more,
                         style: GoogleFonts.prompt(color: topBarTextColor),
                       ),
                       icon: Icon(
@@ -681,21 +655,21 @@ class AboutBottomProjectMobile extends StatelessWidget {
                   SizedBox(height: 40.0),
                   Container(width: (DeviceSize.getWidth(context) * 0.8) * 0.38, height: 1.0, color: home2Color),
                   SizedBox(height: 20.0),
-                  Text('โครงการสระบุรี', style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
+                  Text(pj1_saraburi_project, style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
                   SizedBox(height: 20.0),
-                  Text('ห้องนั่งเล่น1 | ครัว1 | ห้อง2', style: GoogleFonts.prompt()),
+                  Text(pj1_livingroom + " | " + pj1_kitchen + " | " + pj1_bedroom, style: GoogleFonts.prompt()),
                   SizedBox(height: 20.0),
-                  Text('ห้องน้ำ2 | ที่จอดรถ1 | ลาน', style: GoogleFonts.prompt()),
+                  Text(pj1_toilet + " | " + pj1_parkcar + " | " + pj1_yard, style: GoogleFonts.prompt()),
                   SizedBox(height: 20.0),
                   Container(width: (DeviceSize.getWidth(context) * 0.8) * 0.38, height: 1.0, color: home2Color),
                   SizedBox(height: 20.0),
-                  Text("5 นาทีถึงร้านสะดวกซื้อ", style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
+                  Text(about_project_box1, style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
                   SizedBox(height: 7.0),
-                  Text("5 นาทีถึงถนนใหญ่", style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
+                  Text(about_project_box2, style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
                   SizedBox(height: 7.0),
-                  Text("ใกล้บริษัทนม", style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
+                  Text(about_project_box3, style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
                   SizedBox(height: 7.0),
-                  Text("8 กม. ถึงตัวเมืองสระบุรี", style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
+                  Text(about_project_box4, style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
                   SizedBox(height: 40.0),
                   ElevatedButton.icon(
                     onPressed: () {
@@ -704,7 +678,7 @@ class AboutBottomProjectMobile extends StatelessWidget {
                       }
                     },
                     label: Text(
-                      'ดูเพิ่มเติม',
+                      view_more,
                       style: GoogleFonts.prompt(color: topBarTextColor),
                     ),
                     icon: Icon(

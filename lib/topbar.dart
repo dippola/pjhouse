@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pjhouse/style.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pjhouse/text.dart';
 
 class TopBar extends StatelessWidget {
   const TopBar({Key? key}) : super(key: key);
@@ -76,7 +77,7 @@ class TopBarDesktop extends StatelessWidget {
                       }
                     }),
                 TopBarDeskTopButton(
-                    text: text_contact,
+                    text: bottombar_contact,
                     click: () {
                       if (ModalRoute.of(context)!.settings.name != '/contact') {
                         Navigator.pushNamed(context, '/contact');

@@ -8,6 +8,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../navItem.dart';
 import '../style.dart';
+import '../text.dart';
 import '../topbar.dart';
 import '../bottonbar.dart';
 
@@ -118,11 +119,11 @@ class _Contact1DesktopState extends State<Contact1Desktop> {
               child: Column(
                 children: [
                   Text(
-                    'ฝากข้อมูลการติดต่อของคุณ',
+                    contact1_1,
                     style: GoogleFonts.prompt(color: whiteColor, fontWeight: FontWeight.bold, fontSize: 25.0),
                   ),
                   Text(
-                    'เราจะติดต่อคุณโดยเร็วที่สุดและแนะนำคุณด้วยความกรุณา',
+                    contact1_2,
                     style: GoogleFonts.prompt(color: whiteColor, fontSize: 17.0),
                   )
                 ],
@@ -181,12 +182,12 @@ class _Contact1DesktopState extends State<Contact1Desktop> {
                         ),
                         SizedBox(height: 20.0),
                         Text(
-                          'หากทิ้งเบอร์ติดต่อหรือ',
+                          contact2_1,
                           style: GoogleFonts.prompt(),
                           textAlign: TextAlign.center,
                         ),
                         Text(
-                          'Line ID ไว้ เราจะติดต่อกลับไป',
+                          contact2_2,
                           style: GoogleFonts.prompt(),
                           textAlign: TextAlign.center,
                         )
@@ -196,7 +197,7 @@ class _Contact1DesktopState extends State<Contact1Desktop> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'กรุณาฝากข้อมูลการติดต่อของคุณ',
+                          contact2_3,
                           style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor),
                         ),
                         SizedBox(height: 20.0),
@@ -206,7 +207,7 @@ class _Contact1DesktopState extends State<Contact1Desktop> {
                             focusNode: _fnPhone,
                             controller: phonec,
                             decoration: InputDecoration(
-                              hintText: 'หมายเลขโทรศัพท์',
+                              hintText: contact2_4,
                               prefixIcon: Icon(Icons.phone),
                             ),
                           ),
@@ -218,7 +219,7 @@ class _Contact1DesktopState extends State<Contact1Desktop> {
                             focusNode: _fnLine,
                             controller: linec,
                             decoration: InputDecoration(
-                              hintText: 'ไอดีไลน์',
+                              hintText: contact2_5,
                               prefixIcon: Icon(Icons.chat_bubble),
                             ),
                           ),
@@ -230,7 +231,7 @@ class _Contact1DesktopState extends State<Contact1Desktop> {
                             focusNode: _fnMoney,
                             controller: moneyc,
                             decoration: InputDecoration(
-                              hintText: 'ทุนโดยประมาณ (ตัวเลือก)',
+                              hintText: contact2_6,
                               prefixIcon: Icon(Icons.money),
                             ),
                           ),
@@ -255,7 +256,7 @@ class _Contact1DesktopState extends State<Contact1Desktop> {
                                 isLoading = true;
                               });
                               if (phonec.text == '' && linec.text == '') {
-                                errormsg = "กรุณากรอกเบอร์โทรหรือไลน์ไอดี";
+                                errormsg = contact2_7;
                               } else {
                                 String now = DateTime.now().toString();
                                 print(now);
@@ -303,7 +304,7 @@ class _Contact1DesktopState extends State<Contact1Desktop> {
                                     Padding(
                                       padding: EdgeInsets.symmetric(horizontal: 10.0),
                                       child: Text(
-                                        "คำขอสอบถาม",
+                                        contact2_8,
                                         style: GoogleFonts.prompt(color: whiteColor, fontWeight: FontWeight.bold),
                                       ),
                                     ),
@@ -368,11 +369,11 @@ class _Contact1TabState extends State<Contact1Tab> {
               child: Column(
                 children: [
                   Text(
-                    'ฝากข้อมูลการติดต่อของคุณ',
+                    contact1_1,
                     style: GoogleFonts.prompt(color: whiteColor, fontWeight: FontWeight.bold, fontSize: 25.0),
                   ),
                   Text(
-                    'เราจะติดต่อคุณโดยเร็วที่สุดและแนะนำคุณด้วยความกรุณา',
+                    contact1_2,
                     style: GoogleFonts.prompt(color: whiteColor, fontSize: 17.0),
                   )
                 ],
@@ -431,12 +432,12 @@ class _Contact1TabState extends State<Contact1Tab> {
                         ),
                         SizedBox(height: 20.0),
                         Text(
-                          'หากทิ้งเบอร์ติดต่อหรือ',
+                          contact2_1,
                           style: GoogleFonts.prompt(),
                           textAlign: TextAlign.center,
                         ),
                         Text(
-                          'Line ID ไว้ เราจะติดต่อกลับไป',
+                          contact2_2,
                           style: GoogleFonts.prompt(),
                           textAlign: TextAlign.center,
                         )
@@ -446,7 +447,7 @@ class _Contact1TabState extends State<Contact1Tab> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'กรุณาฝากข้อมูลการติดต่อของคุณ',
+                          contact2_3,
                           style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor),
                         ),
                         SizedBox(height: 20.0),
@@ -456,7 +457,7 @@ class _Contact1TabState extends State<Contact1Tab> {
                             focusNode: _fnPhone,
                             controller: phonec,
                             decoration: InputDecoration(
-                              hintText: 'หมายเลขโทรศัพท์',
+                              hintText: contact2_4,
                               prefixIcon: Icon(Icons.phone),
                             ),
                           ),
@@ -468,7 +469,7 @@ class _Contact1TabState extends State<Contact1Tab> {
                             focusNode: _fnLine,
                             controller: linec,
                             decoration: InputDecoration(
-                              hintText: 'ไอดีไลน์',
+                              hintText: contact2_5,
                               prefixIcon: Icon(Icons.chat_bubble),
                             ),
                           ),
@@ -480,7 +481,7 @@ class _Contact1TabState extends State<Contact1Tab> {
                             focusNode: _fnMoney,
                             controller: moneyc,
                             decoration: InputDecoration(
-                              hintText: 'ทุนโดยประมาณ (ตัวเลือก)',
+                              hintText: contact2_6,
                               prefixIcon: Icon(Icons.money),
                             ),
                           ),
@@ -505,7 +506,7 @@ class _Contact1TabState extends State<Contact1Tab> {
                                 isLoading = true;
                               });
                               if (phonec.text == '' && linec.text == '') {
-                                errormsg = "กรุณากรอกเบอร์โทรหรือไลน์ไอดี";
+                                errormsg = contact2_7;
                               } else {
                                 String now = DateTime.now().toString();
                                 print(now);
@@ -553,7 +554,7 @@ class _Contact1TabState extends State<Contact1Tab> {
                                     Padding(
                                       padding: EdgeInsets.symmetric(horizontal: 10.0),
                                       child: Text(
-                                        "คำขอสอบถาม",
+                                        contact2_8,
                                         style: GoogleFonts.prompt(color: whiteColor, fontWeight: FontWeight.bold),
                                       ),
                                     ),
@@ -619,11 +620,11 @@ class _Contact1MobileState extends State<Contact1Mobile> {
               child: Column(
                 children: [
                   Text(
-                    'ฝากข้อมูลการติดต่อของคุณ',
+                    contact1_1,
                     style: GoogleFonts.prompt(color: whiteColor, fontWeight: FontWeight.bold, fontSize: 21.0),
                   ),
                   Text(
-                    'เราจะติดต่อคุณโดยเร็วที่สุดและแนะนำคุณด้วยความกรุณา',
+                    contact1_2,
                     style: GoogleFonts.prompt(color: whiteColor, fontSize: 16.0),
                   )
                 ],
@@ -677,17 +678,17 @@ class _Contact1MobileState extends State<Contact1Mobile> {
                     ),
                     SizedBox(height: 20.0),
                     Text(
-                      'หากทิ้งเบอร์ติดต่อหรือ',
+                      contact2_1,
                       style: GoogleFonts.prompt(),
                       textAlign: TextAlign.center,
                     ),
                     Text(
-                      'Line ID ไว้ เราจะติดต่อกลับไป',
+                      contact2_2,
                       style: GoogleFonts.prompt(),
                       textAlign: TextAlign.center,
                     ),
                     Text(
-                      'กรุณาฝากข้อมูลการติดต่อของคุณ',
+                      contact2_3,
                       style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor),
                     ),
                     SizedBox(height: 20.0),
@@ -697,7 +698,7 @@ class _Contact1MobileState extends State<Contact1Mobile> {
                         focusNode: _fnPhone,
                         controller: phonec,
                         decoration: InputDecoration(
-                          hintText: 'หมายเลขโทรศัพท์',
+                          hintText: contact2_4,
                           prefixIcon: Icon(Icons.phone),
                         ),
                       ),
@@ -709,7 +710,7 @@ class _Contact1MobileState extends State<Contact1Mobile> {
                         focusNode: _fnLine,
                         controller: linec,
                         decoration: InputDecoration(
-                          hintText: 'ไอดีไลน์',
+                          hintText: contact2_5,
                           prefixIcon: Icon(Icons.chat_bubble),
                         ),
                       ),
@@ -721,7 +722,7 @@ class _Contact1MobileState extends State<Contact1Mobile> {
                         focusNode: _fnMoney,
                         controller: moneyc,
                         decoration: InputDecoration(
-                          hintText: 'ทุนโดยประมาณ (ตัวเลือก)',
+                          hintText: contact2_6,
                           prefixIcon: Icon(Icons.money),
                         ),
                       ),
@@ -748,7 +749,7 @@ class _Contact1MobileState extends State<Contact1Mobile> {
                           if (phonec.text == '' && linec.text == '') {
                             print(phonec.text);
                             print(linec.text);
-                            errormsg = "กรุณากรอกเบอร์โทรหรือไลน์ไอดี";
+                            errormsg = contact2_7;
                           } else {
                             String now = DateTime.now().toString();
                             print(now);
@@ -800,7 +801,7 @@ class _Contact1MobileState extends State<Contact1Mobile> {
                                 Padding(
                                   padding: EdgeInsets.symmetric(horizontal: 10.0),
                                   child: Text(
-                                    "คำขอสอบถาม",
+                                    contact2_8,
                                     style: GoogleFonts.prompt(color: whiteColor, fontWeight: FontWeight.bold),
                                   ),
                                 ),
@@ -853,7 +854,7 @@ class ContactPrivacyPolicy extends StatelessWidget {
             }
           },
           child: Text(
-            'นโยบายความเป็นส่วนตัว',
+            contact_privacy_policy,
             style: GoogleFonts.prompt(color: Colors.blueAccent),
           ),
         ),
@@ -895,7 +896,7 @@ class ContactToMeDesktop extends StatelessWidget {
                   ),
                   SizedBox(height: 20.0),
                   Text(
-                    'ทำการโทร',
+                    contact3_1,
                     style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: 20.0),
@@ -919,7 +920,7 @@ class ContactToMeDesktop extends StatelessWidget {
                         ),
                         SizedBox(width: 10.0),
                         Text(
-                          'ทำการโทร',
+                          contact3_1,
                           style: GoogleFonts.prompt(color: topBarTextColor),
                         )
                       ],
@@ -946,12 +947,12 @@ class ContactToMeDesktop extends StatelessWidget {
                   ),
                   SizedBox(height: 20.0),
                   Text(
-                    'Line ID',
+                    contact3_2,
                     style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: 20.0),
                   Text(
-                    'pj9578',
+                    pjhouse_line_id,
                     style: GoogleFonts.prompt(),
                   ),
                   SizedBox(height: 20.0),
@@ -970,7 +971,7 @@ class ContactToMeDesktop extends StatelessWidget {
                         ),
                         SizedBox(width: 10.0),
                         Text(
-                          'สำเนาบัตรประจำตัว',
+                          contact3_3,
                           style: GoogleFonts.prompt(color: topBarTextColor),
                         )
                       ],
@@ -997,12 +998,12 @@ class ContactToMeDesktop extends StatelessWidget {
                   ),
                   SizedBox(height: 20.0),
                   Text(
-                    'Facebook Messenger',
+                    contact3_4,
                     style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: 20.0),
                   Text(
-                    'PJ House บ้านเดี่ยวสระบุรี',
+                    contact3_5,
                     style: GoogleFonts.prompt(),
                   ),
                   SizedBox(height: 20.0),
@@ -1021,7 +1022,7 @@ class ContactToMeDesktop extends StatelessWidget {
                         ),
                         SizedBox(width: 10.0),
                         Text(
-                          'เพิ่มเป็นเพื่อน',
+                          contact3_6,
                           style: GoogleFonts.prompt(color: topBarTextColor),
                         )
                       ],
@@ -1054,7 +1055,7 @@ class ContactToMeDesktop extends StatelessWidget {
                 ),
                 SizedBox(height: 20.0),
                 Text(
-                  'ทำการโทร',
+                  contact3_1,
                   style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 20.0),
@@ -1078,7 +1079,7 @@ class ContactToMeDesktop extends StatelessWidget {
                       ),
                       SizedBox(width: 10.0),
                       Text(
-                        'ทำการโทร',
+                        contact3_1,
                         style: GoogleFonts.prompt(color: topBarTextColor),
                       )
                     ],
@@ -1104,12 +1105,12 @@ class ContactToMeDesktop extends StatelessWidget {
                 ),
                 SizedBox(height: 20.0),
                 Text(
-                  'Line ID',
+                  contact3_2,
                   style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 20.0),
                 Text(
-                  'pj9578',
+                  pjhouse_line_id,
                   style: GoogleFonts.prompt(),
                 ),
                 SizedBox(height: 20.0),
@@ -1128,7 +1129,7 @@ class ContactToMeDesktop extends StatelessWidget {
                       ),
                       SizedBox(width: 10.0),
                       Text(
-                        'สำเนาบัตรประจำตัว',
+                        contact3_3,
                         style: GoogleFonts.prompt(color: topBarTextColor),
                       )
                     ],
@@ -1154,12 +1155,12 @@ class ContactToMeDesktop extends StatelessWidget {
                 ),
                 SizedBox(height: 20.0),
                 Text(
-                  'Facebook Messenger',
+                  contact3_4,
                   style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 20.0),
                 Text(
-                  'PJ House บ้านเดี่ยวสระบุรี',
+                  contact3_5,
                   style: GoogleFonts.prompt(),
                 ),
                 SizedBox(height: 20.0),
@@ -1178,7 +1179,7 @@ class ContactToMeDesktop extends StatelessWidget {
                       ),
                       SizedBox(width: 10.0),
                       Text(
-                        'เพิ่มเป็นเพื่อน',
+                        contact3_6,
                         style: GoogleFonts.prompt(color: topBarTextColor),
                       )
                     ],
@@ -1204,7 +1205,7 @@ Future<void> _callPhoneNumber() async {
 }
 
 Future<void> _addLine(BuildContext context) async {
-  String lineId = 'pj9578';
+  String lineId = pjhouse_line_id;
   final scheme = 'line://ti/p/@$lineId'; // 라인 앱 URL Scheme
 
   if (await canLaunch(scheme)) {

@@ -5,6 +5,7 @@ import 'package:pjhouse/page/project_img_dialog.dart';
 import '../bottonbar.dart';
 import '../navItem.dart';
 import '../style.dart';
+import '../text.dart';
 import '../topbar.dart';
 
 class ProjectPage extends StatelessWidget {
@@ -70,12 +71,12 @@ class ProjectDetailDesktop extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          'สระบุรี @ บ้านในชนบท',
+                          project1_1_1,
                           style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 25.0, fontWeight: FontWeight.bold),
                         ),
                         SizedBox(height: 20.0),
                         Text(
-                          'หากคุณต้องการบ้านชนบทในเมืองที่มีวิวสวยในขณะที่อยู่ใกล้เมือง เข้าร่วม PJ House',
+                          project1_1_2,
                           style: GoogleFonts.prompt(fontSize: 20.0),
                         ),
                         SizedBox(height: 20.0),
@@ -86,12 +87,12 @@ class ProjectDetailDesktop extends StatelessWidget {
                         ),
                         SizedBox(height: 20.0),
                         Text(
-                          'ง่ายต่อการเข้าถึงสิ่งอำนวยความสะดวกต่าง ๆ ร้านสะดวกซื้อ ตลาด และเมืองที่อยู่ไม่ไกล',
+                          project1_1_3,
                           style: GoogleFonts.prompt(height: 2, fontSize: 17.0),
                           textAlign: TextAlign.center,
                         ),
                         Text(
-                          'ปลอดภัยด้วยการติดตั้งผนังทุกด้านเพื่อความเป็นส่วนตัว',
+                          project1_1_4,
                           style: GoogleFonts.prompt(height: 2, fontSize: 17.0),
                           textAlign: TextAlign.center,
                         )
@@ -123,7 +124,7 @@ class ProjectDetailDesktop extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Text(
-                              'แนะนำโครงการ',
+                              project1_2_1,
                               style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 23.0, fontWeight: FontWeight.bold),
                             ),
                             Container(
@@ -135,11 +136,11 @@ class ProjectDetailDesktop extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  'ที่อยู่: ',
+                                  project1_2_2,
                                   style: GoogleFonts.prompt(fontSize: 20.0, fontWeight: FontWeight.w500),
                                 ),
                                 Text(
-                                  'หนองยาว อ.เมืองสระบุรี จ.สระบุรี',
+                                  project1_2_3,
                                   style: GoogleFonts.prompt(fontSize: 20.0, fontWeight: FontWeight.w500),
                                 )
                               ],
@@ -148,11 +149,11 @@ class ProjectDetailDesktop extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  'ขนาดที่ดิน: ',
+                                  project1_2_4,
                                   style: GoogleFonts.prompt(fontSize: 20.0, fontWeight: FontWeight.w500),
                                 ),
                                 Text(
-                                  '55 ตะรางวะ',
+                                  project1_2_5,
                                   style: GoogleFonts.prompt(fontSize: 20.0, fontWeight: FontWeight.w500),
                                 )
                               ],
@@ -161,11 +162,11 @@ class ProjectDetailDesktop extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  'ประเภท: ',
+                                  project1_2_6,
                                   style: GoogleFonts.prompt(fontSize: 20.0, fontWeight: FontWeight.w500),
                                 ),
                                 Text(
-                                  'บ้านในชนบท',
+                                  project1_2_7,
                                   style: GoogleFonts.prompt(fontSize: 20.0, fontWeight: FontWeight.w500),
                                 )
                               ],
@@ -174,11 +175,11 @@ class ProjectDetailDesktop extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  'โครงการเริ่มโอน: ',
+                                  project1_2_8,
                                   style: GoogleFonts.prompt(fontSize: 20.0, fontWeight: FontWeight.w500),
                                 ),
                                 Text(
-                                  'มิถุนายน 2566',
+                                  project1_2_9,
                                   style: GoogleFonts.prompt(fontSize: 20.0, fontWeight: FontWeight.w500),
                                 )
                               ],
@@ -232,7 +233,7 @@ class ProjectDetailDesktop extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Text(
-                              'โครงสร้างภายใน',
+                              project1_3_1,
                               style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 23.0, fontWeight: FontWeight.bold),
                             ),
                             Container(
@@ -241,19 +242,19 @@ class ProjectDetailDesktop extends StatelessWidget {
                               color: home2ColorLine,
                             ),
                             Text(
-                              'ห้องนั่งเล่น 1 | ห้อง 2',
+                              project1_3_2,
                               style: GoogleFonts.prompt(fontSize: 20.0, fontWeight: FontWeight.w500),
                             ),
                             Text(
-                              'ห้องน้ำ 2 | ครัว 1',
+                              project1_3_3,
                               style: GoogleFonts.prompt(fontSize: 20.0, fontWeight: FontWeight.w500),
                             ),
                             Text(
-                              'ลานขนาดใหญ่ | ที่จอดรถ',
+                              project1_3_4,
                               style: GoogleFonts.prompt(fontSize: 20.0, fontWeight: FontWeight.w500),
                             ),
                             Text(
-                              'โครงสร้างที่ออกแบบและปรับให้เหมาะกับชีวิต',
+                              project1_3_5,
                               style: GoogleFonts.prompt(fontSize: 18.0, fontWeight: FontWeight.w300),
                             ),
                           ],
@@ -271,7 +272,7 @@ class ProjectDetailDesktop extends StatelessWidget {
           children: [
             SizedBox(height: 40.0),
             Text(
-              "สิ่งอำนวยความสะดวก",
+              project1_4_1,
               style: GoogleFonts.prompt(
                 fontSize: 23.0,
                 fontWeight: FontWeight.bold,
@@ -297,15 +298,15 @@ class ProjectDetailDesktop extends StatelessWidget {
                         width: (DeviceSize.getWidth(context) * 0.3) * 0.2,
                       ),
                       Text(
-                        '7/11 ร้านสะดวกซื้อ',
+                        project1_4_2,
                         style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold, fontSize: 18.0),
                       ),
                       Text(
-                        '5km',
+                        project1_4_3,
                         style: GoogleFonts.prompt(fontWeight: FontWeight.w500, fontSize: 16.0),
                       ),
                       Text(
-                        '5min',
+                        project1_4_4,
                         style: GoogleFonts.prompt(fontWeight: FontWeight.w500, fontSize: 16.0),
                       ),
                     ],
@@ -317,15 +318,15 @@ class ProjectDetailDesktop extends StatelessWidget {
                         width: (DeviceSize.getWidth(context) * 0.3) * 0.2,
                       ),
                       Text(
-                        'ตลาด',
+                        project1_4_5,
                         style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold, fontSize: 18.0),
                       ),
                       Text(
-                        '5km',
+                        project1_4_3,
                         style: GoogleFonts.prompt(fontWeight: FontWeight.w500, fontSize: 16.0),
                       ),
                       Text(
-                        '5min',
+                        project1_4_4,
                         style: GoogleFonts.prompt(fontWeight: FontWeight.w500, fontSize: 16.0),
                       ),
                     ],
@@ -337,15 +338,15 @@ class ProjectDetailDesktop extends StatelessWidget {
                         width: (DeviceSize.getWidth(context) * 0.3) * 0.2,
                       ),
                       Text(
-                        'ตลาด',
+                        project1_4_5,
                         style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold, fontSize: 18.0),
                       ),
                       Text(
-                        '8km',
+                        proejct1_4_6,
                         style: GoogleFonts.prompt(fontWeight: FontWeight.w500, fontSize: 16.0),
                       ),
                       Text(
-                        '10min',
+                        project1_4_7,
                         style: GoogleFonts.prompt(fontWeight: FontWeight.w500, fontSize: 16.0),
                       ),
                     ],
@@ -391,12 +392,12 @@ class ProjectDetailTab extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          'สระบุรี @ บ้านในชนบท',
+                          project1_1_1,
                           style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 25.0, fontWeight: FontWeight.bold),
                         ),
                         SizedBox(height: 20.0),
                         Text(
-                          'หากคุณต้องการบ้านชนบทในเมืองที่มีวิวสวยในขณะที่อยู่ใกล้เมือง เข้าร่วม PJ House',
+                          project1_1_2,
                           style: GoogleFonts.prompt(fontSize: 20.0),
                           textAlign: TextAlign.center,
                         ),
@@ -408,12 +409,12 @@ class ProjectDetailTab extends StatelessWidget {
                         ),
                         SizedBox(height: 20.0),
                         Text(
-                          'ง่ายต่อการเข้าถึงสิ่งอำนวยความสะดวกต่าง ๆ ร้านสะดวกซื้อ ตลาด และเมืองที่อยู่ไม่ไกล',
+                          project1_1_3,
                           style: GoogleFonts.prompt(height: DeviceSize.getWidth(context) > 670 ? 2 : 1.5, fontSize: DeviceSize.getWidth(context) > 670 ? 17.0 : 16.0),
                           textAlign: TextAlign.center,
                         ),
                         Text(
-                          'ปลอดภัยด้วยการติดตั้งผนังทุกด้านเพื่อความเป็นส่วนตัว',
+                          project1_1_4,
                           style: GoogleFonts.prompt(height: DeviceSize.getWidth(context) > 670 ? 2 : 1.5, fontSize: DeviceSize.getWidth(context) > 670 ? 17.0 : 16.0),
                           textAlign: TextAlign.center,
                         )
@@ -445,7 +446,7 @@ class ProjectDetailTab extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Text(
-                              'แนะนำโครงการ',
+                              project1_2_1,
                               style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 23.0, fontWeight: FontWeight.bold),
                             ),
                             Container(
@@ -458,11 +459,11 @@ class ProjectDetailTab extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        'ที่อยู่: ',
+                                        project1_2_1,
                                         style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) > 790 ? 20.0 : 16.0, fontWeight: FontWeight.w500),
                                       ),
                                       Text(
-                                        'หนองยาว อ.เมืองสระบุรี จ.สระบุรี',
+                                        project1_2_3,
                                         style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) > 945 ? 20.0 : 16.0, fontWeight: FontWeight.w500),
                                       )
                                     ],
@@ -471,11 +472,11 @@ class ProjectDetailTab extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        'ที่อยู่: ',
+                                        project1_2_1,
                                         style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) > 790 ? 20.0 : 16.0, fontWeight: FontWeight.w500),
                                       ),
                                       Text(
-                                        'หนองยาว อ.เมืองสระบุรี จ.สระบุรี',
+                                        project1_2_3,
                                         style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) > 945 ? 20.0 : 16.0, fontWeight: FontWeight.w500),
                                       )
                                     ],
@@ -484,11 +485,11 @@ class ProjectDetailTab extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  'ขนาดที่ดิน: ',
+                                  project1_2_4,
                                   style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) > 790 ? 20.0 : 16.0, fontWeight: FontWeight.w500),
                                 ),
                                 Text(
-                                  '55 ตะรางวะ',
+                                  project1_2_5,
                                   style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) > 790 ? 20.0 : 16.0, fontWeight: FontWeight.w500),
                                 )
                               ],
@@ -497,11 +498,11 @@ class ProjectDetailTab extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  'ประเภท: ',
+                                  project1_2_6,
                                   style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) > 790 ? 20.0 : 16.0, fontWeight: FontWeight.w500),
                                 ),
                                 Text(
-                                  'บ้านในชนบท',
+                                  project1_2_7,
                                   style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) > 790 ? 20.0 : 16.0, fontWeight: FontWeight.w500),
                                 )
                               ],
@@ -510,11 +511,11 @@ class ProjectDetailTab extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  'โครงการเริ่มโอน: ',
+                                  project1_2_8,
                                   style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) > 790 ? 20.0 : 16.0, fontWeight: FontWeight.w500),
                                 ),
                                 Text(
-                                  'มิถุนายน 2566',
+                                  project1_2_9,
                                   style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) > 790 ? 20.0 : 16.0, fontWeight: FontWeight.w500),
                                 )
                               ],
@@ -568,7 +569,7 @@ class ProjectDetailTab extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Text(
-                              'โครงสร้างภายใน',
+                              project1_3_1,
                               style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 23.0, fontWeight: FontWeight.bold),
                             ),
                             Container(
@@ -577,19 +578,19 @@ class ProjectDetailTab extends StatelessWidget {
                               color: home2ColorLine,
                             ),
                             Text(
-                              'ห้องนั่งเล่น 1 | ห้อง 2',
+                              project1_3_2,
                               style: GoogleFonts.prompt(fontSize: 20.0, fontWeight: FontWeight.w500),
                             ),
                             Text(
-                              'ห้องน้ำ 2 | ครัว 1',
+                              project1_3_3,
                               style: GoogleFonts.prompt(fontSize: 20.0, fontWeight: FontWeight.w500),
                             ),
                             Text(
-                              'ลานขนาดใหญ่ | ที่จอดรถ',
+                              project1_3_4,
                               style: GoogleFonts.prompt(fontSize: 20.0, fontWeight: FontWeight.w500),
                             ),
                             Text(
-                              'โครงสร้างที่ออกแบบและปรับให้เหมาะกับชีวิต',
+                              project1_3_5,
                               style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) > 710 ? 18.0 : 16.0, fontWeight: FontWeight.w300),
                               textAlign: TextAlign.center,
                             ),
@@ -608,7 +609,7 @@ class ProjectDetailTab extends StatelessWidget {
           children: [
             SizedBox(height: 40.0),
             Text(
-              "สิ่งอำนวยความสะดวก",
+              project1_4_1,
               style: GoogleFonts.prompt(
                 fontSize: 23.0,
                 fontWeight: FontWeight.bold,
@@ -634,15 +635,15 @@ class ProjectDetailTab extends StatelessWidget {
                         width: (DeviceSize.getWidth(context) * 0.3) * 0.2,
                       ),
                       Text(
-                        '7/11 ร้านสะดวกซื้อ',
+                        project1_4_2,
                         style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold, fontSize: 18.0),
                       ),
                       Text(
-                        '5km',
+                        project1_4_3,
                         style: GoogleFonts.prompt(fontWeight: FontWeight.w500, fontSize: 16.0),
                       ),
                       Text(
-                        '5min',
+                        project1_4_4,
                         style: GoogleFonts.prompt(fontWeight: FontWeight.w500, fontSize: 16.0),
                       ),
                     ],
@@ -654,15 +655,15 @@ class ProjectDetailTab extends StatelessWidget {
                         width: (DeviceSize.getWidth(context) * 0.3) * 0.2,
                       ),
                       Text(
-                        'ตลาด',
+                        project1_4_5,
                         style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold, fontSize: 18.0),
                       ),
                       Text(
-                        '5km',
+                        project1_4_3,
                         style: GoogleFonts.prompt(fontWeight: FontWeight.w500, fontSize: 16.0),
                       ),
                       Text(
-                        '5min',
+                        project1_4_4,
                         style: GoogleFonts.prompt(fontWeight: FontWeight.w500, fontSize: 16.0),
                       ),
                     ],
@@ -674,15 +675,15 @@ class ProjectDetailTab extends StatelessWidget {
                         width: (DeviceSize.getWidth(context) * 0.3) * 0.2,
                       ),
                       Text(
-                        'ตลาด',
+                        project1_4_5,
                         style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold, fontSize: 18.0),
                       ),
                       Text(
-                        '8km',
+                        proejct1_4_6,
                         style: GoogleFonts.prompt(fontWeight: FontWeight.w500, fontSize: 16.0),
                       ),
                       Text(
-                        '10min',
+                        project1_4_7,
                         style: GoogleFonts.prompt(fontWeight: FontWeight.w500, fontSize: 16.0),
                       ),
                     ],
@@ -728,12 +729,12 @@ class ProjectDetailMobile extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          'สระบุรี @ บ้านในชนบท',
+                          project1_1_1,
                           style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 16.0, fontWeight: FontWeight.bold),
                         ),
                         SizedBox(height: 3.0),
                         Text(
-                          'หากคุณต้องการบ้านชนบทในเมืองที่มีวิวสวยในขณะที่อยู่ใกล้เมือง เข้าร่วม PJ House',
+                          project1_1_2,
                           style: GoogleFonts.prompt(fontSize: 14.0, height: 1.1),
                           textAlign: TextAlign.center,
                         ),
@@ -745,12 +746,12 @@ class ProjectDetailMobile extends StatelessWidget {
                         ),
                         SizedBox(height: 5.0),
                         Text(
-                          'ง่ายต่อการเข้าถึงสิ่งอำนวยความสะดวกต่าง ๆ ร้านสะดวกซื้อ ตลาด และเมืองที่อยู่ไม่ไกล',
+                          project1_1_3,
                           style: GoogleFonts.prompt(height: 1.1, fontSize: DeviceSize.getWidth(context) > 335 ? 13.0 : 11.0),
                           textAlign: TextAlign.center,
                         ),
                         Text(
-                          'ปลอดภัยด้วยการติดตั้งผนังทุกด้านเพื่อความเป็นส่วนตัว',
+                          project1_1_4,
                           style: GoogleFonts.prompt(height: 1.1, fontSize: DeviceSize.getWidth(context) > 335 ? 13.0 : 11.0),
                           textAlign: TextAlign.center,
                         )
@@ -794,7 +795,7 @@ class ProjectDetailMobile extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Text(
-                          'แนะนำโครงการ',
+                          project1_2_1,
                           style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 20.0, fontWeight: FontWeight.bold),
                         ),
                         Container(
@@ -807,11 +808,11 @@ class ProjectDetailMobile extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    'ที่อยู่: ',
+                                    project1_2_1,
                                     style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) >= 324 ? 16.0 : 15.0, fontWeight: FontWeight.w500),
                                   ),
                                   Text(
-                                    'หนองยาว อ.เมืองสระบุรี จ.สระบุรี',
+                                    project1_2_3,
                                     style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) >= 324 ? 16.0 : 15.0, fontWeight: FontWeight.w500),
                                   )
                                 ],
@@ -820,11 +821,11 @@ class ProjectDetailMobile extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    'ที่อยู่: ',
+                                    project1_2_1,
                                     style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) >= 324 ? 16.0 : 15.0, fontWeight: FontWeight.w500),
                                   ),
                                   Text(
-                                    'หนองยาว อ.เมืองสระบุรี จ.สระบุรี',
+                                    project1_2_3,
                                     style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) >= 324 ? 16.0 : 15.0, fontWeight: FontWeight.w500),
                                   )
                                 ],
@@ -833,11 +834,11 @@ class ProjectDetailMobile extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'ขนาดที่ดิน: ',
+                              project1_2_4,
                               style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) >= 324 ? 16.0 : 15.0, fontWeight: FontWeight.w500),
                             ),
                             Text(
-                              '55 ตะรางวะ',
+                              project1_2_5,
                               style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) >= 324 ? 16.0 : 15.0, fontWeight: FontWeight.w500),
                             )
                           ],
@@ -846,11 +847,11 @@ class ProjectDetailMobile extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'ประเภท: ',
+                              project1_2_6,
                               style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) >= 324 ? 16.0 : 15.0, fontWeight: FontWeight.w500),
                             ),
                             Text(
-                              'บ้านในชนบท',
+                              project1_2_7,
                               style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) >= 324 ? 16.0 : 15.0, fontWeight: FontWeight.w500),
                             )
                           ],
@@ -859,7 +860,7 @@ class ProjectDetailMobile extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'โครงการเริ่มโอน: ',
+                              project1_2_8,
                               style: GoogleFonts.prompt(
                                   fontSize: DeviceSize.getWidth(context) >= 324
                                       ? 16.0
@@ -869,7 +870,7 @@ class ProjectDetailMobile extends StatelessWidget {
                                   fontWeight: FontWeight.w500),
                             ),
                             Text(
-                              'มิถุนายน 2566',
+                              project1_2_9,
                               style: GoogleFonts.prompt(
                                   fontSize: DeviceSize.getWidth(context) >= 324
                                       ? 16.0
@@ -917,7 +918,7 @@ class ProjectDetailMobile extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Text(
-                              'โครงสร้างภายใน',
+                              project1_3_1,
                               style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 23.0, fontWeight: FontWeight.bold),
                             ),
                             Container(
@@ -926,19 +927,19 @@ class ProjectDetailMobile extends StatelessWidget {
                               color: home2ColorLine,
                             ),
                             Text(
-                              'ห้องนั่งเล่น 1 | ห้อง 2',
+                              project1_3_2,
                               style: GoogleFonts.prompt(fontSize: 20.0, fontWeight: FontWeight.w500),
                             ),
                             Text(
-                              'ห้องน้ำ 2 | ครัว 1',
+                              project1_3_3,
                               style: GoogleFonts.prompt(fontSize: 20.0, fontWeight: FontWeight.w500),
                             ),
                             Text(
-                              'ลานขนาดใหญ่ | ที่จอดรถ',
+                              project1_3_4,
                               style: GoogleFonts.prompt(fontSize: 20.0, fontWeight: FontWeight.w500),
                             ),
                             Text(
-                              'โครงสร้างที่ออกแบบและปรับให้เหมาะกับชีวิต',
+                              project1_3_5,
                               style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) > 320 ? 16.0 : 15.0, fontWeight: FontWeight.w300),
                               textAlign: TextAlign.center,
                             ),
@@ -957,7 +958,7 @@ class ProjectDetailMobile extends StatelessWidget {
           children: [
             SizedBox(height: 40.0),
             Text(
-              "สิ่งอำนวยความสะดวก",
+              project1_4_1,
               style: GoogleFonts.prompt(
                 fontSize: 20.0,
                 fontWeight: FontWeight.bold,
@@ -983,15 +984,15 @@ class ProjectDetailMobile extends StatelessWidget {
                         width: DeviceSize.getWidth(context) * 0.2,
                       ),
                       Text(
-                        '7/11 ร้านสะดวกซื้อ',
+                        project1_4_2,
                         style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold, fontSize: 18.0),
                       ),
                       Text(
-                        '5km',
+                        project1_4_3,
                         style: GoogleFonts.prompt(fontWeight: FontWeight.w500, fontSize: 16.0),
                       ),
                       Text(
-                        '5min',
+                        project1_4_4,
                         style: GoogleFonts.prompt(fontWeight: FontWeight.w500, fontSize: 16.0),
                       ),
                     ],
@@ -1006,15 +1007,15 @@ class ProjectDetailMobile extends StatelessWidget {
                         width: DeviceSize.getWidth(context) * 0.2,
                       ),
                       Text(
-                        'ตลาด',
+                        project1_4_5,
                         style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold, fontSize: 18.0),
                       ),
                       Text(
-                        '5km',
+                        project1_4_3,
                         style: GoogleFonts.prompt(fontWeight: FontWeight.w500, fontSize: 16.0),
                       ),
                       Text(
-                        '5min',
+                        project1_4_4,
                         style: GoogleFonts.prompt(fontWeight: FontWeight.w500, fontSize: 16.0),
                       ),
                     ],
@@ -1029,15 +1030,15 @@ class ProjectDetailMobile extends StatelessWidget {
                         width: DeviceSize.getWidth(context) * 0.2,
                       ),
                       Text(
-                        'ตลาด',
+                        project1_4_5,
                         style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold, fontSize: 18.0),
                       ),
                       Text(
-                        '8km',
+                        proejct1_4_6,
                         style: GoogleFonts.prompt(fontWeight: FontWeight.w500, fontSize: 16.0),
                       ),
                       Text(
-                        '10min',
+                        project1_4_7,
                         style: GoogleFonts.prompt(fontWeight: FontWeight.w500, fontSize: 16.0),
                       ),
                     ],
@@ -1194,7 +1195,7 @@ class _ProjectPageViewState extends State<ProjectPageView> {
         Container(height: 1.0, width: DeviceSize.getWidth(context) * 0.6, color: home2ColorLine),
         SizedBox(height: 20.0),
         Text(
-          "คอลเลกชันภาพถ่าย",
+          project1_pageview,
           style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold, fontSize: 18.0),
         ),
         SizedBox(height: 20.0),

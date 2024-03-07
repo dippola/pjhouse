@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pjhouse/style.dart';
+import 'package:pjhouse/text.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:clipboard/clipboard.dart';
@@ -110,7 +111,7 @@ class AboutDetail1 extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 5.0),
           child: Text(
-            text_contact,
+            bottombar_contact,
             style: bottomAboutTextColor1(),
           ),
         ),
@@ -148,7 +149,7 @@ class AboutDetail2 extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 5.0),
           child: Text(
-            text_info,
+            bottombar_info,
             style: bottomAboutTextColor1(),
           ),
         ),
@@ -188,7 +189,7 @@ class AboutDetail3 extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 5.0),
           child: Text(
-            text_new_home_project,
+            bottombar_new_project,
             style: bottomAboutTextColor1(),
           ),
         ),

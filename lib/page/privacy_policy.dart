@@ -106,13 +106,6 @@ class PrivacyPolicyScreen extends StatelessWidget {
     List<String> textsplit = text.split("\n\n");
     int count = text.split("\n\n").length;
     for (int i = 0; i < count; i++) {
-      // if (textsplit[i].split("\n").length == 1) {
-      //   textlist.add(Text(textsplit[i]));
-      // } else {
-      //   for (int i2 = 0; i2 < textsplit[i].split("\n").length; i2++) {
-      //     textlist.add(Text(textsplit[i].split("\n")[i2]));
-      //   }
-      // }
       if (textsplit[i].contains("\n")) {
         for (int i2 = 0; i2 < textsplit[i].split("\n").length; i2++) {
           textlist.add(Text(textsplit[i].split("\n")[i2]));

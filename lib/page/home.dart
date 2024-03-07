@@ -8,35 +8,7 @@ import '../style.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
-// class HomePage extends StatelessWidget {
-//   const HomePage({Key? key}) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return const Scaffold(
-//       endDrawerEnableOpenDragGesture: false,
-//       endDrawer: ConstrainedBox(
-//         constraints: BoxConstraints(minWidth: 150, maxWidth: 160),
-//         child: NavItem(),
-//       ),
-//       drawerEnableOpenDragGesture: false,
-//       body: Container(
-//         child: SingleChildScrollView(
-//           child: Column(
-//             crossAxisAlignment: CrossAxisAlignment.start,
-//             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//             children: [
-//               TopBar(),
-//               HomeMiddle(),
-//               ViewPager(),
-//               ButtonBar(),
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
+import '../text.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -85,7 +57,7 @@ class Home1 extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('แนะนำโครงการของ PJ House',
+              Text(home1_1,
                   style: GoogleFonts.prompt(
                       fontSize: w > 540
                           ? 25.0
@@ -96,7 +68,7 @@ class Home1 extends StatelessWidget {
                       color: whiteColor),
                   textAlign: TextAlign.center),
               SizedBox(height: w > 434 ? 10.0 : 5.0),
-              Text('เพื่อบ้านที่สะดวกสบายของคุณ พีเจ เฮ้าส์ อยู่กับคุณ',
+              Text(home1_2,
                   style: GoogleFonts.prompt(
                       fontSize: w > 540
                           ? 30.0
@@ -112,7 +84,7 @@ class Home1 extends StatelessWidget {
                       : w <= 434 && w > 350
                           ? 5.0
                           : 1.0),
-              Text('พื้นที่ใช้สอยที่เหมาะสมโดยคำนึงถึงความสะดวกสบายของลูกค้า',
+              Text(home1_3,
                   style: GoogleFonts.prompt(
                       fontSize: w > 450
                           ? 17.0
@@ -134,7 +106,7 @@ class Home1 extends StatelessWidget {
                     Navigator.pushNamed(context, '/projects');
                   }
                 },
-                child: Text('ดูเพิ่มเติม',
+                child: Text(view_more,
                     style: GoogleFonts.prompt(
                         color: whiteColor,
                         fontSize: w > 540
@@ -184,7 +156,7 @@ class Home2 extends StatelessWidget {
                 constraints: BoxConstraints(maxHeight: 170.0),
               ),
               Home2Box(
-                text: 'ทําเลน่าสนใจ',
+                text: home2_1,
                 path: 'assets/images/main1box1.png',
               ),
               Container(
@@ -194,7 +166,7 @@ class Home2 extends StatelessWidget {
                 constraints: BoxConstraints(maxHeight: 170.0),
               ),
               Home2Box(
-                text: 'ออกแบบ',
+                text: home2_2,
                 path: 'assets/images/main1box2.png',
               ),
               Container(
@@ -203,7 +175,7 @@ class Home2 extends StatelessWidget {
                 color: home2ColorLine,
                 constraints: BoxConstraints(maxHeight: 170.0),
               ),
-              Home2Box(text: 'ปลอดภัย', path: 'assets/images/main1box3.png'),
+              Home2Box(text: home2_3, path: 'assets/images/main1box3.png'),
               Container(
                 width: 1.0,
                 height: (DeviceSize.getWidth(context) * 0.65) * 0.3,
@@ -325,13 +297,13 @@ class Home3 extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          'แนะนำโครงการของ พีเจ เฮ้าส์ ที่ปรับให้เหมาะกับคุณ',
+          home3_1_d,
           style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 30.0, fontWeight: FontWeight.bold),
           textAlign: TextAlign.start,
         ),
         SizedBox(height: 20.0),
         Text(
-          'เราจะกรุณาปรึกษากับคุณได้ตลอดเวลา',
+          home3_2,
           style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 23.0),
           textAlign: TextAlign.start,
         ),
@@ -343,7 +315,7 @@ class Home3 extends StatelessWidget {
             }
           },
           child: Text(
-            'ดูโครงการ',
+            view_project,
             style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 17.0),
           ),
           style: ElevatedButton.styleFrom(
@@ -362,13 +334,13 @@ class Home3 extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          'แนะนำโครงการของ พีเจ\nเฮ้าส์ ที่ปรับให้เหมาะกับคุณ',
+          home3_1_m_t,
           style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 25.0, fontWeight: FontWeight.bold),
           textAlign: TextAlign.start,
         ),
         SizedBox(height: 20.0),
         Text(
-          'เราจะกรุณาปรึกษากับคุณได้ตลอดเวลา',
+          home3_2,
           style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 19.0),
           textAlign: TextAlign.start,
         ),
@@ -380,7 +352,7 @@ class Home3 extends StatelessWidget {
             }
           },
           child: Text(
-            'ดูโครงการ',
+            view_project,
             style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 17.0),
           ),
           style: ElevatedButton.styleFrom(
@@ -399,13 +371,13 @@ class Home3 extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          'แนะนำโครงการของ พีเจ\nเฮ้าส์ ที่ปรับให้เหมาะกับคุณ',
+          home3_1_m_t,
           style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 20.0, fontWeight: FontWeight.bold),
           textAlign: TextAlign.center,
         ),
         SizedBox(height: 7.0),
         Text(
-          'เราจะกรุณาปรึกษากับคุณได้ตลอดเวลา',
+          home3_2,
           style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 16.0),
           textAlign: TextAlign.center,
         ),
@@ -417,7 +389,7 @@ class Home3 extends StatelessWidget {
             }
           },
           child: Text(
-            'ดูโครงการ',
+            view_project,
             style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 17.0),
           ),
           style: ElevatedButton.styleFrom(
@@ -467,9 +439,9 @@ class Home3 extends StatelessWidget {
                   Flexible(
                     child: Container(color: topBarTextColor, height: 1.0),
                   ),
-                  Text('โครงการสระบุรี', style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
-                  Text('ห้องนั่งเล่น1 | ครัว1 | ห้อง2', style: GoogleFonts.prompt()),
-                  Text('ห้องน้ำ2 | ที่จอดรถ1 | ลาน', style: GoogleFonts.prompt()),
+                  Text(pj1_saraburi_project, style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
+                  Text(pj1_livingroom + " | " + pj1_kitchen + " | " + pj1_bedroom, style: GoogleFonts.prompt()),
+                  Text(pj1_toilet + " | " + pj1_parkcar + " | " + pj1_yard, style: GoogleFonts.prompt()),
                   ElevatedButton.icon(
                     onPressed: () {
                       if (ModalRoute.of(context)!.settings.name != '/projects') {
@@ -477,7 +449,7 @@ class Home3 extends StatelessWidget {
                       }
                     },
                     label: Text(
-                      'ดูเพิ่มเติม',
+                      view_more,
                       style: GoogleFonts.prompt(color: topBarTextColor),
                     ),
                     icon: Icon(
@@ -536,9 +508,9 @@ class Home3 extends StatelessWidget {
                   Flexible(
                     child: Container(color: topBarTextColor, height: 1.0),
                   ),
-                  Text('โครงการสระบุรี', style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
-                  Text('ห้องนั่งเล่น1 | ครัว1 | ห้อง2', style: GoogleFonts.prompt()),
-                  Text('ห้องน้ำ2 | ที่จอดรถ1 | ลาน', style: GoogleFonts.prompt()),
+                  Text(pj1_saraburi_project, style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
+                  Text(pj1_livingroom + " | " + pj1_kitchen + " | " + pj1_bedroom, style: GoogleFonts.prompt()),
+                  Text(pj1_toilet + " | " + pj1_parkcar + " | " + pj1_yard, style: GoogleFonts.prompt()),
                   ElevatedButton.icon(
                     onPressed: () {
                       if (ModalRoute.of(context)!.settings.name != '/projects') {
@@ -546,7 +518,7 @@ class Home3 extends StatelessWidget {
                       }
                     },
                     label: Text(
-                      'ดูเพิ่มเติม',
+                      view_more,
                       style: GoogleFonts.prompt(color: topBarTextColor),
                     ),
                     icon: Icon(
@@ -605,9 +577,9 @@ class Home3 extends StatelessWidget {
                   Flexible(
                     child: Container(color: topBarTextColor, height: 1.0),
                   ),
-                  Text('โครงการสระบุรี', style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
-                  Text('ห้องนั่งเล่น1 | ครัว1 | ห้อง2', style: GoogleFonts.prompt()),
-                  Text('ห้องน้ำ2 | ที่จอดรถ1 | ลาน', style: GoogleFonts.prompt()),
+                  Text(pj1_saraburi_project, style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
+                  Text(pj1_livingroom + " | " + pj1_kitchen + " | " + pj1_bedroom, style: GoogleFonts.prompt()),
+                  Text(pj1_toilet + " | " + pj1_parkcar + " | " + pj1_yard, style: GoogleFonts.prompt()),
                   ElevatedButton.icon(
                     onPressed: () {
                       if (ModalRoute.of(context)!.settings.name != '/projects') {
@@ -615,7 +587,7 @@ class Home3 extends StatelessWidget {
                       }
                     },
                     label: Text(
-                      'ดูเพิ่มเติม',
+                      view_more,
                       style: GoogleFonts.prompt(color: topBarTextColor),
                     ),
                     icon: Icon(

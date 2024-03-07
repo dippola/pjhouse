@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pjhouse/style.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pjhouse/text.dart';
 
 class NavItem extends StatelessWidget {
   const NavItem({Key? key}) : super(key: key);
@@ -37,7 +38,7 @@ class NavItem extends StatelessWidget {
                 }
               }),
               SizedBox(height: 20.0),
-              NavItems(title: text_contact, tapEvent: () {
+              NavItems(title: bottombar_contact, tapEvent: () {
                 Navigator.of(context).pop();
                 if (ModalRoute.of(context)!.settings.name != '/contact') {
                   Navigator.pushNamed(context, '/contact');
