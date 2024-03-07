@@ -115,7 +115,7 @@ class Home1 extends StatelessWidget {
                                 ? 16.0
                                 : 13.0)),
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.transparent,
+                  backgroundColor: Colors.transparent,
                   side: BorderSide(width: 2.0, color: whiteColor),
                   padding: EdgeInsets.symmetric(vertical: isDesktop(context) ? 20.0 : 12.0, horizontal: 15.0),
                 ),
@@ -319,7 +319,7 @@ class Home3 extends StatelessWidget {
             style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 17.0),
           ),
           style: ElevatedButton.styleFrom(
-            primary: logoBackgroundColor,
+            backgroundColor: logoBackgroundColor,
             side: BorderSide(width: 2.0, color: topBarTextColor),
             padding: EdgeInsets.symmetric(vertical: isDesktop(context) ? 20.0 : 12.0, horizontal: 15.0),
           ),
@@ -356,7 +356,7 @@ class Home3 extends StatelessWidget {
             style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 17.0),
           ),
           style: ElevatedButton.styleFrom(
-            primary: logoBackgroundColor,
+            backgroundColor: logoBackgroundColor,
             side: BorderSide(width: 2.0, color: topBarTextColor),
             padding: EdgeInsets.symmetric(vertical: isDesktop(context) ? 20.0 : 12.0, horizontal: 15.0),
           ),
@@ -393,7 +393,7 @@ class Home3 extends StatelessWidget {
             style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 17.0),
           ),
           style: ElevatedButton.styleFrom(
-            primary: logoBackgroundColor,
+            backgroundColor: logoBackgroundColor,
             side: BorderSide(width: 2.0, color: topBarTextColor),
             padding: EdgeInsets.symmetric(vertical: isDesktop(context) ? 20.0 : 12.0, horizontal: 15.0),
           ),
@@ -458,7 +458,7 @@ class Home3 extends StatelessWidget {
                     ),
                     style: ElevatedButton.styleFrom(
                       alignment: Alignment.centerLeft,
-                      primary: whiteColor,
+                      backgroundColor: whiteColor,
                       side: BorderSide(width: 2.0, color: topBarTextColor),
                       padding: EdgeInsets.symmetric(vertical: isDesktop(context) ? 20.0 : 12.0, horizontal: 15.0),
                     ),
@@ -527,7 +527,7 @@ class Home3 extends StatelessWidget {
                     ),
                     style: ElevatedButton.styleFrom(
                       alignment: Alignment.centerLeft,
-                      primary: whiteColor,
+                      backgroundColor: whiteColor,
                       side: BorderSide(width: 2.0, color: topBarTextColor),
                       padding: EdgeInsets.symmetric(vertical: isDesktop(context) ? 20.0 : 12.0, horizontal: 15.0),
                     ),
@@ -596,7 +596,7 @@ class Home3 extends StatelessWidget {
                     ),
                     style: ElevatedButton.styleFrom(
                       alignment: Alignment.centerLeft,
-                      primary: whiteColor,
+                      backgroundColor: whiteColor,
                       side: BorderSide(width: 2.0, color: topBarTextColor),
                       padding: EdgeInsets.symmetric(vertical: isDesktop(context) ? 20.0 : 12.0, horizontal: 15.0),
                     ),

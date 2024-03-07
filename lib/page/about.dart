@@ -513,7 +513,7 @@ class AboutBottomProjectDesktop extends StatelessWidget {
                       ),
                       style: ElevatedButton.styleFrom(
                         alignment: Alignment.centerLeft,
-                        primary: whiteColor,
+                        backgroundColor: whiteColor,
                         side: BorderSide(width: 2.0, color: topBarTextColor),
                         padding: EdgeInsets.symmetric(vertical: isDesktop(context) ? 20.0 : 12.0, horizontal: 15.0),
                       ),
@@ -602,7 +602,7 @@ class AboutBottomProjectTab extends StatelessWidget {
                       ),
                       style: ElevatedButton.styleFrom(
                         alignment: Alignment.centerLeft,
-                        primary: whiteColor,
+                        backgroundColor: whiteColor,
                         side: BorderSide(width: 2.0, color: topBarTextColor),
                         padding: EdgeInsets.symmetric(vertical: isDesktop(context) ? 20.0 : 12.0, horizontal: 15.0),
                       ),
@@ -687,7 +687,7 @@ class AboutBottomProjectMobile extends StatelessWidget {
                     ),
                     style: ElevatedButton.styleFrom(
                       alignment: Alignment.centerLeft,
-                      primary: whiteColor,
+                      backgroundColor: whiteColor,
                       side: BorderSide(width: 2.0, color: topBarTextColor),
                       padding: EdgeInsets.symmetric(vertical: isDesktop(context) ? 20.0 : 12.0, horizontal: 15.0),
                     ),

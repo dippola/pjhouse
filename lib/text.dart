@@ -70,6 +70,7 @@ var contact3_5 = 'PJ House บ้านเดี่ยวสระบุรี';
 var contact3_6 = 'เพิ่มเป็นเพื่อน';
 var contact_privacy_policy = 'นโยบายความเป็นส่วนตัว';
 
+//other
 var view_more = 'ดูเพิ่มเติม';
 var view_project = 'ดูโครงการ';
 

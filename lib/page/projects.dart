@@ -1,6 +1,10 @@
+import 'dart:js';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pjhouse/page/project_img_dialog.dart';
+import 'package:appinio_video_player/appinio_video_player.dart';
 
 import '../bottonbar.dart';
 import '../navItem.dart';
@@ -33,6 +37,7 @@ class ProjectPage extends StatelessWidget {
                   : isTab(context)
                       ? ProjectDetailTab()
                       : ProjectDetailMobile(),
+              Project1Video(),
               BottomBar()
             ],
           ),
@@ -1295,3 +1300,51 @@ class _ProjectPageViewState extends State<ProjectPageView> {
     );
   }
 }
+
+class Project1Video extends StatefulWidget {
+  const Project1Video({super.key});
+
+  @override
+  State<Project1Video> createState() => _Project1VideoState();
+}
+
+class _Project1VideoState extends State<Project1Video> {
+
+  late CustomVideoPlayerWebController _customVideoPlayerWebController;
+  final CustomVideoPlayerWebSettings _customVideoPlayerWebSettings = CustomVideoPlayerWebSettings(src: project1_video_url);
+
+  @override
+  void initState() {
+    super.initState();
+
+    _customVideoPlayerWebController = CustomVideoPlayerWebController(webVideoPlayerSettings: _customVideoPlayerWebSettings);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.fromLTRB(0, isDesktop(context) ? 50 : isTab(context) ? 40 : 30, 0, 0),
+      child: Center(
+        child: Container(
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(15.0), boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.2), spreadRadius: 5, blurRadius: 5, offset: Offset(3, 3))]),
+          constraints: BoxConstraints(maxHeight: !isMobile(context) ? DeviceSize.getHeight(context)*0.8 : (DeviceSize.getWidth(context)*0.9)*1.25,
+              maxWidth: !isMobile(context) ? DeviceSize.getHeight(context)*0.8*0.8 : DeviceSize.getWidth(context)*0.9),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(15.0),
+            child: CupertinoPageScaffold(
+              child: SafeArea(
+                child: CustomVideoPlayerWeb(customVideoPlayerWebController: _customVideoPlayerWebController),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+}
+
