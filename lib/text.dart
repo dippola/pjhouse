@@ -95,3 +95,5 @@ var text_message = 'ข่าวสาร';
 var text_saraburi_project = 'สระบุรี';
 
 var license = 'All content © PJ House 2023 • All rights reserved';
+
+var project1_video_url = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/videos%2Fv2%20%ED%86%A4%EB%B3%80%EA%B2%BD.mp4?alt=media&token=25a3e1a9-db69-475d-ac3a-26d01d2ce34e';
