@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pjhouse/style.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:shimmer/shimmer.dart';
 
 Widget showZoomPageViewDialog(BuildContext context, List<String> urlList, int position) {
   showDialog(
@@ -46,7 +47,14 @@ class _ZoomPageViewDialogState extends State<ZoomPageViewDialog> {
             controller: _pageController,
             itemCount: widget.urlList.length,
             itemBuilder: (context, index) {
-              return Image.asset(widget.urlList[index]);
+              // return Image.asset(widget.urlList[index]);
+              return CachedNetworkImage(
+                fit: BoxFit.contain,
+                imageUrl: widget.urlList[index],
+                placeholder: (context, url) {
+                  return Center(child: CircularProgressIndicator(color: Color(0xff428b69)));
+                },
+              );
             },
             onPageChanged: (index) {
               position = index + 1;
@@ -145,6 +153,7 @@ class ZoomOneDialog extends StatelessWidget {
         Container(color: Colors.black),
         Center(
           child: CachedNetworkImage(
+            fit: BoxFit.contain,
             imageUrl: src,
             placeholder: (context, url) => CircularProgressIndicator(
               color: Color(0xff428b69),

@@ -68,13 +68,6 @@ class ProjectDetailDesktop extends StatelessWidget {
           height: (DeviceSize.getWidth(context) * 0.5) * 0.8,
           child: Stack(
             children: [
-              Container(
-                width: DeviceSize.getWidth(context),
-                child: Image.asset(
-                  'assets/images/project1/project_page1.jpg',
-                  fit: BoxFit.fill,
-                ),
-              ),
               Center(
                 child: Container(
                   width: DeviceSize.getWidth(context) * 0.6,
@@ -114,7 +107,15 @@ class ProjectDetailDesktop extends StatelessWidget {
                     ),
                   ),
                 ),
-              )
+              ),
+              Container(
+                width: DeviceSize.getWidth(context),
+                child: CachedNetworkImage(
+                  fit: BoxFit.fill,
+                  imageUrl: project1_top1,
+                  placeholder: (context, url)=>Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
+                ),
+              ),
             ],
           ),
         ),
@@ -203,6 +204,7 @@ class ProjectDetailDesktop extends StatelessWidget {
                     ),
                   ),
                   CachedNetworkImage(
+                    fit: BoxFit.fill,
                     imageUrl: project1_1back,
                     placeholder: (context, url) {
                       return Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white);
@@ -217,6 +219,7 @@ class ProjectDetailDesktop extends StatelessWidget {
               width: DeviceSize.getWidth(context) * 0.5,
               height: (DeviceSize.getWidth(context) * 0.5) * 0.8,
               child: CachedNetworkImage(
+                fit: BoxFit.fill,
                 imageUrl: project1_1pic,
                 placeholder: (context, url) => Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
               ),
@@ -231,6 +234,7 @@ class ProjectDetailDesktop extends StatelessWidget {
               width: DeviceSize.getWidth(context) * 0.5,
               height: (DeviceSize.getWidth(context) * 0.5) * 0.8,
               child: CachedNetworkImage(
+                fit: BoxFit.fill,
                 imageUrl: project1_2pic,
                 placeholder: (context, url) => Shimmer.fromColors(baseColor: Colors.grey, highlightColor: Colors.white, child: Container(color: Colors.grey)),
               ),
@@ -281,6 +285,7 @@ class ProjectDetailDesktop extends StatelessWidget {
                     ),
                   ),
                   CachedNetworkImage(
+                      fit: BoxFit.fill,
                       imageUrl: project1_2back, placeholder: (context, url) => Shimmer.fromColors(baseColor: Colors.grey, highlightColor: Colors.white, child: Container(color: Colors.grey))),
                 ],
               ),
@@ -390,13 +395,6 @@ class ProjectDetailTab extends StatelessWidget {
           height: (DeviceSize.getWidth(context) * 0.5) * 0.8,
           child: Stack(
             children: [
-              Container(
-                width: DeviceSize.getWidth(context),
-                child: Image.asset(
-                  'assets/images/project1/project_page1.jpg',
-                  fit: BoxFit.fill,
-                ),
-              ),
               Center(
                 child: Container(
                   width: DeviceSize.getWidth(context) * 0.6,
@@ -437,7 +435,15 @@ class ProjectDetailTab extends StatelessWidget {
                     ),
                   ),
                 ),
-              )
+              ),
+              Container(
+                width: DeviceSize.getWidth(context),
+                child: CachedNetworkImage(
+                  fit: BoxFit.fill,
+                  imageUrl: project1_top1,
+                  placeholder: (context, url)=>Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
+                ),
+              ),
             ],
           ),
         ),
@@ -540,6 +546,7 @@ class ProjectDetailTab extends StatelessWidget {
                     ),
                   ),
                   CachedNetworkImage(
+                    fit: BoxFit.fill,
                     imageUrl: project1_1back,
                     placeholder: (context, url) => Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
                   ),
@@ -552,6 +559,7 @@ class ProjectDetailTab extends StatelessWidget {
               width: DeviceSize.getWidth(context) * 0.5,
               height: (DeviceSize.getWidth(context) * 0.5) * 0.8,
               child: CachedNetworkImage(
+                fit: BoxFit.fill,
                 imageUrl: project1_1pic,
                 placeholder: (context, url) => Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
               ),
@@ -566,6 +574,7 @@ class ProjectDetailTab extends StatelessWidget {
               width: DeviceSize.getWidth(context) * 0.5,
               height: (DeviceSize.getWidth(context) * 0.5) * 0.8,
               child: CachedNetworkImage(
+                fit: BoxFit.fill,
                 imageUrl: project1_2pic,
                 placeholder: (context, url) => Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
               ),
@@ -617,6 +626,7 @@ class ProjectDetailTab extends StatelessWidget {
                     ),
                   ),
                   CachedNetworkImage(
+                    fit: BoxFit.fill,
                     imageUrl: project1_2back,
                     placeholder: (context, url) => Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
                   ),
@@ -728,13 +738,6 @@ class ProjectDetailMobile extends StatelessWidget {
           height: (DeviceSize.getWidth(context) * 0.5) * 0.8,
           child: Stack(
             children: [
-              Container(
-                width: DeviceSize.getWidth(context),
-                child: Image.asset(
-                  'assets/images/project1/project_page1.jpg',
-                  fit: BoxFit.fill,
-                ),
-              ),
               Center(
                 child: Container(
                   width: DeviceSize.getWidth(context) * 0.85,
@@ -775,7 +778,15 @@ class ProjectDetailMobile extends StatelessWidget {
                     ),
                   ),
                 ),
-              )
+              ),
+              Container(
+                width: DeviceSize.getWidth(context),
+                child: CachedNetworkImage(
+                  fit: BoxFit.fill,
+                  imageUrl: project1_top1,
+                  placeholder: (context, url)=>Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
+                ),
+              ),
             ],
           ),
         ),
@@ -788,6 +799,7 @@ class ProjectDetailMobile extends StatelessWidget {
               width: DeviceSize.getWidth(context),
               height: DeviceSize.getWidth(context) * 0.8,
               child: CachedNetworkImage(
+                fit: BoxFit.fill,
                 imageUrl: project1_1pic,
                 placeholder: (context, url) => Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
               ),
@@ -902,6 +914,7 @@ class ProjectDetailMobile extends StatelessWidget {
                 ),
               ),
               CachedNetworkImage(
+                fit: BoxFit.fill,
                 imageUrl: project1_1back,
                 placeholder: (context, url) => Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
               )
@@ -916,6 +929,7 @@ class ProjectDetailMobile extends StatelessWidget {
               width: DeviceSize.getWidth(context),
               height: DeviceSize.getWidth(context) * 0.8,
               child: CachedNetworkImage(
+                fit: BoxFit.fill,
                 imageUrl: project1_2pic,
                 placeholder: (context, url) => Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
               ),
@@ -967,6 +981,7 @@ class ProjectDetailMobile extends StatelessWidget {
                     ),
                   ),
                   CachedNetworkImage(
+                    fit: BoxFit.fill,
                     imageUrl: project1_2back,
                     placeholder: (context, url) => Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
                   )
@@ -1113,6 +1128,7 @@ class ProjectMap extends StatelessWidget {
               //   child: Container(),
               // ),
               child: CachedNetworkImage(
+                fit: BoxFit.fill,
                 imageUrl: project1_map,
                 placeholder: (context, url) => Shimmer.fromColors(
                   baseColor: Colors.grey,
@@ -1153,16 +1169,16 @@ class _ProjectPageViewState extends State<ProjectPageView> {
   Widget build(BuildContext context) {
     List<String> imageUrls;
     imageUrls = [
-      'assets/images/project1/pageview/pageview1.jpg',
-      'assets/images/project1/pageview/pageview2.jpg',
-      'assets/images/project1/pageview/pageview3.jpg',
-      'assets/images/project1/pageview/pageview4.jpg',
-      'assets/images/project1/pageview/pageview5.jpg',
-      'assets/images/project1/pageview/pageview6.jpg',
-      'assets/images/project1/pageview/pageview7.jpg',
-      'assets/images/project1/pageview/pageview8.jpg',
-      'assets/images/project1/pageview/pageview9.jpg',
-      'assets/images/project1/pageview/pageview10.jpg',
+      project1_pageview1,
+      project1_pageview2,
+      project1_pageview3,
+      project1_pageview4,
+      project1_pageview5,
+      project1_pageview6,
+      project1_pageview7,
+      project1_pageview8,
+      project1_pageview9,
+      project1_pageview10,
     ];
     size = imageUrls.length;
     return Column(
@@ -1214,8 +1230,15 @@ class _ProjectPageViewState extends State<ProjectPageView> {
                           },
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(10.0),
-                            child: Image.asset(
-                              imageUrls[index],
+                            // child: Image.asset(
+                            //   imageUrls[index],
+                            // ),
+                            child: CachedNetworkImage(
+                              fit: BoxFit.fill,
+                              imageUrl: imageUrls[index],
+                              placeholder: (context, url) {
+                                return Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white);
+                              },
                             ),
                           ),
                         ),

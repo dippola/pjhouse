@@ -199,9 +199,20 @@ var text_saraburi_project = 'สระบุรี';
 
 var license = 'All content © PJ House 2023 • All rights reserved';
 
+var project1_top1 = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj1%2Fproject1_top1.jpg?alt=media&token=d18c4edd-f703-4915-9ba8-d725977a8667';
 var project1_video_url = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj1%2Fv2%20%ED%86%A4%EB%B3%80%EA%B2%BD.mp4?alt=media&token=cd916bd2-162f-46d6-9c50-8747f75f67c7';
 var project1_map = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj1%2Fmap2project%20result.png?alt=media&token=b6c62d4d-b35b-4d87-be10-d4bec96b198e';
 var project1_1pic = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj1%2F1pic.jpg?alt=media&token=94dd5a76-ab17-422e-941d-2146c75c7edd';
 var project1_1back = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj1%2F1back.png?alt=media&token=44df515d-bce0-4070-bfff-ce9b7bdcbcc1';
 var project1_2pic = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj1%2F2pic.jpg?alt=media&token=61920e11-2103-4400-be10-09e4f033c980';
 var project1_2back = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj1%2F2back.png?alt=media&token=f3ef5896-8549-40d8-970a-9546d102a36f';
+var project1_pageview1 = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj1%2Fpageview01.jpg?alt=media&token=1a6f6f00-bfd0-4000-8394-c1f26e168492';
+var project1_pageview2 = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj1%2Fpageview02.jpg?alt=media&token=b96c0b48-b448-4d44-bfd3-7fd405fc83bd';
+var project1_pageview3 = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj1%2Fpageview03.jpg?alt=media&token=6815725d-b954-45a3-8ec0-647f16cf69d7';
+var project1_pageview4 = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj1%2Fpageview04.jpg?alt=media&token=ed903115-8398-44dc-9b00-5672c9cd34fb';
+var project1_pageview5 = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj1%2Fpageview05.jpg?alt=media&token=f6991f27-33f9-4d43-977b-28c2da0a0e7c';
+var project1_pageview6 = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj1%2Fpageview06.jpg?alt=media&token=04120db1-8c3f-4e34-9aed-3949f95b4fb6';
+var project1_pageview7 = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj1%2Fpageview07.jpg?alt=media&token=588df188-6977-4adb-86f3-d0c1f209bcf6';
+var project1_pageview8 = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj1%2Fpageview08.jpg?alt=media&token=f2965561-3330-4686-95fa-daaa417b436d';
+var project1_pageview9 = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj1%2Fpageview09.jpg?alt=media&token=0e0dbba1-4335-497b-865f-c24bfd915fda';
+var project1_pageview10 = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj1%2Fpageview10.jpg?alt=media&token=d92e6083-9cb6-403e-8704-4b0a284a00a1';
