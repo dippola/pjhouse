@@ -1,86 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:pjhouse/style.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
-Widget showZoomDialog(BuildContext context, List<String> urlList, int position) {
-  // isDesktop(context)
-  //     ? showDialog(
-  //         context: context,
-  //         builder: (BuildContext context) {
-  //           return ZoomDialogDesktop(urlList: urlList, position: position);
-  //         })
-  //     : isTab(context)
-  //         ? showDialog(
-  //             context: context,
-  //             builder: (BuildContext context) {
-  //               return ZoomDialogTab(urlList: urlList, position: position);
-  //             })
-  //         : showDialog(
-  //             context: context,
-  //             builder: (BuildContext context) {
-  //               return ZoomDialogMobile(urlList: urlList, position: position);
-  //             });
-  // return Container();
+Widget showZoomPageViewDialog(BuildContext context, List<String> urlList, int position) {
   showDialog(
       context: context,
       builder: (BuildContext context) {
-        return ZoomDialogMobile(urlList: urlList, position: position);
+        return ZoomPageViewDialog(urlList: urlList, position: position);
       });
   return Container();
 }
 
-class ZoomDialogDesktop extends StatefulWidget {
+class ZoomPageViewDialog extends StatefulWidget {
   final List<String> urlList;
   final int position;
-  const ZoomDialogDesktop({super.key, required this.urlList, required this.position});
+
+  const ZoomPageViewDialog({super.key, required this.urlList, required this.position});
 
   @override
-  State<ZoomDialogDesktop> createState() => _ZoomDialogDesktopState();
+  State<ZoomPageViewDialog> createState() => _ZoomPageViewDialogState();
 }
 
-class _ZoomDialogDesktopState extends State<ZoomDialogDesktop> {
-  @override
-  Widget build(BuildContext context) {
-    return Dialog(
-      child: Container(
-        color: Colors.amber,
-
-      ),
-    );
-  }
-}
-
-class ZoomDialogTab extends StatefulWidget {
-  final List<String> urlList;
-  final int position;
-  const ZoomDialogTab({super.key, required this.urlList, required this.position});
-
-  @override
-  State<ZoomDialogTab> createState() => _ZoomDialogTabState();
-}
-
-class _ZoomDialogTabState extends State<ZoomDialogTab> {
-  @override
-  Widget build(BuildContext context) {
-    return Dialog(
-      child: Container(
-        color: Colors.amber,
-      ),
-    );
-  }
-}
-
-class ZoomDialogMobile extends StatefulWidget {
-  final List<String> urlList;
-  final int position;
-  const ZoomDialogMobile({super.key, required this.urlList, required this.position});
-
-  @override
-  State<ZoomDialogMobile> createState() => _ZoomDialogMobileState();
-}
-
-class _ZoomDialogMobileState extends State<ZoomDialogMobile> {
-
+class _ZoomPageViewDialogState extends State<ZoomPageViewDialog> {
   late PageController _pageController;
   late int size;
   late int position;
@@ -99,9 +41,7 @@ class _ZoomDialogMobileState extends State<ZoomDialogMobile> {
     return Dialog.fullscreen(
       child: Stack(
         children: [
-          Container(
-            color: Colors.black
-          ),
+          Container(color: Colors.black),
           PageView.builder(
             controller: _pageController,
             itemCount: widget.urlList.length,
@@ -180,5 +120,52 @@ class _ZoomDialogMobileState extends State<ZoomDialogMobile> {
         ],
       ),
     );
+  }
+}
+
+Widget showZoomOneDialog(BuildContext context, String src) {
+  showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return ZoomOneDialog(src: src);
+      });
+  return Container();
+}
+
+class ZoomOneDialog extends StatelessWidget {
+  const ZoomOneDialog({super.key, required this.src});
+
+  final String src;
+
+  @override
+  Widget build(BuildContext context) {
+    return Dialog.fullscreen(
+        child: Stack(
+      children: [
+        Container(color: Colors.black),
+        Center(
+          child: CachedNetworkImage(
+            imageUrl: src,
+            placeholder: (context, url) => CircularProgressIndicator(
+              color: Color(0xff428b69),
+            ),
+          ),
+        ),
+        Positioned(
+          top: 15.0,
+          left: 15.0,
+          child: InkWell(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 3.0),
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(30.0), color: Colors.white.withOpacity(0.2)),
+              child: Icon(Icons.arrow_back_outlined, color: Colors.white),
+            ),
+          ),
+        )
+      ],
+    ));
   }
 }

@@ -6,12 +6,20 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pjhouse/page/project_img_dialog.dart';
 import 'package:appinio_video_player/appinio_video_player.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:shimmer/shimmer.dart';
 
 import '../bottonbar.dart';
 import '../navItem.dart';
 import '../style.dart';
 import '../text.dart';
 import '../topbar.dart';
+import 'home.dart';
+
+bool back1 = false;
+bool pic1 = false;
+bool back2 = false;
+bool pic2 = false;
 
 class ProjectPage extends StatelessWidget {
   const ProjectPage({Key? key}) : super(key: key);
@@ -119,7 +127,6 @@ class ProjectDetailDesktop extends StatelessWidget {
               height: (DeviceSize.getWidth(context) * 0.5) * 0.8,
               child: Stack(
                 children: [
-                  Image.asset('assets/images/project1/project_page1back.png', fit: BoxFit.fill),
                   Center(
                     child: Container(
                       width: (DeviceSize.getWidth(context) * 0.5) * 0.7,
@@ -195,6 +202,12 @@ class ProjectDetailDesktop extends StatelessWidget {
                       ),
                     ),
                   ),
+                  CachedNetworkImage(
+                    imageUrl: project1_1back,
+                    placeholder: (context, url) {
+                      return Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white);
+                    },
+                  ),
                 ],
               ),
             ),
@@ -203,9 +216,9 @@ class ProjectDetailDesktop extends StatelessWidget {
               color: Colors.blueGrey,
               width: DeviceSize.getWidth(context) * 0.5,
               height: (DeviceSize.getWidth(context) * 0.5) * 0.8,
-              child: Image.asset(
-                'assets/images/project1/project_page2.jpg',
-                fit: BoxFit.fill,
+              child: CachedNetworkImage(
+                imageUrl: project1_1pic,
+                placeholder: (context, url) => Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
               ),
             ),
           ],
@@ -217,9 +230,9 @@ class ProjectDetailDesktop extends StatelessWidget {
               color: Colors.blueGrey,
               width: DeviceSize.getWidth(context) * 0.5,
               height: (DeviceSize.getWidth(context) * 0.5) * 0.8,
-              child: Image.asset(
-                'assets/images/project1/project_page3.jpg',
-                fit: BoxFit.fill,
+              child: CachedNetworkImage(
+                imageUrl: project1_2pic,
+                placeholder: (context, url) => Shimmer.fromColors(baseColor: Colors.grey, highlightColor: Colors.white, child: Container(color: Colors.grey)),
               ),
             ),
             Container(
@@ -228,7 +241,6 @@ class ProjectDetailDesktop extends StatelessWidget {
               height: (DeviceSize.getWidth(context) * 0.5) * 0.8,
               child: Stack(
                 children: [
-                  Image.asset('assets/images/project1/project_page2back.png', fit: BoxFit.fill),
                   Center(
                     child: Container(
                       width: (DeviceSize.getWidth(context) * 0.5) * 0.7,
@@ -268,15 +280,18 @@ class ProjectDetailDesktop extends StatelessWidget {
                       ),
                     ),
                   ),
+                  CachedNetworkImage(
+                      imageUrl: project1_2back, placeholder: (context, url) => Shimmer.fromColors(baseColor: Colors.grey, highlightColor: Colors.white, child: Container(color: Colors.grey))),
                 ],
               ),
             ),
           ],
         ),
+        ProjectMap(),
         Column(
           //편의시설
           children: [
-            SizedBox(height: 40.0),
+            SizedBox(height: 30.0),
             Text(
               project1_4_1,
               style: GoogleFonts.prompt(
@@ -285,13 +300,7 @@ class ProjectDetailDesktop extends StatelessWidget {
                 color: topBarTextColor,
               ),
             ),
-            SizedBox(height: 20.0),
-            Container(
-              height: 1.0,
-              width: DeviceSize.getWidth(context) * 0.6,
-              color: home2ColorLine,
-            ),
-            SizedBox(height: 20.0),
+            SizedBox(height: 40.0),
             Container(
               width: DeviceSize.getWidth(context) * 0.5,
               child: Row(
@@ -441,7 +450,6 @@ class ProjectDetailTab extends StatelessWidget {
               height: (DeviceSize.getWidth(context) * 0.5) * 0.8,
               child: Stack(
                 children: [
-                  Image.asset('assets/images/project1/project_page1back.png', fit: BoxFit.fill),
                   Center(
                     child: Container(
                       width: (DeviceSize.getWidth(context) * 0.5) * 0.7,
@@ -531,6 +539,10 @@ class ProjectDetailTab extends StatelessWidget {
                       ),
                     ),
                   ),
+                  CachedNetworkImage(
+                    imageUrl: project1_1back,
+                    placeholder: (context, url) => Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
+                  ),
                 ],
               ),
             ),
@@ -539,9 +551,9 @@ class ProjectDetailTab extends StatelessWidget {
               color: Colors.blueGrey,
               width: DeviceSize.getWidth(context) * 0.5,
               height: (DeviceSize.getWidth(context) * 0.5) * 0.8,
-              child: Image.asset(
-                'assets/images/project1/project_page2.jpg',
-                fit: BoxFit.fill,
+              child: CachedNetworkImage(
+                imageUrl: project1_1pic,
+                placeholder: (context, url) => Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
               ),
             ),
           ],
@@ -553,9 +565,9 @@ class ProjectDetailTab extends StatelessWidget {
               color: Colors.blueGrey,
               width: DeviceSize.getWidth(context) * 0.5,
               height: (DeviceSize.getWidth(context) * 0.5) * 0.8,
-              child: Image.asset(
-                'assets/images/project1/project_page3.jpg',
-                fit: BoxFit.fill,
+              child: CachedNetworkImage(
+                imageUrl: project1_2pic,
+                placeholder: (context, url) => Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
               ),
             ),
             Container(
@@ -564,7 +576,6 @@ class ProjectDetailTab extends StatelessWidget {
               height: (DeviceSize.getWidth(context) * 0.5) * 0.8,
               child: Stack(
                 children: [
-                  Image.asset('assets/images/project1/project_page2back.png', fit: BoxFit.fill),
                   Center(
                     child: Container(
                       width: DeviceSize.getWidth(context) > 710 ? (DeviceSize.getWidth(context) * 0.5) * 0.7 : (DeviceSize.getWidth(context) * 0.5) * 0.9,
@@ -605,15 +616,20 @@ class ProjectDetailTab extends StatelessWidget {
                       ),
                     ),
                   ),
+                  CachedNetworkImage(
+                    imageUrl: project1_2back,
+                    placeholder: (context, url) => Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
+                  ),
                 ],
               ),
             ),
           ],
         ),
+        ProjectMap(),
         Column(
           //편의시설
           children: [
-            SizedBox(height: 40.0),
+            SizedBox(height: 30.0),
             Text(
               project1_4_1,
               style: GoogleFonts.prompt(
@@ -622,13 +638,7 @@ class ProjectDetailTab extends StatelessWidget {
                 color: topBarTextColor,
               ),
             ),
-            SizedBox(height: 20.0),
-            Container(
-              height: 1.0,
-              width: DeviceSize.getWidth(context) * 0.6,
-              color: home2ColorLine,
-            ),
-            SizedBox(height: 20.0),
+            SizedBox(height: 40.0),
             Container(
               width: DeviceSize.getWidth(context) * 0.5,
               child: Row(
@@ -777,9 +787,9 @@ class ProjectDetailMobile extends StatelessWidget {
               color: Colors.blueGrey,
               width: DeviceSize.getWidth(context),
               height: DeviceSize.getWidth(context) * 0.8,
-              child: Image.asset(
-                'assets/images/project1/project_page2.jpg',
-                fit: BoxFit.fill,
+              child: CachedNetworkImage(
+                imageUrl: project1_1pic,
+                placeholder: (context, url) => Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
               ),
             ),
           ],
@@ -790,7 +800,6 @@ class ProjectDetailMobile extends StatelessWidget {
           height: DeviceSize.getWidth(context) * 0.7,
           child: Stack(
             children: [
-              Image.asset('assets/images/project1/project_page1back.png', fit: BoxFit.fill),
               Center(
                 child: Container(
                   width: DeviceSize.getWidth(context) * 0.7,
@@ -892,6 +901,10 @@ class ProjectDetailMobile extends StatelessWidget {
                   ),
                 ),
               ),
+              CachedNetworkImage(
+                imageUrl: project1_1back,
+                placeholder: (context, url) => Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
+              )
             ],
           ),
         ),
@@ -902,9 +915,9 @@ class ProjectDetailMobile extends StatelessWidget {
               color: Colors.blueGrey,
               width: DeviceSize.getWidth(context),
               height: DeviceSize.getWidth(context) * 0.8,
-              child: Image.asset(
-                'assets/images/project1/project_page3.jpg',
-                fit: BoxFit.fill,
+              child: CachedNetworkImage(
+                imageUrl: project1_2pic,
+                placeholder: (context, url) => Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
               ),
             ),
             Container(
@@ -913,7 +926,6 @@ class ProjectDetailMobile extends StatelessWidget {
               height: DeviceSize.getWidth(context) * 0.8,
               child: Stack(
                 children: [
-                  Image.asset('assets/images/project1/project_page2back.png', fit: BoxFit.fill),
                   Center(
                     child: Container(
                       width: DeviceSize.getWidth(context) * 0.9,
@@ -954,15 +966,20 @@ class ProjectDetailMobile extends StatelessWidget {
                       ),
                     ),
                   ),
+                  CachedNetworkImage(
+                    imageUrl: project1_2back,
+                    placeholder: (context, url) => Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
+                  )
                 ],
               ),
             ),
           ],
         ),
+        ProjectMap(),
         Column(
           //편의시설
           children: [
-            SizedBox(height: 40.0),
+            SizedBox(height: 30.0),
             Text(
               project1_4_1,
               style: GoogleFonts.prompt(
@@ -971,13 +988,7 @@ class ProjectDetailMobile extends StatelessWidget {
                 color: topBarTextColor,
               ),
             ),
-            SizedBox(height: 15.0),
-            Container(
-              height: 1.0,
-              width: DeviceSize.getWidth(context) * 0.6,
-              color: home2ColorLine,
-            ),
-            SizedBox(height: 15.0),
+            SizedBox(height: 30.0),
             Container(
               width: DeviceSize.getWidth(context) * 0.5,
               child: Column(
@@ -1061,108 +1072,66 @@ class ProjectDetailMobile extends StatelessWidget {
   }
 }
 
-class Home2 extends StatelessWidget {
-  const Home2({Key? key}) : super(key: key);
-
-  //흥미로운 위치 ทําเลน่าสนใจ
-  //디자인 ออกแบบ
-  //안전함 ปลอดภัย
+class ProjectMap extends StatelessWidget {
+  const ProjectMap({super.key});
 
   @override
   Widget build(BuildContext context) {
-    double w = DeviceSize.getWidth(context) * 0.65;
-    return Container(
-      color: home2Color,
-      width: DeviceSize.getWidth(context),
-      height: null,
-      child: Center(
-        child: Container(
-          width: w,
-          constraints: BoxConstraints(maxHeight: 170.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                width: 1.0,
-                height: (DeviceSize.getWidth(context) * 0.65) * 0.3,
-                color: home2ColorLine,
-                constraints: BoxConstraints(maxHeight: 170.0),
-              ),
-              Home2Box(
-                text: 'ทําเลน่าสนใจ',
-                path: 'assets/images/main1box1.png',
-              ),
-              Container(
-                width: 1.0,
-                height: (DeviceSize.getWidth(context) * 0.65) * 0.3,
-                color: home2ColorLine,
-                constraints: BoxConstraints(maxHeight: 170.0),
-              ),
-              Home2Box(
-                text: 'ออกแบบ',
-                path: 'assets/images/main1box2.png',
-              ),
-              Container(
-                width: 1.0,
-                height: (DeviceSize.getWidth(context) * 0.65) * 0.3,
-                color: home2ColorLine,
-                constraints: BoxConstraints(maxHeight: 170.0),
-              ),
-              Home2Box(text: 'ปลอดภัย', path: 'assets/images/main1box3.png'),
-              Container(
-                width: 1.0,
-                height: (DeviceSize.getWidth(context) * 0.65) * 0.3,
-                color: home2ColorLine,
-              ),
-            ],
+    return Column(
+      children: [
+        SizedBox(height: 40),
+        Text(
+          project1_map_text,
+          style: GoogleFonts.prompt(
+            fontSize: 23.0,
+            fontWeight: FontWeight.bold,
+            color: topBarTextColor,
           ),
         ),
-      ),
-    );
-  }
-}
-
-class Home2Box extends StatelessWidget {
-  const Home2Box({Key? key, required this.text, required this.path}) : super(key: key);
-  final String text;
-  final String path;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: (DeviceSize.getWidth(context) * 0.65) * 0.3,
-      height: (DeviceSize.getWidth(context) * 0.65) * 0.3,
-      constraints: BoxConstraints(maxWidth: 170.0, maxHeight: 170.0),
-      child: LayoutBuilder(
-        builder: (p0, p1) {
-          return Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                path,
-                width: p1.maxWidth * 0.65,
-                height: p1.maxWidth * 0.65,
+        SizedBox(height: 20),
+        InkWell(
+          onTap: () {
+            showZoomOneDialog(context, project1_map);
+          },
+          child: Container(
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(15.0), boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.2), spreadRadius: 5, blurRadius: 5, offset: Offset(3, 3))]),
+            height: isDesktop(context)
+                ? DeviceSize.getWidth(context) * 0.4
+                : isTab(context)
+                    ? DeviceSize.getWidth(context) * 0.55
+                    : DeviceSize.getWidth(context) * 0.75,
+            width: isDesktop(context)
+                ? DeviceSize.getWidth(context) * 0.4
+                : isTab(context)
+                    ? DeviceSize.getWidth(context) * 0.55
+                    : DeviceSize.getWidth(context) * 0.75,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(15.0),
+              // child: Shimmer.fromColors(
+              //   baseColor: Colors.red,
+              //   highlightColor: Colors.yellow,
+              //   child: Container(),
+              // ),
+              child: CachedNetworkImage(
+                imageUrl: project1_map,
+                placeholder: (context, url) => Shimmer.fromColors(
+                  baseColor: Colors.grey,
+                  highlightColor: Colors.white,
+                  child: Container(
+                    color: Colors.grey,
+                  ),
+                ),
               ),
-              SizedBox(
-                height: !isMobile(context) ? 8.0 : 0.0,
-              ),
-              Text(
-                text,
-                // style: GoogleFonts.prompt(color: home2IconColor, fontWeight: FontWeight.bold, fontSize: DeviceSize.getWidth(context) <= 434 ? 12.0 : 16.0),
-                style: GoogleFonts.prompt(
-                    color: home2IconColor,
-                    fontWeight: FontWeight.bold,
-                    fontSize: DeviceSize.getWidth(context) > 434
-                        ? 16.0
-                        : DeviceSize.getWidth(context) <= 434 && DeviceSize.getWidth(context) >= 326
-                            ? 12.0
-                            : 9.0),
-                textAlign: TextAlign.center,
-              )
-            ],
-          );
-        },
-      ),
+            ),
+          ),
+        ),
+        SizedBox(height: 40),
+        Container(
+          height: 1.0,
+          width: DeviceSize.getWidth(context) * 0.6,
+          color: home2ColorLine,
+        ),
+      ],
     );
   }
 }
@@ -1241,8 +1210,7 @@ class _ProjectPageViewState extends State<ProjectPageView> {
                         ),
                         child: InkWell(
                           onTap: () {
-                            print("click");
-                            showZoomDialog(context, imageUrls, _currentPage);
+                            showZoomPageViewDialog(context, imageUrls, _currentPage);
                           },
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(10.0),
@@ -1310,7 +1278,6 @@ class Project1Video extends StatefulWidget {
 }
 
 class _Project1VideoState extends State<Project1Video> {
-
   late CustomVideoPlayerWebController _customVideoPlayerWebController;
   final CustomVideoPlayerWebSettings _customVideoPlayerWebSettings = CustomVideoPlayerWebSettings(src: project1_video_url);
 
@@ -1324,12 +1291,21 @@ class _Project1VideoState extends State<Project1Video> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.fromLTRB(0, isDesktop(context) ? 50 : isTab(context) ? 40 : 30, 0, 0),
+      padding: EdgeInsets.fromLTRB(
+          0,
+          isDesktop(context)
+              ? 50
+              : isTab(context)
+                  ? 40
+                  : 30,
+          0,
+          0),
       child: Center(
         child: Container(
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(15.0), boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.2), spreadRadius: 5, blurRadius: 5, offset: Offset(3, 3))]),
-          constraints: BoxConstraints(maxHeight: !isMobile(context) ? DeviceSize.getHeight(context)*0.8 : (DeviceSize.getWidth(context)*0.9)*1.25,
-              maxWidth: !isMobile(context) ? DeviceSize.getHeight(context)*0.8*0.8 : DeviceSize.getWidth(context)*0.9),
+          constraints: BoxConstraints(
+              maxHeight: !isMobile(context) ? DeviceSize.getHeight(context) * 0.8 : (DeviceSize.getWidth(context) * 0.9) * 1.25,
+              maxWidth: !isMobile(context) ? DeviceSize.getHeight(context) * 0.8 * 0.8 : DeviceSize.getWidth(context) * 0.9),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(15.0),
             child: CupertinoPageScaffold(
@@ -1348,4 +1324,3 @@ class _Project1VideoState extends State<Project1Video> {
     super.dispose();
   }
 }
-
