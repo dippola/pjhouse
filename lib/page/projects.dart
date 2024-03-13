@@ -68,6 +68,14 @@ class ProjectDetailDesktop extends StatelessWidget {
           height: (DeviceSize.getWidth(context) * 0.5) * 0.8,
           child: Stack(
             children: [
+              Container(
+                width: DeviceSize.getWidth(context),
+                child: CachedNetworkImage(
+                  fit: BoxFit.fill,
+                  imageUrl: project1_top1,
+                  placeholder: (context, url)=>Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
+                ),
+              ),
               Center(
                 child: Container(
                   width: DeviceSize.getWidth(context) * 0.6,
@@ -106,14 +114,6 @@ class ProjectDetailDesktop extends StatelessWidget {
                       ],
                     ),
                   ),
-                ),
-              ),
-              Container(
-                width: DeviceSize.getWidth(context),
-                child: CachedNetworkImage(
-                  fit: BoxFit.fill,
-                  imageUrl: project1_top1,
-                  placeholder: (context, url)=>Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
                 ),
               ),
             ],
@@ -395,6 +395,14 @@ class ProjectDetailTab extends StatelessWidget {
           height: (DeviceSize.getWidth(context) * 0.5) * 0.8,
           child: Stack(
             children: [
+              Container(
+                width: DeviceSize.getWidth(context),
+                child: CachedNetworkImage(
+                  fit: BoxFit.fill,
+                  imageUrl: project1_top1,
+                  placeholder: (context, url)=>Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
+                ),
+              ),
               Center(
                 child: Container(
                   width: DeviceSize.getWidth(context) * 0.6,
@@ -434,14 +442,6 @@ class ProjectDetailTab extends StatelessWidget {
                       ],
                     ),
                   ),
-                ),
-              ),
-              Container(
-                width: DeviceSize.getWidth(context),
-                child: CachedNetworkImage(
-                  fit: BoxFit.fill,
-                  imageUrl: project1_top1,
-                  placeholder: (context, url)=>Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
                 ),
               ),
             ],
@@ -738,6 +738,14 @@ class ProjectDetailMobile extends StatelessWidget {
           height: (DeviceSize.getWidth(context) * 0.5) * 0.8,
           child: Stack(
             children: [
+              Container(
+                width: DeviceSize.getWidth(context),
+                child: CachedNetworkImage(
+                  fit: BoxFit.fill,
+                  imageUrl: project1_top1,
+                  placeholder: (context, url)=>Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
+                ),
+              ),
               Center(
                 child: Container(
                   width: DeviceSize.getWidth(context) * 0.85,
@@ -777,14 +785,6 @@ class ProjectDetailMobile extends StatelessWidget {
                       ],
                     ),
                   ),
-                ),
-              ),
-              Container(
-                width: DeviceSize.getWidth(context),
-                child: CachedNetworkImage(
-                  fit: BoxFit.fill,
-                  imageUrl: project1_top1,
-                  placeholder: (context, url)=>Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
                 ),
               ),
             ],
