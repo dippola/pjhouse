@@ -123,104 +123,22 @@ class ProjectDetailDesktop extends StatelessWidget {
         Row(
           children: [
             Container(
-              //나눔1오
-              width: DeviceSize.getWidth(context) * 0.5,
-              height: (DeviceSize.getWidth(context) * 0.5) * 0.8,
-              child: Stack(
-                children: [
-                  Center(
-                    child: Container(
-                      width: (DeviceSize.getWidth(context) * 0.5) * 0.7,
-                      height: (DeviceSize.getWidth(context) * 0.5) * 0.8,
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(vertical: 50.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Text(
-                              project1_2_1,
-                              style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 23.0, fontWeight: FontWeight.bold),
-                            ),
-                            Container(
-                              height: 1,
-                              width: (DeviceSize.getWidth(context) * 0.5) * 0.8,
-                              color: home2ColorLine,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  project1_2_2,
-                                  style: GoogleFonts.prompt(fontSize: 20.0, fontWeight: FontWeight.w500),
-                                ),
-                                Text(
-                                  project1_2_3,
-                                  style: GoogleFonts.prompt(fontSize: 20.0, fontWeight: FontWeight.w500),
-                                )
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  project1_2_4,
-                                  style: GoogleFonts.prompt(fontSize: 20.0, fontWeight: FontWeight.w500),
-                                ),
-                                Text(
-                                  project1_2_5,
-                                  style: GoogleFonts.prompt(fontSize: 20.0, fontWeight: FontWeight.w500),
-                                )
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  project1_2_6,
-                                  style: GoogleFonts.prompt(fontSize: 20.0, fontWeight: FontWeight.w500),
-                                ),
-                                Text(
-                                  project1_2_7,
-                                  style: GoogleFonts.prompt(fontSize: 20.0, fontWeight: FontWeight.w500),
-                                )
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  project1_2_8,
-                                  style: GoogleFonts.prompt(fontSize: 20.0, fontWeight: FontWeight.w500),
-                                ),
-                                Text(
-                                  project1_2_9,
-                                  style: GoogleFonts.prompt(fontSize: 20.0, fontWeight: FontWeight.w500),
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  CachedNetworkImage(
-                    fit: BoxFit.fill,
-                    imageUrl: project1_1back,
-                    placeholder: (context, url) {
-                      return Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white);
-                    },
-                  ),
-                ],
-              ),
-            ),
-            Container(
               //나눔1왼
-              color: Colors.blueGrey,
               width: DeviceSize.getWidth(context) * 0.5,
               height: (DeviceSize.getWidth(context) * 0.5) * 0.8,
               child: CachedNetworkImage(
                 fit: BoxFit.fill,
                 imageUrl: project1_1pic,
+                placeholder: (context, url) => Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
+              ),
+            ),
+            Container(
+              //나눔1왼
+              width: DeviceSize.getWidth(context) * 0.5,
+              height: (DeviceSize.getWidth(context) * 0.5) * 0.8,
+              child: CachedNetworkImage(
+                fit: BoxFit.fill,
+                imageUrl: project1_2pic,
                 placeholder: (context, url) => Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
               ),
             ),
@@ -230,64 +148,22 @@ class ProjectDetailDesktop extends StatelessWidget {
           children: [
             Container(
               //나눔2오
-              color: Colors.blueGrey,
               width: DeviceSize.getWidth(context) * 0.5,
               height: (DeviceSize.getWidth(context) * 0.5) * 0.8,
               child: CachedNetworkImage(
                 fit: BoxFit.fill,
-                imageUrl: project1_2pic,
+                imageUrl: project1_3pic,
                 placeholder: (context, url) => Shimmer.fromColors(baseColor: Colors.grey, highlightColor: Colors.white, child: Container(color: Colors.grey)),
               ),
             ),
             Container(
-              //나눔2왼
+              //나눔2오
               width: DeviceSize.getWidth(context) * 0.5,
               height: (DeviceSize.getWidth(context) * 0.5) * 0.8,
-              child: Stack(
-                children: [
-                  Center(
-                    child: Container(
-                      width: (DeviceSize.getWidth(context) * 0.5) * 0.7,
-                      height: (DeviceSize.getWidth(context) * 0.5) * 0.8,
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(vertical: 50.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Text(
-                              project1_3_1,
-                              style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 23.0, fontWeight: FontWeight.bold),
-                            ),
-                            Container(
-                              height: 1,
-                              width: (DeviceSize.getWidth(context) * 0.5) * 0.8,
-                              color: home2ColorLine,
-                            ),
-                            Text(
-                              project1_3_2,
-                              style: GoogleFonts.prompt(fontSize: 20.0, fontWeight: FontWeight.w500),
-                            ),
-                            Text(
-                              project1_3_3,
-                              style: GoogleFonts.prompt(fontSize: 20.0, fontWeight: FontWeight.w500),
-                            ),
-                            Text(
-                              project1_3_4,
-                              style: GoogleFonts.prompt(fontSize: 20.0, fontWeight: FontWeight.w500),
-                            ),
-                            Text(
-                              project1_3_5,
-                              style: GoogleFonts.prompt(fontSize: 18.0, fontWeight: FontWeight.w300),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  CachedNetworkImage(
-                      fit: BoxFit.fill,
-                      imageUrl: project1_2back, placeholder: (context, url) => Shimmer.fromColors(baseColor: Colors.grey, highlightColor: Colors.white, child: Container(color: Colors.grey))),
-                ],
+              child: CachedNetworkImage(
+                fit: BoxFit.fill,
+                imageUrl: project1_4pic,
+                placeholder: (context, url) => Shimmer.fromColors(baseColor: Colors.grey, highlightColor: Colors.white, child: Container(color: Colors.grey)),
               ),
             ),
           ],
@@ -451,116 +327,22 @@ class ProjectDetailTab extends StatelessWidget {
         Row(
           children: [
             Container(
-              //나눔1오
-              width: DeviceSize.getWidth(context) * 0.5,
-              height: (DeviceSize.getWidth(context) * 0.5) * 0.8,
-              child: Stack(
-                children: [
-                  Center(
-                    child: Container(
-                      width: (DeviceSize.getWidth(context) * 0.5) * 0.7,
-                      height: (DeviceSize.getWidth(context) * 0.5) * 0.8,
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(vertical: 50.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Text(
-                              project1_2_1,
-                              style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 23.0, fontWeight: FontWeight.bold),
-                            ),
-                            Container(
-                              height: 1,
-                              width: (DeviceSize.getWidth(context) * 0.5) * 0.8,
-                              color: home2ColorLine,
-                            ),
-                            DeviceSize.getWidth(context) > 758
-                                ? Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        project1_2_1,
-                                        style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) > 790 ? 20.0 : 16.0, fontWeight: FontWeight.w500),
-                                      ),
-                                      Text(
-                                        project1_2_3,
-                                        style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) > 945 ? 20.0 : 16.0, fontWeight: FontWeight.w500),
-                                      )
-                                    ],
-                                  )
-                                : Column(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        project1_2_1,
-                                        style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) > 790 ? 20.0 : 16.0, fontWeight: FontWeight.w500),
-                                      ),
-                                      Text(
-                                        project1_2_3,
-                                        style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) > 945 ? 20.0 : 16.0, fontWeight: FontWeight.w500),
-                                      )
-                                    ],
-                                  ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  project1_2_4,
-                                  style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) > 790 ? 20.0 : 16.0, fontWeight: FontWeight.w500),
-                                ),
-                                Text(
-                                  project1_2_5,
-                                  style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) > 790 ? 20.0 : 16.0, fontWeight: FontWeight.w500),
-                                )
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  project1_2_6,
-                                  style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) > 790 ? 20.0 : 16.0, fontWeight: FontWeight.w500),
-                                ),
-                                Text(
-                                  project1_2_7,
-                                  style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) > 790 ? 20.0 : 16.0, fontWeight: FontWeight.w500),
-                                )
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  project1_2_8,
-                                  style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) > 790 ? 20.0 : 16.0, fontWeight: FontWeight.w500),
-                                ),
-                                Text(
-                                  project1_2_9,
-                                  style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) > 790 ? 20.0 : 16.0, fontWeight: FontWeight.w500),
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  CachedNetworkImage(
-                    fit: BoxFit.fill,
-                    imageUrl: project1_1back,
-                    placeholder: (context, url) => Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
-                  ),
-                ],
-              ),
-            ),
-            Container(
               //나눔1왼
-              color: Colors.blueGrey,
               width: DeviceSize.getWidth(context) * 0.5,
               height: (DeviceSize.getWidth(context) * 0.5) * 0.8,
               child: CachedNetworkImage(
                 fit: BoxFit.fill,
                 imageUrl: project1_1pic,
+                placeholder: (context, url) => Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
+              ),
+            ),
+            Container(
+              //나눔1왼
+              width: DeviceSize.getWidth(context) * 0.5,
+              height: (DeviceSize.getWidth(context) * 0.5) * 0.8,
+              child: CachedNetworkImage(
+                fit: BoxFit.fill,
+                imageUrl: project1_2pic,
                 placeholder: (context, url) => Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
               ),
             ),
@@ -570,12 +352,11 @@ class ProjectDetailTab extends StatelessWidget {
           children: [
             Container(
               //나눔2오
-              color: Colors.blueGrey,
               width: DeviceSize.getWidth(context) * 0.5,
               height: (DeviceSize.getWidth(context) * 0.5) * 0.8,
               child: CachedNetworkImage(
                 fit: BoxFit.fill,
-                imageUrl: project1_2pic,
+                imageUrl: project1_3pic,
                 placeholder: (context, url) => Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
               ),
             ),
@@ -585,49 +366,9 @@ class ProjectDetailTab extends StatelessWidget {
               height: (DeviceSize.getWidth(context) * 0.5) * 0.8,
               child: Stack(
                 children: [
-                  Center(
-                    child: Container(
-                      width: DeviceSize.getWidth(context) > 710 ? (DeviceSize.getWidth(context) * 0.5) * 0.7 : (DeviceSize.getWidth(context) * 0.5) * 0.9,
-                      height: (DeviceSize.getWidth(context) * 0.5) * 0.8,
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(vertical: 50.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Text(
-                              project1_3_1,
-                              style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 23.0, fontWeight: FontWeight.bold),
-                            ),
-                            Container(
-                              height: 1,
-                              width: (DeviceSize.getWidth(context) * 0.5) * 0.8,
-                              color: home2ColorLine,
-                            ),
-                            Text(
-                              project1_3_2,
-                              style: GoogleFonts.prompt(fontSize: 20.0, fontWeight: FontWeight.w500),
-                            ),
-                            Text(
-                              project1_3_3,
-                              style: GoogleFonts.prompt(fontSize: 20.0, fontWeight: FontWeight.w500),
-                            ),
-                            Text(
-                              project1_3_4,
-                              style: GoogleFonts.prompt(fontSize: 20.0, fontWeight: FontWeight.w500),
-                            ),
-                            Text(
-                              project1_3_5,
-                              style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) > 710 ? 18.0 : 16.0, fontWeight: FontWeight.w300),
-                              textAlign: TextAlign.center,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
                   CachedNetworkImage(
                     fit: BoxFit.fill,
-                    imageUrl: project1_2back,
+                    imageUrl: project1_4pic,
                     placeholder: (context, url) => Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
                   ),
                 ],
@@ -795,7 +536,20 @@ class ProjectDetailMobile extends StatelessWidget {
           children: [
             Container(
               //나눔1
-              color: Colors.blueGrey,
+              width: DeviceSize.getWidth(context),
+              height: DeviceSize.getWidth(context) * 0.8,
+              child: CachedNetworkImage(
+                fit: BoxFit.fill,
+                imageUrl: project1_2pic,
+                placeholder: (context, url) => Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
+              ),
+            ),
+          ],
+        ),
+        Column(
+          children: [
+            Container(
+              //나눔1
               width: DeviceSize.getWidth(context),
               height: DeviceSize.getWidth(context) * 0.8,
               child: CachedNetworkImage(
@@ -806,186 +560,30 @@ class ProjectDetailMobile extends StatelessWidget {
             ),
           ],
         ),
-        Container(
-          //나눔2
-          width: DeviceSize.getWidth(context),
-          height: DeviceSize.getWidth(context) * 0.7,
-          child: Stack(
-            children: [
-              Center(
-                child: Container(
-                  width: DeviceSize.getWidth(context) * 0.7,
-                  height: DeviceSize.getWidth(context) * 0.8,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: 20.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Text(
-                          project1_2_1,
-                          style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 20.0, fontWeight: FontWeight.bold),
-                        ),
-                        Container(
-                          height: 1,
-                          width: (DeviceSize.getWidth(context) * 0.5) * 0.8,
-                          color: home2ColorLine,
-                        ),
-                        DeviceSize.getWidth(context) > 758
-                            ? Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    project1_2_1,
-                                    style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) >= 324 ? 16.0 : 15.0, fontWeight: FontWeight.w500),
-                                  ),
-                                  Text(
-                                    project1_2_3,
-                                    style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) >= 324 ? 16.0 : 15.0, fontWeight: FontWeight.w500),
-                                  )
-                                ],
-                              )
-                            : Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    project1_2_1,
-                                    style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) >= 324 ? 16.0 : 15.0, fontWeight: FontWeight.w500),
-                                  ),
-                                  Text(
-                                    project1_2_3,
-                                    style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) >= 324 ? 16.0 : 15.0, fontWeight: FontWeight.w500),
-                                  )
-                                ],
-                              ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              project1_2_4,
-                              style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) >= 324 ? 16.0 : 15.0, fontWeight: FontWeight.w500),
-                            ),
-                            Text(
-                              project1_2_5,
-                              style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) >= 324 ? 16.0 : 15.0, fontWeight: FontWeight.w500),
-                            )
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              project1_2_6,
-                              style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) >= 324 ? 16.0 : 15.0, fontWeight: FontWeight.w500),
-                            ),
-                            Text(
-                              project1_2_7,
-                              style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) >= 324 ? 16.0 : 15.0, fontWeight: FontWeight.w500),
-                            )
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              project1_2_8,
-                              style: GoogleFonts.prompt(
-                                  fontSize: DeviceSize.getWidth(context) >= 324
-                                      ? 16.0
-                                      : DeviceSize.getWidth(context) < 324 && DeviceSize.getWidth(context) > 302
-                                          ? 15.0
-                                          : 13.0,
-                                  fontWeight: FontWeight.w500),
-                            ),
-                            Text(
-                              project1_2_9,
-                              style: GoogleFonts.prompt(
-                                  fontSize: DeviceSize.getWidth(context) >= 324
-                                      ? 16.0
-                                      : DeviceSize.getWidth(context) < 324 && DeviceSize.getWidth(context) > 302
-                                          ? 15.0
-                                          : 13.0,
-                                  fontWeight: FontWeight.w500),
-                            )
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              CachedNetworkImage(
-                fit: BoxFit.fill,
-                imageUrl: project1_1back,
-                placeholder: (context, url) => Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
-              )
-            ],
-          ),
-        ),
         Column(
           children: [
             Container(
-              //나눔3
-              color: Colors.blueGrey,
+              //나눔1
               width: DeviceSize.getWidth(context),
               height: DeviceSize.getWidth(context) * 0.8,
               child: CachedNetworkImage(
                 fit: BoxFit.fill,
-                imageUrl: project1_2pic,
+                imageUrl: project1_3pic,
                 placeholder: (context, url) => Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
               ),
             ),
+          ],
+        ),
+        Column(
+          children: [
             Container(
-              //나눔4
+              //나눔1
               width: DeviceSize.getWidth(context),
               height: DeviceSize.getWidth(context) * 0.8,
-              child: Stack(
-                children: [
-                  Center(
-                    child: Container(
-                      width: DeviceSize.getWidth(context) * 0.9,
-                      height: DeviceSize.getWidth(context) * 0.9,
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(vertical: 20.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Text(
-                              project1_3_1,
-                              style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 23.0, fontWeight: FontWeight.bold),
-                            ),
-                            Container(
-                              height: 1,
-                              width: (DeviceSize.getWidth(context) * 0.5) * 0.8,
-                              color: home2ColorLine,
-                            ),
-                            Text(
-                              project1_3_2,
-                              style: GoogleFonts.prompt(fontSize: 20.0, fontWeight: FontWeight.w500),
-                            ),
-                            Text(
-                              project1_3_3,
-                              style: GoogleFonts.prompt(fontSize: 20.0, fontWeight: FontWeight.w500),
-                            ),
-                            Text(
-                              project1_3_4,
-                              style: GoogleFonts.prompt(fontSize: 20.0, fontWeight: FontWeight.w500),
-                            ),
-                            Text(
-                              project1_3_5,
-                              style: GoogleFonts.prompt(fontSize: DeviceSize.getWidth(context) > 320 ? 16.0 : 15.0, fontWeight: FontWeight.w300),
-                              textAlign: TextAlign.center,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  CachedNetworkImage(
-                    fit: BoxFit.fill,
-                    imageUrl: project1_2back,
-                    placeholder: (context, url) => Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
-                  )
-                ],
+              child: CachedNetworkImage(
+                fit: BoxFit.fill,
+                imageUrl: project1_4pic,
+                placeholder: (context, url) => Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
               ),
             ),
           ],
