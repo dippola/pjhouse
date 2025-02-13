@@ -33,8 +33,8 @@ class NavItem extends StatelessWidget {
               SizedBox(height: 20.0),
               NavItems(title: text_project, tapEvent: () {
                 Navigator.of(context).pop();
-                if (ModalRoute.of(context)!.settings.name != '/project/no1') {
-                  Navigator.pushNamed(context, '/project/no1');
+                if (ModalRoute.of(context)!.settings.name != '/projects') {
+                  Navigator.pushNamed(context, '/projects');
                 }
               }),
               SizedBox(height: 20.0),

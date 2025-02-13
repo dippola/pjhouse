@@ -94,8 +94,8 @@ class Home1 extends StatelessWidget {
               SizedBox(height: sizedBoxHeight(context)),
               ElevatedButton(
                 onPressed: () {
-                  if (ModalRoute.of(context)!.settings.name != '/project/no1') {
-                    Navigator.pushNamed(context, '/project/no1');
+                  if (ModalRoute.of(context)!.settings.name != '/projects') {
+                    Navigator.pushNamed(context, '/projects');
                   }
                 },
                 child: Text(
@@ -319,8 +319,8 @@ class Home3 extends StatelessWidget {
         SizedBox(height: 30.0),
         ElevatedButton(
           onPressed: () {
-            if (ModalRoute.of(context)!.settings.name != '/project/no1') {
-              Navigator.pushNamed(context, '/project/no1');
+            if (ModalRoute.of(context)!.settings.name != '/projects') {
+              Navigator.pushNamed(context, '/projects');
             }
           },
           child: Text(
@@ -368,8 +368,8 @@ class Home3 extends StatelessWidget {
         SizedBox(height: 30.0),
         ElevatedButton(
           onPressed: () {
-            if (ModalRoute.of(context)!.settings.name != '/project/no1') {
-              Navigator.pushNamed(context, '/project/no1');
+            if (ModalRoute.of(context)!.settings.name != '/projects') {
+              Navigator.pushNamed(context, '/projects');
             }
           },
           child: Text(
@@ -405,8 +405,8 @@ class Home3 extends StatelessWidget {
         SizedBox(height: 14.0),
         ElevatedButton(
           onPressed: () {
-            if (ModalRoute.of(context)!.settings.name != '/project/no1') {
-              Navigator.pushNamed(context, '/project/no1');
+            if (ModalRoute.of(context)!.settings.name != '/projects') {
+              Navigator.pushNamed(context, '/projects');
             }
           },
           child: Text(
@@ -465,8 +465,8 @@ class Home3 extends StatelessWidget {
                   Text(pj1_toilet + " | " + pj1_parkcar + " | " + pj1_yard, style: GoogleFonts.kanit()),
                   ElevatedButton.icon(
                     onPressed: () {
-                      if (ModalRoute.of(context)!.settings.name != '/project/no1') {
-                        Navigator.pushNamed(context, '/project/no1');
+                      if (ModalRoute.of(context)!.settings.name != '/projects') {
+                        Navigator.pushNamed(context, '/projects');
                       }
                     },
                     label: Text(
@@ -534,8 +534,8 @@ class Home3 extends StatelessWidget {
                   Text(pj1_toilet + " | " + pj1_parkcar + " | " + pj1_yard, style: GoogleFonts.kanit()),
                   ElevatedButton.icon(
                     onPressed: () {
-                      if (ModalRoute.of(context)!.settings.name != '/project/no1') {
-                        Navigator.pushNamed(context, '/project/no1');
+                      if (ModalRoute.of(context)!.settings.name != '/projects') {
+                        Navigator.pushNamed(context, '/projects');
                       }
                     },
                     label: Text(
@@ -603,7 +603,7 @@ class Home3 extends StatelessWidget {
                   Text(pj1_toilet + " | " + pj1_parkcar + " | " + pj1_yard, style: GoogleFonts.kanit()),
                   ElevatedButton.icon(
                     onPressed: () {
-                      if (ModalRoute.of(context)!.settings.name != '/project/no1') {
+                      if (ModalRoute.of(context)!.settings.name != '/projects') {
                         Navigator.pushNamed(context, '/projec/no1ts');
                       }
                     },

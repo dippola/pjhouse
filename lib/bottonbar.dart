@@ -164,8 +164,8 @@ class AboutDetail2 extends StatelessWidget {
           }
         }),
         AboutDetailButton(text: text_project, click: () {
-          if (ModalRoute.of(context)!.settings.name != '/project/no1') {
-            Navigator.pushNamed(context, '/project/no1');
+          if (ModalRoute.of(context)!.settings.name != '/projects') {
+            Navigator.pushNamed(context, '/projects');
           }
         }),
         AboutDetailButton(text: text_message, click: () {
@@ -194,8 +194,8 @@ class AboutDetail3 extends StatelessWidget {
           ),
         ),
         AboutDetailButton(text: text_saraburi_project, click: () {
-          if (ModalRoute.of(context)!.settings.name != '/project/no1') {
-            Navigator.pushNamed(context, '/project/no1');
+          if (ModalRoute.of(context)!.settings.name != '/projects') {
+            Navigator.pushNamed(context, '/projects');
           }
         }),
       ],

@@ -190,7 +190,7 @@ class ProjectNo1DetailDesktop extends StatelessWidget {
                   Column(
                     children: [
                       Image.asset(
-                        'assets/images/project1/seven.png',
+                        'assets/images/no1/seven.png',
                         width: (DeviceSize.getWidth(context) * 0.3) * 0.2,
                       ),
                       Text(
@@ -210,7 +210,7 @@ class ProjectNo1DetailDesktop extends StatelessWidget {
                   Column(
                     children: [
                       Image.asset(
-                        'assets/images/project1/market.png',
+                        'assets/images/no1/market.png',
                         width: (DeviceSize.getWidth(context) * 0.3) * 0.2,
                       ),
                       Text(
@@ -230,7 +230,7 @@ class ProjectNo1DetailDesktop extends StatelessWidget {
                   Column(
                     children: [
                       Image.asset(
-                        'assets/images/project1/city.png',
+                        'assets/images/no1/city.png',
                         width: (DeviceSize.getWidth(context) * 0.3) * 0.2,
                       ),
                       Text(
@@ -398,7 +398,7 @@ class ProjectNo1DetailTab extends StatelessWidget {
                   Column(
                     children: [
                       Image.asset(
-                        'assets/images/project1/seven.png',
+                        'assets/images/no1/seven.png',
                         width: (DeviceSize.getWidth(context) * 0.3) * 0.2,
                       ),
                       Text(
@@ -418,7 +418,7 @@ class ProjectNo1DetailTab extends StatelessWidget {
                   Column(
                     children: [
                       Image.asset(
-                        'assets/images/project1/market.png',
+                        'assets/images/no1/market.png',
                         width: (DeviceSize.getWidth(context) * 0.3) * 0.2,
                       ),
                       Text(
@@ -438,7 +438,7 @@ class ProjectNo1DetailTab extends StatelessWidget {
                   Column(
                     children: [
                       Image.asset(
-                        'assets/images/project1/city.png',
+                        'assets/images/no1/city.png',
                         width: (DeviceSize.getWidth(context) * 0.3) * 0.2,
                       ),
                       Text(
@@ -610,7 +610,7 @@ class ProjectNo1DetailMobile extends StatelessWidget {
                   Column(
                     children: [
                       Image.asset(
-                        'assets/images/project1/seven.png',
+                        'assets/images/no1/seven.png',
                         width: DeviceSize.getWidth(context) * 0.2,
                       ),
                       Text(
@@ -633,7 +633,7 @@ class ProjectNo1DetailMobile extends StatelessWidget {
                   Column(
                     children: [
                       Image.asset(
-                        'assets/images/project1/market.png',
+                        'assets/images/no1/market.png',
                         width: DeviceSize.getWidth(context) * 0.2,
                       ),
                       Text(
@@ -656,7 +656,7 @@ class ProjectNo1DetailMobile extends StatelessWidget {
                   Column(
                     children: [
                       Image.asset(
-                        'assets/images/project1/city.png',
+                        'assets/images/no1/city.png',
                         width: DeviceSize.getWidth(context) * 0.2,
                       ),
                       Text(

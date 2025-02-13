@@ -163,7 +163,7 @@ var contact_privacy_policy = 'นโยบายความเป็นส่�
 var view_more = 'ดูเพิ่มเติม';
 var view_project = 'ดูโครงการ';
 
-//Project details
+//Project no1 details
 var pj1_saraburi_project = 'PJ House No.1 สระบุรี';
 var pj1_livingroom = '1 ห้องนั่งเล่น';
 var pj1_kitchen = '1 ห้องครัว';
@@ -171,6 +171,15 @@ var pj1_bedroom = '2 ห้องนอน';
 var pj1_toilet = '2 ห้องน้ำ';
 var pj1_parkcar = 'ที่จอดรถ 2 คัน';
 var pj1_yard = 'พื้นที่สวนกว้างขวาง';
+
+//project no2 details
+var pj2_saraburi_project = 'PJ House No.2 สระบุรี';
+var pj2_livingroom = '1 ห้องนั่งเล่น';
+var pj2_kitchen = '1 ห้องครัว';
+var pj2_bedroom = '2 ห้องนอน';
+var pj2_toilet = '1 ห้องน้ำ';
+var pj2_parkcar = 'ที่จอดรถ 2 คัน';
+var pj2_yard = 'พื้นที่สวนกว้างขวาง';
 
 //Bottom Bar
 var bottombar_contact = 'ติดต่อบริษัท';
