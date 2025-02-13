@@ -7,7 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:lottie/lottie.dart';
 
-import '../text.dart';
+import '../strings.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({Key? key}) : super(key: key);
@@ -73,7 +73,8 @@ class AboutDesktop extends StatelessWidget {
           color: Colors.white,
           boxShadow: [BoxShadow(spreadRadius: 1, blurRadius: 1, offset: Offset(1, 1), color: Colors.grey)],
         ),
-        width: DeviceSize.getWidth(context) * 0.9,
+        // width: DeviceSize.getWidth(context) * 0.9,
+        width: isDesktop(context) ? DeviceSize.getWidth(context) * 0.6 : DeviceSize.getWidth(context) * 0.8,
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 50.0, vertical: 40.0),
           child: Center(
@@ -91,7 +92,7 @@ class AboutDesktop extends StatelessWidget {
                       SizedBox(
                         height: 20.0,
                       ),
-                      SelectableText('PJ House', style: GoogleFonts.prompt(fontSize: 25.0, color: topBarTextColor, fontWeight: FontWeight.bold)),
+                      SelectableText('PJ House', style: GoogleFonts.kanit(fontSize: 25.0, color: topBarTextColor, fontWeight: FontWeight.bold)),
                       Padding(
                         padding: const EdgeInsets.only(left: 30.0, right: 30.0),
                         child: Divider(height: 50, thickness: 0.5),
@@ -110,24 +111,24 @@ class AboutDesktop extends StatelessWidget {
                         SelectableText(
                           about1_1,
                           textAlign: TextAlign.start,
-                          style: GoogleFonts.prompt(fontSize: 18.0, fontWeight: FontWeight.w600),
+                          style: GoogleFonts.kanit(fontSize: 18.0, fontWeight: FontWeight.w600),
                         ),
                         SizedBox(height: 10),
                         SelectableText(
                           about1_2,
                           textAlign: TextAlign.start,
-                          style: GoogleFonts.prompt(fontSize: 18.0, fontWeight: FontWeight.w600),
+                          style: GoogleFonts.kanit(fontSize: 18.0, fontWeight: FontWeight.w600),
                         ),
                         SelectableText(
                           about1_3,
                           textAlign: TextAlign.start,
-                          style: GoogleFonts.prompt(fontSize: 18.0, fontWeight: FontWeight.w600),
+                          style: GoogleFonts.kanit(fontSize: 18.0, fontWeight: FontWeight.w600),
                         ),
                         SizedBox(height: 10),
                         SelectableText(
                           about1_4,
                           textAlign: TextAlign.start,
-                          style: GoogleFonts.prompt(fontSize: 18.0, fontWeight: FontWeight.w600),
+                          style: GoogleFonts.kanit(fontSize: 18.0, fontWeight: FontWeight.w600),
                         ),
                         SizedBox(height: 50),
                         Column(
@@ -135,7 +136,7 @@ class AboutDesktop extends StatelessWidget {
                           children: [
                             Text(
                               "- PJ House -",
-                              style: GoogleFonts.prompt(),
+                              style: GoogleFonts.kanit(),
                               textAlign: TextAlign.center,
                             )
                           ],
@@ -175,7 +176,7 @@ class AboutMobile extends StatelessWidget {
                   'assets/images/circleicon.png',
                   width: DeviceSize.getWidth(context) * 0.5,
                 ),
-                Text('PJ House', style: GoogleFonts.prompt(fontWeight: FontWeight.bold, color: topBarTextColor, fontSize: 24.0)),
+                Text('PJ House', style: GoogleFonts.kanit(fontWeight: FontWeight.bold, color: topBarTextColor, fontSize: 24.0)),
                 SizedBox(height: 20.0),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 30.0),
@@ -193,24 +194,24 @@ class AboutMobile extends StatelessWidget {
                       SelectableText(
                         about1_1,
                         textAlign: TextAlign.start,
-                        style: GoogleFonts.prompt(),
+                        style: GoogleFonts.kanit(),
                       ),
                       SizedBox(height: 10),
                       SelectableText(
                         about1_2,
                         textAlign: TextAlign.start,
-                        style: GoogleFonts.prompt(),
+                        style: GoogleFonts.kanit(),
                       ),
                       SelectableText(
                         about1_3,
                         textAlign: TextAlign.start,
-                        style: GoogleFonts.prompt(),
+                        style: GoogleFonts.kanit(),
                       ),
                       SizedBox(height: 10),
                       SelectableText(
                         about1_4,
                         textAlign: TextAlign.start,
-                        style: GoogleFonts.prompt(),
+                        style: GoogleFonts.kanit(),
                       ),
                       SizedBox(height: 50),
                     ],
@@ -218,7 +219,7 @@ class AboutMobile extends StatelessWidget {
                 ),
                 Text(
                   "- PJ House -",
-                  style: GoogleFonts.prompt(),
+                  style: GoogleFonts.kanit(),
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(
@@ -255,9 +256,9 @@ class AboutLottie extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(about_lottie1_1, style: GoogleFonts.prompt(fontSize: 19.0, fontWeight: FontWeight.bold)),
+                      Text(about_lottie1_1, style: GoogleFonts.kanit(fontSize: 19.0, fontWeight: FontWeight.bold)),
                       SizedBox(height: 15.0),
-                      Text(about_lottie1_2, style: GoogleFonts.prompt(fontSize: 18.0))
+                      Text(about_lottie1_2, style: GoogleFonts.kanit(fontSize: 18.0))
                     ],
                   ),
                 ),
@@ -279,9 +280,9 @@ class AboutLottie extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Text(about_lottie2_1, style: GoogleFonts.prompt(fontSize: 19.0, fontWeight: FontWeight.bold)),
+                      Text(about_lottie2_1, style: GoogleFonts.kanit(fontSize: 19.0, fontWeight: FontWeight.bold)),
                       SizedBox(height: 15.0),
-                      Text(about_lottie2_2, style: GoogleFonts.prompt(fontSize: 18.0), textAlign: TextAlign.end,)
+                      Text(about_lottie2_2, style: GoogleFonts.kanit(fontSize: 18.0), textAlign: TextAlign.end,)
                     ],
                   ),
                 ),
@@ -305,9 +306,9 @@ class AboutLottie extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(about_lottie1_1, style: GoogleFonts.prompt(fontSize: 19.0, fontWeight: FontWeight.bold)),
+                      Text(about_lottie1_1, style: GoogleFonts.kanit(fontSize: 19.0, fontWeight: FontWeight.bold)),
                       SizedBox(height: 15.0),
-                      Text(about_lottie1_2, style: GoogleFonts.prompt(fontSize: 18.0))
+                      Text(about_lottie1_2, style: GoogleFonts.kanit(fontSize: 18.0))
                     ],
                   ),
                 ),
@@ -329,9 +330,9 @@ class AboutLottie extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Text(about_lottie2_1, style: GoogleFonts.prompt(fontSize: 19.0, fontWeight: FontWeight.bold)),
+                      Text(about_lottie2_1, style: GoogleFonts.kanit(fontSize: 19.0, fontWeight: FontWeight.bold)),
                       SizedBox(height: 15.0),
-                      Text(about_lottie2_2, style: GoogleFonts.prompt(fontSize: 18.0), textAlign: TextAlign.end,)
+                      Text(about_lottie2_2, style: GoogleFonts.kanit(fontSize: 18.0), textAlign: TextAlign.end,)
                     ],
                   ),
                 ),
@@ -358,9 +359,9 @@ class AboutLottie extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(about_lottie1_1, style: GoogleFonts.prompt(fontSize: 19.0, fontWeight: FontWeight.bold)),
+                  Text(about_lottie1_1, style: GoogleFonts.kanit(fontSize: 19.0, fontWeight: FontWeight.bold)),
                   SizedBox(height: 15.0),
-                  Text(about_lottie1_2, style: GoogleFonts.prompt(fontSize: 18.0), textAlign: TextAlign.center)
+                  Text(about_lottie1_2, style: GoogleFonts.kanit(fontSize: 18.0), textAlign: TextAlign.center)
                 ],
               ),
             ),
@@ -377,9 +378,9 @@ class AboutLottie extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(about_lottie2_1, style: GoogleFonts.prompt(fontSize: 19.0, fontWeight: FontWeight.bold)),
+                  Text(about_lottie2_1, style: GoogleFonts.kanit(fontSize: 19.0, fontWeight: FontWeight.bold)),
                   SizedBox(height: 15.0),
-                  Text(about_lottie2_2, style: GoogleFonts.prompt(fontSize: 18.0), textAlign: TextAlign.center)
+                  Text(about_lottie2_2, style: GoogleFonts.kanit(fontSize: 18.0), textAlign: TextAlign.center)
                 ],
               ),
             ),
@@ -457,8 +458,8 @@ class AboutBottomProjectDesktop extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: () {
-                      if (ModalRoute.of(context)!.settings.name != '/projects') {
-                        Navigator.pushNamed(context, '/projects');
+                      if (ModalRoute.of(context)!.settings.name != '/project/no1') {
+                        Navigator.pushNamed(context, '/project/no1');
                       }
                     },
                     child: Container(
@@ -477,11 +478,11 @@ class AboutBottomProjectDesktop extends StatelessWidget {
                   SizedBox(height: 40.0),
                   Container(width: 350.0, height: 1.0, color: home2Color),
                   SizedBox(height: 20.0),
-                  Text(pj1_saraburi_project, style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
+                  Text(pj1_saraburi_project, style: GoogleFonts.kanit(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
                   SizedBox(height: 20.0),
-                  Text(pj1_livingroom + " | " + pj1_kitchen + " | " + pj1_bedroom, style: GoogleFonts.prompt()),
+                  Text(pj1_livingroom + " | " + pj1_kitchen + " | " + pj1_bedroom, style: GoogleFonts.kanit()),
                   SizedBox(height: 20.0),
-                  Text(pj1_toilet + " | " + pj1_parkcar + " | " + pj1_yard, style: GoogleFonts.prompt()),
+                  Text(pj1_toilet + " | " + pj1_parkcar + " | " + pj1_yard, style: GoogleFonts.kanit()),
                 ],
               ),
               SizedBox(width: 100.0),
@@ -489,23 +490,23 @@ class AboutBottomProjectDesktop extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(about_project_box1, style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
+                    Text(about_project_box1, style: GoogleFonts.kanit(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
                     SizedBox(height: 7.0),
-                    Text(about_project_box2, style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
+                    Text(about_project_box2, style: GoogleFonts.kanit(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
                     SizedBox(height: 7.0),
-                    Text(about_project_box3, style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
+                    Text(about_project_box3, style: GoogleFonts.kanit(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
                     SizedBox(height: 7.0),
-                    Text(about_project_box4, style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
+                    Text(about_project_box4, style: GoogleFonts.kanit(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
                     SizedBox(height: 40.0),
                     ElevatedButton.icon(
                       onPressed: () {
-                        if (ModalRoute.of(context)!.settings.name != '/projects') {
-                          Navigator.pushNamed(context, '/projects');
+                        if (ModalRoute.of(context)!.settings.name != '/project/no1') {
+                          Navigator.pushNamed(context, '/project/no1');
                         }
                       },
                       label: Text(
                         view_more,
-                        style: GoogleFonts.prompt(color: topBarTextColor),
+                        style: GoogleFonts.kanit(color: topBarTextColor),
                       ),
                       icon: Icon(
                         Icons.arrow_right_alt_rounded,
@@ -547,8 +548,8 @@ class AboutBottomProjectTab extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: () {
-                      if (ModalRoute.of(context)!.settings.name != '/projects') {
-                        Navigator.pushNamed(context, '/projects');
+                      if (ModalRoute.of(context)!.settings.name != '/project/no1') {
+                        Navigator.pushNamed(context, '/project/no1');
                       }
                     },
                     child: Container(
@@ -567,34 +568,34 @@ class AboutBottomProjectTab extends StatelessWidget {
                   SizedBox(height: 40.0),
                   Container(width: (DeviceSize.getWidth(context) * 0.8) * 0.38, height: 1.0, color: home2Color),
                   SizedBox(height: 20.0),
-                  Text(pj1_saraburi_project, style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
+                  Text(pj1_saraburi_project, style: GoogleFonts.kanit(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
                   SizedBox(height: 20.0),
-                  Text(pj1_livingroom + " | " + pj1_kitchen + " | " + pj1_bedroom, style: GoogleFonts.prompt()),
+                  Text(pj1_livingroom + " | " + pj1_kitchen + " | " + pj1_bedroom, style: GoogleFonts.kanit()),
                   SizedBox(height: 20.0),
-                  Text(pj1_toilet + " | " + pj1_parkcar + " | " + pj1_yard, style: GoogleFonts.prompt()),
+                  Text(pj1_toilet + " | " + pj1_parkcar + " | " + pj1_yard, style: GoogleFonts.kanit()),
                 ],
               ),
               Center(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(about_project_box1, style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
+                    Text(about_project_box1, style: GoogleFonts.kanit(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
                     SizedBox(height: 7.0),
-                    Text(about_project_box2, style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
+                    Text(about_project_box2, style: GoogleFonts.kanit(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
                     SizedBox(height: 7.0),
-                    Text(about_project_box3, style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
+                    Text(about_project_box3, style: GoogleFonts.kanit(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
                     SizedBox(height: 7.0),
-                    Text(about_project_box4, style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
+                    Text(about_project_box4, style: GoogleFonts.kanit(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
                     SizedBox(height: 40.0),
                     ElevatedButton.icon(
                       onPressed: () {
-                        if (ModalRoute.of(context)!.settings.name != '/projects') {
-                          Navigator.pushNamed(context, '/projects');
+                        if (ModalRoute.of(context)!.settings.name != '/project/no1') {
+                          Navigator.pushNamed(context, '/project/no1');
                         }
                       },
                       label: Text(
                         view_more,
-                        style: GoogleFonts.prompt(color: topBarTextColor),
+                        style: GoogleFonts.kanit(color: topBarTextColor),
                       ),
                       icon: Icon(
                         Icons.arrow_right_alt_rounded,
@@ -636,8 +637,8 @@ class AboutBottomProjectMobile extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: () {
-                      if (ModalRoute.of(context)!.settings.name != '/projects') {
-                        Navigator.pushNamed(context, '/projects');
+                      if (ModalRoute.of(context)!.settings.name != '/project/no1') {
+                        Navigator.pushNamed(context, '/project/no1');
                       }
                     },
                     child: Container(
@@ -655,31 +656,31 @@ class AboutBottomProjectMobile extends StatelessWidget {
                   SizedBox(height: 40.0),
                   Container(width: (DeviceSize.getWidth(context) * 0.8) * 0.38, height: 1.0, color: home2Color),
                   SizedBox(height: 20.0),
-                  Text(pj1_saraburi_project, style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
+                  Text(pj1_saraburi_project, style: GoogleFonts.kanit(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
                   SizedBox(height: 20.0),
-                  Text(pj1_livingroom + " | " + pj1_kitchen + " | " + pj1_bedroom, style: GoogleFonts.prompt()),
+                  Text(pj1_livingroom + " | " + pj1_kitchen + " | " + pj1_bedroom, style: GoogleFonts.kanit()),
                   SizedBox(height: 20.0),
-                  Text(pj1_toilet + " | " + pj1_parkcar + " | " + pj1_yard, style: GoogleFonts.prompt()),
+                  Text(pj1_toilet + " | " + pj1_parkcar + " | " + pj1_yard, style: GoogleFonts.kanit()),
                   SizedBox(height: 20.0),
                   Container(width: (DeviceSize.getWidth(context) * 0.8) * 0.38, height: 1.0, color: home2Color),
                   SizedBox(height: 20.0),
-                  Text(about_project_box1, style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
+                  Text(about_project_box1, style: GoogleFonts.kanit(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
                   SizedBox(height: 7.0),
-                  Text(about_project_box2, style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
+                  Text(about_project_box2, style: GoogleFonts.kanit(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
                   SizedBox(height: 7.0),
-                  Text(about_project_box3, style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
+                  Text(about_project_box3, style: GoogleFonts.kanit(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
                   SizedBox(height: 7.0),
-                  Text(about_project_box4, style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
+                  Text(about_project_box4, style: GoogleFonts.kanit(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
                   SizedBox(height: 40.0),
                   ElevatedButton.icon(
                     onPressed: () {
-                      if (ModalRoute.of(context)!.settings.name != '/projects') {
-                        Navigator.pushNamed(context, '/projects');
+                      if (ModalRoute.of(context)!.settings.name != '/project/no1') {
+                        Navigator.pushNamed(context, '/project/no1');
                       }
                     },
                     label: Text(
                       view_more,
-                      style: GoogleFonts.prompt(color: topBarTextColor),
+                      style: GoogleFonts.kanit(color: topBarTextColor),
                     ),
                     icon: Icon(
                       Icons.arrow_right_alt_rounded,

@@ -1,6 +1,8 @@
 import 'dart:js';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:pjhouse/bottonbar.dart';
 import 'package:pjhouse/topbar.dart';
 import '../navItem.dart';
@@ -8,7 +10,7 @@ import '../style.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
-import '../text.dart';
+import '../strings.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -28,7 +30,7 @@ class HomePage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [TopBar(), Home1(), Home2(), Home3(), BottomBar()],
+            children: [TopBar(), Home1(), Home2(), Home3(), Home4(), BottomBar()],
           ),
         ),
       ),
@@ -58,7 +60,7 @@ class Home1 extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(home1_1,
-                  style: GoogleFonts.prompt(
+                  style: GoogleFonts.kanit(
                       fontSize: w > 540
                           ? 25.0
                           : w <= 540 && w > 434
@@ -67,9 +69,9 @@ class Home1 extends StatelessWidget {
                       fontWeight: FontWeight.w300,
                       color: whiteColor),
                   textAlign: TextAlign.center),
-              SizedBox(height: w > 434 ? 10.0 : 5.0),
+              SizedBox(height: sizedBoxHeight(context)),
               Text(home1_2,
-                  style: GoogleFonts.prompt(
+                  style: GoogleFonts.kanit(
                       fontSize: w > 540
                           ? 30.0
                           : w <= 540 && w > 434
@@ -78,14 +80,9 @@ class Home1 extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                       color: whiteColor),
                   textAlign: TextAlign.center),
-              SizedBox(
-                  height: w > 434
-                      ? 10.0
-                      : w <= 434 && w > 350
-                          ? 5.0
-                          : 1.0),
+              SizedBox(height: sizedBoxHeight(context)),
               Text(home1_3,
-                  style: GoogleFonts.prompt(
+                  style: GoogleFonts.kanit(
                       fontSize: w > 450
                           ? 17.0
                           : w <= 540 && w > 434
@@ -94,26 +91,24 @@ class Home1 extends StatelessWidget {
                       fontWeight: FontWeight.w300,
                       color: whiteColor),
                   textAlign: TextAlign.center),
-              SizedBox(
-                  height: w > 434
-                      ? 20.0
-                      : w <= 434 && w > 350
-                          ? 8.0
-                          : 2.0),
+              SizedBox(height: sizedBoxHeight(context)),
               ElevatedButton(
                 onPressed: () {
-                  if (ModalRoute.of(context)!.settings.name != '/projects') {
-                    Navigator.pushNamed(context, '/projects');
+                  if (ModalRoute.of(context)!.settings.name != '/project/no1') {
+                    Navigator.pushNamed(context, '/project/no1');
                   }
                 },
-                child: Text(view_more,
-                    style: GoogleFonts.prompt(
-                        color: whiteColor,
-                        fontSize: w > 540
-                            ? 18.0
-                            : w <= 540 && w > 350
-                                ? 16.0
-                                : 13.0)),
+                child: Text(
+                  view_more,
+                  style: GoogleFonts.kanit(
+                    color: whiteColor,
+                    fontSize: isDesktop(context)
+                        ? 18.0
+                        : isTab(context)
+                            ? 16.0
+                            : 13.0,
+                  ),
+                ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.transparent,
                   side: BorderSide(width: 2.0, color: whiteColor),
@@ -126,14 +121,20 @@ class Home1 extends StatelessWidget {
       ],
     );
   }
+
+  double sizedBoxHeight(BuildContext context) {
+    double result;
+    isDesktop(context)
+        ? result = 18.0
+        : isTab(context)
+            ? result = 16.0
+            : result = 8.0;
+    return result;
+  }
 }
 
 class Home2 extends StatelessWidget {
   const Home2({Key? key}) : super(key: key);
-
-  //흥미로운 위치 ทําเลน่าสนใจ
-  //디자인 ออกแบบ
-  //안전함 ปลอดภัย
 
   @override
   Widget build(BuildContext context) {
@@ -215,7 +216,15 @@ class Home2Box extends StatelessWidget {
               ),
               Text(
                 text,
-                style: GoogleFonts.prompt(color: home2IconColor, fontWeight: FontWeight.bold, fontSize: DeviceSize.getWidth(context) <= 434 ? 12.0 : 16.0),
+                style: GoogleFonts.kanit(
+                  color: home2IconColor,
+                  fontWeight: FontWeight.bold,
+                  fontSize: isMobile(context) && DeviceSize.getWidth(context) < 440
+                      ? 10.0
+                      : isMobile(context)
+                          ? 13.0
+                          : 16.0,
+                ),
                 textAlign: TextAlign.center,
               )
             ],
@@ -262,7 +271,7 @@ class Home3 extends StatelessWidget {
       height: 400.0,
       width: DeviceSize.getWidth(context),
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 20.0),
+        padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 10.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -298,25 +307,25 @@ class Home3 extends StatelessWidget {
       children: [
         Text(
           home3_1_d,
-          style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 30.0, fontWeight: FontWeight.bold),
+          style: GoogleFonts.kanit(color: topBarTextColor, fontSize: 30.0, fontWeight: FontWeight.bold),
           textAlign: TextAlign.start,
         ),
         SizedBox(height: 20.0),
         Text(
           home3_2,
-          style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 23.0),
+          style: GoogleFonts.kanit(color: topBarTextColor, fontSize: 23.0),
           textAlign: TextAlign.start,
         ),
         SizedBox(height: 30.0),
         ElevatedButton(
           onPressed: () {
-            if (ModalRoute.of(context)!.settings.name != '/projects') {
-              Navigator.pushNamed(context, '/projects');
+            if (ModalRoute.of(context)!.settings.name != '/project/no1') {
+              Navigator.pushNamed(context, '/project/no1');
             }
           },
           child: Text(
             view_project,
-            style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 17.0),
+            style: GoogleFonts.kanit(color: topBarTextColor, fontSize: 17.0),
           ),
           style: ElevatedButton.styleFrom(
             backgroundColor: logoBackgroundColor,
@@ -329,31 +338,43 @@ class Home3 extends StatelessWidget {
   }
 
   Widget Home3TextTab(BuildContext context) {
+    double getFontSize(BuildContext context) {
+      double result;
+      if (DeviceSize.getWidth(context) < 834 && DeviceSize.getWidth(context) >= 700) {
+        result = 18.0;
+      } else if (DeviceSize.getWidth(context) < 700) {
+        result = 15.0;
+      } else {
+        result = 25.0;
+      }
+      return result;
+    }
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
           home3_1_m_t,
-          style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 25.0, fontWeight: FontWeight.bold),
+          style: GoogleFonts.kanit(color: topBarTextColor, fontSize: getFontSize(context), fontWeight: FontWeight.bold),
           textAlign: TextAlign.start,
         ),
         SizedBox(height: 20.0),
         Text(
           home3_2,
-          style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 19.0),
+          style: GoogleFonts.kanit(color: topBarTextColor, fontSize: DeviceSize.getWidth(context) < 660 ? 16.0 : 19.0),
           textAlign: TextAlign.start,
         ),
         SizedBox(height: 30.0),
         ElevatedButton(
           onPressed: () {
-            if (ModalRoute.of(context)!.settings.name != '/projects') {
-              Navigator.pushNamed(context, '/projects');
+            if (ModalRoute.of(context)!.settings.name != '/project/no1') {
+              Navigator.pushNamed(context, '/project/no1');
             }
           },
           child: Text(
             view_project,
-            style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 17.0),
+            style: GoogleFonts.kanit(color: topBarTextColor, fontSize: 17.0),
           ),
           style: ElevatedButton.styleFrom(
             backgroundColor: logoBackgroundColor,
@@ -372,25 +393,25 @@ class Home3 extends StatelessWidget {
       children: [
         Text(
           home3_1_m_t,
-          style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 20.0, fontWeight: FontWeight.bold),
+          style: GoogleFonts.kanit(color: topBarTextColor, fontSize: 20.0, fontWeight: FontWeight.bold),
           textAlign: TextAlign.center,
         ),
         SizedBox(height: 7.0),
         Text(
           home3_2,
-          style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 16.0),
+          style: GoogleFonts.kanit(color: topBarTextColor, fontSize: 16.0),
           textAlign: TextAlign.center,
         ),
         SizedBox(height: 14.0),
         ElevatedButton(
           onPressed: () {
-            if (ModalRoute.of(context)!.settings.name != '/projects') {
-              Navigator.pushNamed(context, '/projects');
+            if (ModalRoute.of(context)!.settings.name != '/project/no1') {
+              Navigator.pushNamed(context, '/project/no1');
             }
           },
           child: Text(
             view_project,
-            style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 17.0),
+            style: GoogleFonts.kanit(color: topBarTextColor, fontSize: 17.0),
           ),
           style: ElevatedButton.styleFrom(
             backgroundColor: logoBackgroundColor,
@@ -439,18 +460,18 @@ class Home3 extends StatelessWidget {
                   Flexible(
                     child: Container(color: topBarTextColor, height: 1.0),
                   ),
-                  Text(pj1_saraburi_project, style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
-                  Text(pj1_livingroom + " | " + pj1_kitchen + " | " + pj1_bedroom, style: GoogleFonts.prompt()),
-                  Text(pj1_toilet + " | " + pj1_parkcar + " | " + pj1_yard, style: GoogleFonts.prompt()),
+                  Text(pj1_saraburi_project, style: GoogleFonts.kanit(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
+                  Text(pj1_livingroom + " | " + pj1_kitchen + " | " + pj1_bedroom, style: GoogleFonts.kanit()),
+                  Text(pj1_toilet + " | " + pj1_parkcar + " | " + pj1_yard, style: GoogleFonts.kanit()),
                   ElevatedButton.icon(
                     onPressed: () {
-                      if (ModalRoute.of(context)!.settings.name != '/projects') {
-                        Navigator.pushNamed(context, '/projects');
+                      if (ModalRoute.of(context)!.settings.name != '/project/no1') {
+                        Navigator.pushNamed(context, '/project/no1');
                       }
                     },
                     label: Text(
                       view_more,
-                      style: GoogleFonts.prompt(color: topBarTextColor),
+                      style: GoogleFonts.kanit(color: topBarTextColor),
                     ),
                     icon: Icon(
                       Icons.arrow_right_alt_rounded,
@@ -508,18 +529,18 @@ class Home3 extends StatelessWidget {
                   Flexible(
                     child: Container(color: topBarTextColor, height: 1.0),
                   ),
-                  Text(pj1_saraburi_project, style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
-                  Text(pj1_livingroom + " | " + pj1_kitchen + " | " + pj1_bedroom, style: GoogleFonts.prompt()),
-                  Text(pj1_toilet + " | " + pj1_parkcar + " | " + pj1_yard, style: GoogleFonts.prompt()),
+                  Text(pj1_saraburi_project, style: GoogleFonts.kanit(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
+                  Text(pj1_livingroom + " | " + pj1_kitchen + " | " + pj1_bedroom, style: GoogleFonts.kanit()),
+                  Text(pj1_toilet + " | " + pj1_parkcar + " | " + pj1_yard, style: GoogleFonts.kanit()),
                   ElevatedButton.icon(
                     onPressed: () {
-                      if (ModalRoute.of(context)!.settings.name != '/projects') {
-                        Navigator.pushNamed(context, '/projects');
+                      if (ModalRoute.of(context)!.settings.name != '/project/no1') {
+                        Navigator.pushNamed(context, '/project/no1');
                       }
                     },
                     label: Text(
                       view_more,
-                      style: GoogleFonts.prompt(color: topBarTextColor),
+                      style: GoogleFonts.kanit(color: topBarTextColor),
                     ),
                     icon: Icon(
                       Icons.arrow_right_alt_rounded,
@@ -577,18 +598,18 @@ class Home3 extends StatelessWidget {
                   Flexible(
                     child: Container(color: topBarTextColor, height: 1.0),
                   ),
-                  Text(pj1_saraburi_project, style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
-                  Text(pj1_livingroom + " | " + pj1_kitchen + " | " + pj1_bedroom, style: GoogleFonts.prompt()),
-                  Text(pj1_toilet + " | " + pj1_parkcar + " | " + pj1_yard, style: GoogleFonts.prompt()),
+                  Text(pj1_saraburi_project, style: GoogleFonts.kanit(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor)),
+                  Text(pj1_livingroom + " | " + pj1_kitchen + " | " + pj1_bedroom, style: GoogleFonts.kanit()),
+                  Text(pj1_toilet + " | " + pj1_parkcar + " | " + pj1_yard, style: GoogleFonts.kanit()),
                   ElevatedButton.icon(
                     onPressed: () {
-                      if (ModalRoute.of(context)!.settings.name != '/projects') {
-                        Navigator.pushNamed(context, '/projects');
+                      if (ModalRoute.of(context)!.settings.name != '/project/no1') {
+                        Navigator.pushNamed(context, '/projec/no1ts');
                       }
                     },
                     label: Text(
                       view_more,
-                      style: GoogleFonts.prompt(color: topBarTextColor),
+                      style: GoogleFonts.kanit(color: topBarTextColor),
                     ),
                     icon: Icon(
                       Icons.arrow_right_alt_rounded,
@@ -608,5 +629,131 @@ class Home3 extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class Home4 extends StatelessWidget {
+  const Home4({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+        width: isDesktop(context)
+            ? DeviceSize.getWidth(context) * 0.7
+            : isTab(context)
+                ? DeviceSize.getWidth(context) * 0.8
+                : DeviceSize.getWidth(context) * 0.9,
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0), border: Border.all(color: home2Color, width: 1.0)),
+        margin: EdgeInsets.symmetric(vertical: isDesktop(context) ? 20.0 : 10.0),
+        padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
+        child: !isMobile(context)
+            ? Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Expanded(
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              "assets/images/titleicon1.png",
+                              height: 50.0,
+                              width: 50.0,
+                            ),
+                            Text(
+                              "PJ House",
+                              style: GoogleFonts.kanit(
+                                fontSize: 20.0,
+                                color: Color(0xff428b69),
+                                fontWeight: FontWeight.bold,
+                              ),
+                            )
+                          ],
+                        ),
+                        Padding(
+                          padding: EdgeInsets.all(20.0),
+                          child: Text(
+                            home_about,
+                            style: GoogleFonts.kanit(fontSize: 17.0),
+                          ),
+                        ),
+                        Text(
+                          '- PJ House -',
+                          style: GoogleFonts.kanit(fontSize: 17.0),
+                        )
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 10.0,
+                  ),
+                  Expanded(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20.0),
+                      child: Image.asset('assets/images/home4img.jpg'),
+                    ),
+                  )
+                ],
+              )
+            : Column(
+                children: [
+                  Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            "assets/images/titleicon1.png",
+                            height: 50.0,
+                            width: 50.0,
+                          ),
+                          Text(
+                            "PJ House",
+                            style: GoogleFonts.kanit(
+                              fontSize: 20.0,
+                              color: Color(0xff428b69),
+                              fontWeight: FontWeight.bold,
+                            ),
+                          )
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Text(
+                          home_about,
+                          style: GoogleFonts.kanit(fontSize: isMobile(context) ? 14.0 : 17.0),
+                        ),
+                      ),
+                      Text(
+                        '- PJ House -',
+                        style: GoogleFonts.kanit(fontSize: isMobile(context) ? 14.0 : 17.0),
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    width: 10.0,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20.0),
+                      child: Image.asset('assets/images/home4img.jpg'),
+                    ),
+                  ),
+                ],
+              ),
+      ),
+    );
+  }
+}
+
+class HomeAbout extends StatelessWidget {
+  const HomeAbout({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
   }
 }

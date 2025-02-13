@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:pjhouse/page/about.dart';
 import 'package:pjhouse/page/home.dart';
 import 'package:pjhouse/page/privacy_policy.dart';
-import 'package:pjhouse/page/projects.dart';
+import 'package:pjhouse/page/projects/project_no_1.dart';
+import 'package:pjhouse/page/projects/project_no_2.dart';
+import 'package:pjhouse/page/projects/projects.dart';
 import 'package:pjhouse/page/contact.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
 
@@ -32,7 +34,9 @@ class PJHouse extends StatelessWidget {
       routes: {
         "/": (context) => const HomePage(),
         "/about": (context) => const AboutPage(),
-        "/projects": (context) => const ProjectPage(),
+        "/projects": (context) => const ProjectsPage(),
+        "/project/no1": (context) => const ProjectNo1Page(),
+        "/project/no2": (context) => const ProjectNo2Page(),
         "/contact": (context) => const ContactPage(),
         "/privacy_policy": (context) => const PrivacyPolicyPage()
       },

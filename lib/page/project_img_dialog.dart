@@ -67,7 +67,7 @@ class _ZoomPageViewDialogState extends State<ZoomPageViewDialog> {
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
               decoration: BoxDecoration(borderRadius: BorderRadius.circular(30.0), color: Colors.white.withOpacity(0.2)),
-              child: Text("$position/$size", style: GoogleFonts.prompt(color: whiteColor)),
+              child: Text("$position/$size", style: GoogleFonts.kanit(color: whiteColor)),
             ),
           ),
           Positioned(

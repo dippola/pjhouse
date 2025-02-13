@@ -40,16 +40,16 @@ class DeviceOrientation {
 // }
 desktopTopBarTitleTextStyle(BuildContext context) {
   if (MediaQuery.of(context).size.width < 740) {
-    return Text('PJ House', style: GoogleFonts.prompt(fontSize: 20.0, color: Color(0xff428b69), fontWeight: FontWeight.bold,),);
+    return Text('PJ House', style: GoogleFonts.kanit(fontSize: 20.0, color: Color(0xff428b69), fontWeight: FontWeight.bold,),);
   } else {
-    return Text('PJ House', style: GoogleFonts.prompt(fontSize: 30.0, color: Color(0xff428b69), fontWeight: FontWeight.bold,),);
+    return Text('PJ House', style: GoogleFonts.kanit(fontSize: 30.0, color: Color(0xff428b69), fontWeight: FontWeight.bold,),);
   }
 }
 desktopTopBarButtonTextStyle(bool isSelected){
   if (isSelected) {
-    return GoogleFonts.prompt(color: Color(0xff428b69), fontWeight: FontWeight.bold, fontSize: 16.0, decoration: TextDecoration.underline, decorationThickness: 4.0);
+    return GoogleFonts.kanit(color: Color(0xff428b69), fontWeight: FontWeight.bold, fontSize: 16.0, decoration: TextDecoration.underline, decorationThickness: 4.0);
   } else {
-    return GoogleFonts.prompt(color: Color(0xff428b69), fontWeight: FontWeight.bold, fontSize: 16.0);
+    return GoogleFonts.kanit(color: Color(0xff428b69), fontWeight: FontWeight.bold, fontSize: 16.0);
   }
 }
 
@@ -57,14 +57,14 @@ bottomAboutTextColor1() {
   // return const TextStyle(
   //   color: Color(0xff428b69), fontWeight: FontWeight.bold, fontSize: 16.5
   // );
-  return GoogleFonts.prompt(fontWeight: FontWeight.bold, color: Color(0xff428b69), fontSize: 16.5);
+  return GoogleFonts.kanit(fontWeight: FontWeight.bold, color: Color(0xff428b69), fontSize: 16.5);
 }
 
 bottomAboutTextColor2() {
   // return const TextStyle(
   //     fontWeight: FontWeight.bold, color: Colors.black54, fontSize: 16.5,
   // );
-  return GoogleFonts.prompt(fontWeight: FontWeight.bold, color: Colors.black54, fontSize: 16.5);
+  return GoogleFonts.kanit(fontWeight: FontWeight.bold, color: Colors.black54, fontSize: 16.5);
 }
 
 

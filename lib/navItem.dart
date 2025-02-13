@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pjhouse/style.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pjhouse/text.dart';
+import 'package:pjhouse/strings.dart';
 
 class NavItem extends StatelessWidget {
   const NavItem({Key? key}) : super(key: key);
@@ -33,8 +33,8 @@ class NavItem extends StatelessWidget {
               SizedBox(height: 20.0),
               NavItems(title: text_project, tapEvent: () {
                 Navigator.of(context).pop();
-                if (ModalRoute.of(context)!.settings.name != '/projects') {
-                  Navigator.pushNamed(context, '/projects');
+                if (ModalRoute.of(context)!.settings.name != '/project/no1') {
+                  Navigator.pushNamed(context, '/project/no1');
                 }
               }),
               SizedBox(height: 20.0),
@@ -61,14 +61,6 @@ class NavItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return InkWell(
-    //   onTap: tapEvent,
-    //   hoverColor: Colors.blueGrey, //transparent
-    //   child: SelectableText(
-    //     title,
-    //     style: TextStyle(fontWeight: FontWeight.w300),
-    //   ),
-    // );
-    return TextButton(onPressed: tapEvent, child: Text(title, style: GoogleFonts.prompt(color: Colors.black87)));
+    return TextButton(onPressed: tapEvent, child: Text(title, style: GoogleFonts.kanit(color: Colors.black87)));
   }
 }

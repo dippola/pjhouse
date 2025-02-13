@@ -8,7 +8,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../navItem.dart';
 import '../style.dart';
-import '../text.dart';
+import '../strings.dart';
 import '../topbar.dart';
 import '../bottonbar.dart';
 
@@ -120,11 +120,11 @@ class _Contact1DesktopState extends State<Contact1Desktop> {
                 children: [
                   Text(
                     contact1_1,
-                    style: GoogleFonts.prompt(color: whiteColor, fontWeight: FontWeight.bold, fontSize: 25.0),
+                    style: GoogleFonts.kanit(color: whiteColor, fontWeight: FontWeight.bold, fontSize: 25.0),
                   ),
                   Text(
                     contact1_2,
-                    style: GoogleFonts.prompt(color: whiteColor, fontSize: 17.0),
+                    style: GoogleFonts.kanit(color: whiteColor, fontSize: 17.0),
                   )
                 ],
               ),
@@ -174,7 +174,7 @@ class _Contact1DesktopState extends State<Contact1Desktop> {
                         SizedBox(height: 10.0),
                         Text(
                           'PJ House',
-                          style: GoogleFonts.prompt(
+                          style: GoogleFonts.kanit(
                             color: topBarTextColor,
                             fontSize: 20.0,
                             fontWeight: FontWeight.bold,
@@ -183,12 +183,12 @@ class _Contact1DesktopState extends State<Contact1Desktop> {
                         SizedBox(height: 20.0),
                         Text(
                           contact2_1,
-                          style: GoogleFonts.prompt(),
+                          style: GoogleFonts.kanit(),
                           textAlign: TextAlign.center,
                         ),
                         Text(
                           contact2_2,
-                          style: GoogleFonts.prompt(),
+                          style: GoogleFonts.kanit(),
                           textAlign: TextAlign.center,
                         )
                       ],
@@ -198,7 +198,7 @@ class _Contact1DesktopState extends State<Contact1Desktop> {
                       children: [
                         Text(
                           contact2_3,
-                          style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor),
+                          style: GoogleFonts.kanit(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor),
                         ),
                         SizedBox(height: 20.0),
                         Container(
@@ -239,7 +239,7 @@ class _Contact1DesktopState extends State<Contact1Desktop> {
                         SizedBox(height: 30.0),
                         Text(
                           errormsg,
-                          style: GoogleFonts.prompt(color: Colors.redAccent),
+                          style: GoogleFonts.kanit(color: Colors.redAccent),
                         ),
                         SizedBox(height: 30.0),
                         ElevatedButton(
@@ -305,7 +305,7 @@ class _Contact1DesktopState extends State<Contact1Desktop> {
                                       padding: EdgeInsets.symmetric(horizontal: 10.0),
                                       child: Text(
                                         contact2_8,
-                                        style: GoogleFonts.prompt(color: whiteColor, fontWeight: FontWeight.bold),
+                                        style: GoogleFonts.kanit(color: whiteColor, fontWeight: FontWeight.bold),
                                       ),
                                     ),
                                     Opacity(
@@ -370,11 +370,11 @@ class _Contact1TabState extends State<Contact1Tab> {
                 children: [
                   Text(
                     contact1_1,
-                    style: GoogleFonts.prompt(color: whiteColor, fontWeight: FontWeight.bold, fontSize: 25.0),
+                    style: GoogleFonts.kanit(color: whiteColor, fontWeight: FontWeight.bold, fontSize: 25.0),
                   ),
                   Text(
                     contact1_2,
-                    style: GoogleFonts.prompt(color: whiteColor, fontSize: 17.0),
+                    style: GoogleFonts.kanit(color: whiteColor, fontSize: 17.0),
                   )
                 ],
               ),
@@ -424,7 +424,7 @@ class _Contact1TabState extends State<Contact1Tab> {
                         SizedBox(height: 10.0),
                         Text(
                           'PJ House',
-                          style: GoogleFonts.prompt(
+                          style: GoogleFonts.kanit(
                             color: topBarTextColor,
                             fontSize: 20.0,
                             fontWeight: FontWeight.bold,
@@ -433,12 +433,12 @@ class _Contact1TabState extends State<Contact1Tab> {
                         SizedBox(height: 20.0),
                         Text(
                           contact2_1,
-                          style: GoogleFonts.prompt(),
+                          style: GoogleFonts.kanit(),
                           textAlign: TextAlign.center,
                         ),
                         Text(
                           contact2_2,
-                          style: GoogleFonts.prompt(),
+                          style: GoogleFonts.kanit(),
                           textAlign: TextAlign.center,
                         )
                       ],
@@ -448,7 +448,7 @@ class _Contact1TabState extends State<Contact1Tab> {
                       children: [
                         Text(
                           contact2_3,
-                          style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor),
+                          style: GoogleFonts.kanit(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor),
                         ),
                         SizedBox(height: 20.0),
                         Container(
@@ -489,7 +489,7 @@ class _Contact1TabState extends State<Contact1Tab> {
                         SizedBox(height: 30.0),
                         Text(
                           errormsg,
-                          style: GoogleFonts.prompt(color: Colors.redAccent),
+                          style: GoogleFonts.kanit(color: Colors.redAccent),
                         ),
                         SizedBox(height: 30.0),
                         ElevatedButton(
@@ -555,7 +555,7 @@ class _Contact1TabState extends State<Contact1Tab> {
                                       padding: EdgeInsets.symmetric(horizontal: 10.0),
                                       child: Text(
                                         contact2_8,
-                                        style: GoogleFonts.prompt(color: whiteColor, fontWeight: FontWeight.bold),
+                                        style: GoogleFonts.kanit(color: whiteColor, fontWeight: FontWeight.bold),
                                       ),
                                     ),
                                     Opacity(
@@ -621,11 +621,11 @@ class _Contact1MobileState extends State<Contact1Mobile> {
                 children: [
                   Text(
                     contact1_1,
-                    style: GoogleFonts.prompt(color: whiteColor, fontWeight: FontWeight.bold, fontSize: 21.0),
+                    style: GoogleFonts.kanit(color: whiteColor, fontWeight: FontWeight.bold, fontSize: 21.0),
                   ),
                   Text(
                     contact1_2,
-                    style: GoogleFonts.prompt(color: whiteColor, fontSize: 16.0),
+                    style: GoogleFonts.kanit(color: whiteColor, fontSize: 16.0),
                   )
                 ],
               ),
@@ -670,7 +670,7 @@ class _Contact1MobileState extends State<Contact1Mobile> {
                     SizedBox(height: 10.0),
                     Text(
                       'PJ House',
-                      style: GoogleFonts.prompt(
+                      style: GoogleFonts.kanit(
                         color: topBarTextColor,
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,
@@ -679,17 +679,17 @@ class _Contact1MobileState extends State<Contact1Mobile> {
                     SizedBox(height: 20.0),
                     Text(
                       contact2_1,
-                      style: GoogleFonts.prompt(),
+                      style: GoogleFonts.kanit(),
                       textAlign: TextAlign.center,
                     ),
                     Text(
                       contact2_2,
-                      style: GoogleFonts.prompt(),
+                      style: GoogleFonts.kanit(),
                       textAlign: TextAlign.center,
                     ),
                     Text(
                       contact2_3,
-                      style: GoogleFonts.prompt(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor),
+                      style: GoogleFonts.kanit(fontSize: 17.0, fontWeight: FontWeight.bold, color: topBarTextColor),
                     ),
                     SizedBox(height: 20.0),
                     Container(
@@ -730,7 +730,7 @@ class _Contact1MobileState extends State<Contact1Mobile> {
                     SizedBox(height: 15.0),
                     Text(
                       errormsg,
-                      style: GoogleFonts.prompt(color: Colors.redAccent),
+                      style: GoogleFonts.kanit(color: Colors.redAccent),
                     ),
                     SizedBox(height: 15.0),
                     ElevatedButton(
@@ -802,7 +802,7 @@ class _Contact1MobileState extends State<Contact1Mobile> {
                                   padding: EdgeInsets.symmetric(horizontal: 10.0),
                                   child: Text(
                                     contact2_8,
-                                    style: GoogleFonts.prompt(color: whiteColor, fontWeight: FontWeight.bold),
+                                    style: GoogleFonts.kanit(color: whiteColor, fontWeight: FontWeight.bold),
                                   ),
                                 ),
                                 Opacity(
@@ -855,7 +855,7 @@ class ContactPrivacyPolicy extends StatelessWidget {
           },
           child: Text(
             contact_privacy_policy,
-            style: GoogleFonts.prompt(color: Colors.blueAccent),
+            style: GoogleFonts.kanit(color: Colors.blueAccent),
           ),
         ),
         SizedBox(height: 20.0)
@@ -897,12 +897,12 @@ class ContactToMeDesktop extends StatelessWidget {
                   SizedBox(height: 20.0),
                   Text(
                     contact3_1,
-                    style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold),
+                    style: GoogleFonts.kanit(color: topBarTextColor, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: 20.0),
                   Text(
                     pjhouse_phone_number,
-                    style: GoogleFonts.prompt(),
+                    style: GoogleFonts.kanit(),
                   ),
                   SizedBox(height: 20.0),
                   ElevatedButton(
@@ -921,7 +921,7 @@ class ContactToMeDesktop extends StatelessWidget {
                         SizedBox(width: 10.0),
                         Text(
                           contact3_1,
-                          style: GoogleFonts.prompt(color: topBarTextColor),
+                          style: GoogleFonts.kanit(color: topBarTextColor),
                         )
                       ],
                     ),
@@ -948,12 +948,12 @@ class ContactToMeDesktop extends StatelessWidget {
                   SizedBox(height: 20.0),
                   Text(
                     contact3_2,
-                    style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold),
+                    style: GoogleFonts.kanit(color: topBarTextColor, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: 20.0),
                   Text(
                     pjhouse_line_id,
-                    style: GoogleFonts.prompt(),
+                    style: GoogleFonts.kanit(),
                   ),
                   SizedBox(height: 20.0),
                   ElevatedButton(
@@ -972,7 +972,7 @@ class ContactToMeDesktop extends StatelessWidget {
                         SizedBox(width: 10.0),
                         Text(
                           contact3_3,
-                          style: GoogleFonts.prompt(color: topBarTextColor),
+                          style: GoogleFonts.kanit(color: topBarTextColor),
                         )
                       ],
                     ),
@@ -999,12 +999,12 @@ class ContactToMeDesktop extends StatelessWidget {
                   SizedBox(height: 20.0),
                   Text(
                     contact3_4,
-                    style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold),
+                    style: GoogleFonts.kanit(color: topBarTextColor, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: 20.0),
                   Text(
                     contact3_5,
-                    style: GoogleFonts.prompt(),
+                    style: GoogleFonts.kanit(),
                   ),
                   SizedBox(height: 20.0),
                   ElevatedButton(
@@ -1023,7 +1023,7 @@ class ContactToMeDesktop extends StatelessWidget {
                         SizedBox(width: 10.0),
                         Text(
                           contact3_6,
-                          style: GoogleFonts.prompt(color: topBarTextColor),
+                          style: GoogleFonts.kanit(color: topBarTextColor),
                         )
                       ],
                     ),
@@ -1056,12 +1056,12 @@ class ContactToMeDesktop extends StatelessWidget {
                 SizedBox(height: 20.0),
                 Text(
                   contact3_1,
-                  style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold),
+                  style: GoogleFonts.kanit(color: topBarTextColor, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 20.0),
                 Text(
                   pjhouse_phone_number,
-                  style: GoogleFonts.prompt(),
+                  style: GoogleFonts.kanit(),
                 ),
                 SizedBox(height: 20.0),
                 ElevatedButton(
@@ -1080,7 +1080,7 @@ class ContactToMeDesktop extends StatelessWidget {
                       SizedBox(width: 10.0),
                       Text(
                         contact3_1,
-                        style: GoogleFonts.prompt(color: topBarTextColor),
+                        style: GoogleFonts.kanit(color: topBarTextColor),
                       )
                     ],
                   ),
@@ -1106,12 +1106,12 @@ class ContactToMeDesktop extends StatelessWidget {
                 SizedBox(height: 20.0),
                 Text(
                   contact3_2,
-                  style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold),
+                  style: GoogleFonts.kanit(color: topBarTextColor, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 20.0),
                 Text(
                   pjhouse_line_id,
-                  style: GoogleFonts.prompt(),
+                  style: GoogleFonts.kanit(),
                 ),
                 SizedBox(height: 20.0),
                 ElevatedButton(
@@ -1130,7 +1130,7 @@ class ContactToMeDesktop extends StatelessWidget {
                       SizedBox(width: 10.0),
                       Text(
                         contact3_3,
-                        style: GoogleFonts.prompt(color: topBarTextColor),
+                        style: GoogleFonts.kanit(color: topBarTextColor),
                       )
                     ],
                   ),
@@ -1156,12 +1156,12 @@ class ContactToMeDesktop extends StatelessWidget {
                 SizedBox(height: 20.0),
                 Text(
                   contact3_4,
-                  style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold),
+                  style: GoogleFonts.kanit(color: topBarTextColor, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 20.0),
                 Text(
                   contact3_5,
-                  style: GoogleFonts.prompt(),
+                  style: GoogleFonts.kanit(),
                 ),
                 SizedBox(height: 20.0),
                 ElevatedButton(
@@ -1180,7 +1180,7 @@ class ContactToMeDesktop extends StatelessWidget {
                       SizedBox(width: 10.0),
                       Text(
                         contact3_6,
-                        style: GoogleFonts.prompt(color: topBarTextColor),
+                        style: GoogleFonts.kanit(color: topBarTextColor),
                       )
                     ],
                   ),
@@ -1241,12 +1241,12 @@ class _MyDialogState extends State<MyDialog> {
       title: Center(
         child: Text(
           "การจองการให้คำปรึกษาเสร็จสมบูรณ์",
-          style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold, fontSize: 17.0),
+          style: GoogleFonts.kanit(color: topBarTextColor, fontWeight: FontWeight.bold, fontSize: 17.0),
         ),
       ),
       content: Text(
         "เราจะติดต่อคุณโดยเร็วที่สุด\nขอขอบคุณที่ออกจากคำถามของคุณ",
-        style: GoogleFonts.prompt(),
+        style: GoogleFonts.kanit(),
       ),
       actions: [
         Padding(

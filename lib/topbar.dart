@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pjhouse/style.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pjhouse/text.dart';
+import 'package:pjhouse/strings.dart';
 
 class TopBar extends StatelessWidget {
   const TopBar({Key? key}) : super(key: key);
@@ -9,15 +9,16 @@ class TopBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
-      if (isDesktop(context)) {
-        return TopBarDesktop();
-      } else if (isTab(context)) {
-        return TopBarDesktop();
-      } else if (isMobile(context)) {
-        return TopBarMobile();
-      } else {
-        return TopBarMobile();
-      }
+      // if (isDesktop(context)) {
+      //   return TopBarDesktop();
+      // } else if (isTab(context)) {
+      //   return TopBarDesktop();
+      // } else if (isMobile(context)) {
+      //   return TopBarMobile();
+      // } else {
+      //   return TopBarMobile();
+      // }
+      return isMobile(context) ? TopBarMobile() : TopBarDesktop();
     });
   }
 }
@@ -29,7 +30,7 @@ class TopBarDesktop extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Padding(
-        padding: DeviceSize.getWidth(context) > 700 ? EdgeInsets.symmetric(vertical: 20, horizontal: 40) : EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+        padding: isDesktop(context) ? EdgeInsets.symmetric(vertical: 20, horizontal: 40) : EdgeInsets.symmetric(vertical: 20, horizontal: 20),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -72,8 +73,8 @@ class TopBarDesktop extends StatelessWidget {
                 TopBarDeskTopButton(
                     text: text_project,
                     click: () {
-                      if (ModalRoute.of(context)!.settings.name != '/projects') {
-                        Navigator.pushNamed(context, '/projects');
+                      if (ModalRoute.of(context)!.settings.name != '/project/no1') {
+                        Navigator.pushNamed(context, '/project/no1');
                       }
                     }),
                 TopBarDeskTopButton(
@@ -97,14 +98,11 @@ class TopBarMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isMoreSmall(BuildContext context) =>
-        MediaQuery.of(context).size.width < 319;
+    bool isMoreSmall(BuildContext context) => MediaQuery.of(context).size.width < 319;
     return Container(
       child: Padding(
           // padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
-          padding: !isMoreSmall(context)
-              ? EdgeInsets.symmetric(vertical: 20, horizontal: 40)
-              : EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+          padding: !isMoreSmall(context) ? EdgeInsets.symmetric(vertical: 20, horizontal: 40) : EdgeInsets.symmetric(vertical: 20, horizontal: 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -150,8 +148,7 @@ class TopBarMobile extends StatelessWidget {
 }
 
 class TopBarDeskTopButton extends StatelessWidget {
-  const TopBarDeskTopButton({Key? key, required this.text, required this.click})
-      : super(key: key);
+  const TopBarDeskTopButton({Key? key, required this.text, required this.click}) : super(key: key);
 
   final String text;
   final GestureTapCallback click;
@@ -159,7 +156,7 @@ class TopBarDeskTopButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10.0),
+        padding: EdgeInsets.symmetric(horizontal: isDesktop(context) ? 10.0 : 3.0),
         child: Column(
           children: [
             TextButton(

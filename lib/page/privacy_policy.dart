@@ -65,7 +65,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
                   ),
                   Text(
                     "PJ House นโยบายความเป็นส่วนตัว",
-                    style: GoogleFonts.prompt(
+                    style: GoogleFonts.kanit(
                       color: topBarTextColor,
                       fontWeight: FontWeight.bold,
                       fontSize: 20.0,

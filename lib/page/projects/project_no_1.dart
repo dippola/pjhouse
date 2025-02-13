@@ -9,20 +9,20 @@ import 'package:appinio_video_player/appinio_video_player.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:shimmer/shimmer.dart';
 
-import '../bottonbar.dart';
-import '../navItem.dart';
-import '../style.dart';
-import '../text.dart';
-import '../topbar.dart';
-import 'home.dart';
+import '../../bottonbar.dart';
+import '../../navItem.dart';
+import '../../style.dart';
+import '../../strings.dart';
+import '../../topbar.dart';
+import '../home.dart';
 
 bool back1 = false;
 bool pic1 = false;
 bool back2 = false;
 bool pic2 = false;
 
-class ProjectPage extends StatelessWidget {
-  const ProjectPage({Key? key}) : super(key: key);
+class ProjectNo1Page extends StatelessWidget {
+  const ProjectNo1Page({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -42,11 +42,11 @@ class ProjectPage extends StatelessWidget {
             children: [
               TopBar(),
               isDesktop(context)
-                  ? ProjectDetailDesktop()
+                  ? ProjectNo1DetailDesktop()
                   : isTab(context)
-                      ? ProjectDetailTab()
-                      : ProjectDetailMobile(),
-              Project1Video(),
+                  ? ProjectNo1DetailTab()
+                  : ProjectNo1DetailMobile(),
+              ProjectNo1Video(),
               BottomBar()
             ],
           ),
@@ -56,8 +56,8 @@ class ProjectPage extends StatelessWidget {
   }
 }
 
-class ProjectDetailDesktop extends StatelessWidget {
-  const ProjectDetailDesktop({Key? key}) : super(key: key);
+class ProjectNo1DetailDesktop extends StatelessWidget {
+  const ProjectNo1DetailDesktop({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -87,12 +87,12 @@ class ProjectDetailDesktop extends StatelessWidget {
                       children: [
                         Text(
                           project1_1_1,
-                          style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 25.0, fontWeight: FontWeight.bold),
+                          style: GoogleFonts.kanit(color: topBarTextColor, fontSize: 25.0, fontWeight: FontWeight.bold),
                         ),
                         SizedBox(height: 20.0),
                         Text(
                           project1_1_2,
-                          style: GoogleFonts.prompt(fontSize: 20.0),
+                          style: GoogleFonts.kanit(fontSize: 20.0),
                         ),
                         SizedBox(height: 20.0),
                         Container(
@@ -103,12 +103,12 @@ class ProjectDetailDesktop extends StatelessWidget {
                         SizedBox(height: 20.0),
                         Text(
                           project1_1_3,
-                          style: GoogleFonts.prompt(height: 2, fontSize: 17.0),
+                          style: GoogleFonts.kanit(height: 2, fontSize: 17.0),
                           textAlign: TextAlign.center,
                         ),
                         Text(
                           project1_1_4,
-                          style: GoogleFonts.prompt(height: 2, fontSize: 17.0),
+                          style: GoogleFonts.kanit(height: 2, fontSize: 17.0),
                           textAlign: TextAlign.center,
                         )
                       ],
@@ -168,14 +168,14 @@ class ProjectDetailDesktop extends StatelessWidget {
             ),
           ],
         ),
-        ProjectMap(),
+        ProjectNo1Map(),
         Column(
           //편의시설
           children: [
             SizedBox(height: 30.0),
             Text(
               project1_4_1,
-              style: GoogleFonts.prompt(
+              style: GoogleFonts.kanit(
                 fontSize: 23.0,
                 fontWeight: FontWeight.bold,
                 color: topBarTextColor,
@@ -195,15 +195,15 @@ class ProjectDetailDesktop extends StatelessWidget {
                       ),
                       Text(
                         project1_4_2,
-                        style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold, fontSize: 18.0),
+                        style: GoogleFonts.kanit(color: topBarTextColor, fontWeight: FontWeight.bold, fontSize: 18.0),
                       ),
                       Text(
                         project1_4_3,
-                        style: GoogleFonts.prompt(fontWeight: FontWeight.w500, fontSize: 16.0),
+                        style: GoogleFonts.kanit(fontWeight: FontWeight.w500, fontSize: 16.0),
                       ),
                       Text(
                         project1_4_4,
-                        style: GoogleFonts.prompt(fontWeight: FontWeight.w500, fontSize: 16.0),
+                        style: GoogleFonts.kanit(fontWeight: FontWeight.w500, fontSize: 16.0),
                       ),
                     ],
                   ),
@@ -215,15 +215,15 @@ class ProjectDetailDesktop extends StatelessWidget {
                       ),
                       Text(
                         project1_4_5,
-                        style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold, fontSize: 18.0),
+                        style: GoogleFonts.kanit(color: topBarTextColor, fontWeight: FontWeight.bold, fontSize: 18.0),
                       ),
                       Text(
                         project1_4_3,
-                        style: GoogleFonts.prompt(fontWeight: FontWeight.w500, fontSize: 16.0),
+                        style: GoogleFonts.kanit(fontWeight: FontWeight.w500, fontSize: 16.0),
                       ),
                       Text(
                         project1_4_4,
-                        style: GoogleFonts.prompt(fontWeight: FontWeight.w500, fontSize: 16.0),
+                        style: GoogleFonts.kanit(fontWeight: FontWeight.w500, fontSize: 16.0),
                       ),
                     ],
                   ),
@@ -235,15 +235,15 @@ class ProjectDetailDesktop extends StatelessWidget {
                       ),
                       Text(
                         project1_4_5,
-                        style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold, fontSize: 18.0),
+                        style: GoogleFonts.kanit(color: topBarTextColor, fontWeight: FontWeight.bold, fontSize: 18.0),
                       ),
                       Text(
                         proejct1_4_6,
-                        style: GoogleFonts.prompt(fontWeight: FontWeight.w500, fontSize: 16.0),
+                        style: GoogleFonts.kanit(fontWeight: FontWeight.w500, fontSize: 16.0),
                       ),
                       Text(
                         project1_4_7,
-                        style: GoogleFonts.prompt(fontWeight: FontWeight.w500, fontSize: 16.0),
+                        style: GoogleFonts.kanit(fontWeight: FontWeight.w500, fontSize: 16.0),
                       ),
                     ],
                   ),
@@ -251,7 +251,7 @@ class ProjectDetailDesktop extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20.0),
-            ProjectPageView()
+            ProjectNo1PageView()
           ],
         )
       ],
@@ -259,8 +259,8 @@ class ProjectDetailDesktop extends StatelessWidget {
   }
 }
 
-class ProjectDetailTab extends StatelessWidget {
-  const ProjectDetailTab({Key? key}) : super(key: key);
+class ProjectNo1DetailTab extends StatelessWidget {
+  const ProjectNo1DetailTab({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -290,12 +290,12 @@ class ProjectDetailTab extends StatelessWidget {
                       children: [
                         Text(
                           project1_1_1,
-                          style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 25.0, fontWeight: FontWeight.bold),
+                          style: GoogleFonts.kanit(color: topBarTextColor, fontSize: 25.0, fontWeight: FontWeight.bold),
                         ),
                         SizedBox(height: 20.0),
                         Text(
                           project1_1_2,
-                          style: GoogleFonts.prompt(fontSize: 20.0),
+                          style: GoogleFonts.kanit(fontSize: 20.0),
                           textAlign: TextAlign.center,
                         ),
                         SizedBox(height: 20.0),
@@ -307,12 +307,12 @@ class ProjectDetailTab extends StatelessWidget {
                         SizedBox(height: 20.0),
                         Text(
                           project1_1_3,
-                          style: GoogleFonts.prompt(height: DeviceSize.getWidth(context) > 670 ? 2 : 1.5, fontSize: DeviceSize.getWidth(context) > 670 ? 17.0 : 16.0),
+                          style: GoogleFonts.kanit(height: DeviceSize.getWidth(context) > 670 ? 2 : 1.5, fontSize: DeviceSize.getWidth(context) > 670 ? 17.0 : 16.0),
                           textAlign: TextAlign.center,
                         ),
                         Text(
                           project1_1_4,
-                          style: GoogleFonts.prompt(height: DeviceSize.getWidth(context) > 670 ? 2 : 1.5, fontSize: DeviceSize.getWidth(context) > 670 ? 17.0 : 16.0),
+                          style: GoogleFonts.kanit(height: DeviceSize.getWidth(context) > 670 ? 2 : 1.5, fontSize: DeviceSize.getWidth(context) > 670 ? 17.0 : 16.0),
                           textAlign: TextAlign.center,
                         )
                       ],
@@ -376,14 +376,14 @@ class ProjectDetailTab extends StatelessWidget {
             ),
           ],
         ),
-        ProjectMap(),
+        ProjectNo1Map(),
         Column(
           //편의시설
           children: [
             SizedBox(height: 30.0),
             Text(
               project1_4_1,
-              style: GoogleFonts.prompt(
+              style: GoogleFonts.kanit(
                 fontSize: 23.0,
                 fontWeight: FontWeight.bold,
                 color: topBarTextColor,
@@ -403,15 +403,15 @@ class ProjectDetailTab extends StatelessWidget {
                       ),
                       Text(
                         project1_4_2,
-                        style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold, fontSize: 18.0),
+                        style: GoogleFonts.kanit(color: topBarTextColor, fontWeight: FontWeight.bold, fontSize: 18.0),
                       ),
                       Text(
                         project1_4_3,
-                        style: GoogleFonts.prompt(fontWeight: FontWeight.w500, fontSize: 16.0),
+                        style: GoogleFonts.kanit(fontWeight: FontWeight.w500, fontSize: 16.0),
                       ),
                       Text(
                         project1_4_4,
-                        style: GoogleFonts.prompt(fontWeight: FontWeight.w500, fontSize: 16.0),
+                        style: GoogleFonts.kanit(fontWeight: FontWeight.w500, fontSize: 16.0),
                       ),
                     ],
                   ),
@@ -423,15 +423,15 @@ class ProjectDetailTab extends StatelessWidget {
                       ),
                       Text(
                         project1_4_5,
-                        style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold, fontSize: 18.0),
+                        style: GoogleFonts.kanit(color: topBarTextColor, fontWeight: FontWeight.bold, fontSize: 18.0),
                       ),
                       Text(
                         project1_4_3,
-                        style: GoogleFonts.prompt(fontWeight: FontWeight.w500, fontSize: 16.0),
+                        style: GoogleFonts.kanit(fontWeight: FontWeight.w500, fontSize: 16.0),
                       ),
                       Text(
                         project1_4_4,
-                        style: GoogleFonts.prompt(fontWeight: FontWeight.w500, fontSize: 16.0),
+                        style: GoogleFonts.kanit(fontWeight: FontWeight.w500, fontSize: 16.0),
                       ),
                     ],
                   ),
@@ -443,15 +443,15 @@ class ProjectDetailTab extends StatelessWidget {
                       ),
                       Text(
                         project1_4_5,
-                        style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold, fontSize: 18.0),
+                        style: GoogleFonts.kanit(color: topBarTextColor, fontWeight: FontWeight.bold, fontSize: 18.0),
                       ),
                       Text(
                         proejct1_4_6,
-                        style: GoogleFonts.prompt(fontWeight: FontWeight.w500, fontSize: 16.0),
+                        style: GoogleFonts.kanit(fontWeight: FontWeight.w500, fontSize: 16.0),
                       ),
                       Text(
                         project1_4_7,
-                        style: GoogleFonts.prompt(fontWeight: FontWeight.w500, fontSize: 16.0),
+                        style: GoogleFonts.kanit(fontWeight: FontWeight.w500, fontSize: 16.0),
                       ),
                     ],
                   ),
@@ -459,7 +459,7 @@ class ProjectDetailTab extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20.0),
-            ProjectPageView()
+            ProjectNo1PageView()
           ],
         )
       ],
@@ -467,8 +467,8 @@ class ProjectDetailTab extends StatelessWidget {
   }
 }
 
-class ProjectDetailMobile extends StatelessWidget {
-  const ProjectDetailMobile({Key? key}) : super(key: key);
+class ProjectNo1DetailMobile extends StatelessWidget {
+  const ProjectNo1DetailMobile({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -498,12 +498,12 @@ class ProjectDetailMobile extends StatelessWidget {
                       children: [
                         Text(
                           project1_1_1,
-                          style: GoogleFonts.prompt(color: topBarTextColor, fontSize: 16.0, fontWeight: FontWeight.bold),
+                          style: GoogleFonts.kanit(color: topBarTextColor, fontSize: 16.0, fontWeight: FontWeight.bold),
                         ),
                         SizedBox(height: 3.0),
                         Text(
                           project1_1_2,
-                          style: GoogleFonts.prompt(fontSize: 14.0, height: 1.1),
+                          style: GoogleFonts.kanit(fontSize: 14.0, height: 1.1),
                           textAlign: TextAlign.center,
                         ),
                         SizedBox(height: 5.0),
@@ -515,12 +515,12 @@ class ProjectDetailMobile extends StatelessWidget {
                         SizedBox(height: 5.0),
                         Text(
                           project1_1_3,
-                          style: GoogleFonts.prompt(height: 1.1, fontSize: DeviceSize.getWidth(context) > 335 ? 13.0 : 11.0),
+                          style: GoogleFonts.kanit(height: 1.1, fontSize: DeviceSize.getWidth(context) > 335 ? 13.0 : 11.0),
                           textAlign: TextAlign.center,
                         ),
                         Text(
                           project1_1_4,
-                          style: GoogleFonts.prompt(height: 1.1, fontSize: DeviceSize.getWidth(context) > 335 ? 13.0 : 11.0),
+                          style: GoogleFonts.kanit(height: 1.1, fontSize: DeviceSize.getWidth(context) > 335 ? 13.0 : 11.0),
                           textAlign: TextAlign.center,
                         )
                       ],
@@ -588,14 +588,14 @@ class ProjectDetailMobile extends StatelessWidget {
             ),
           ],
         ),
-        ProjectMap(),
+        ProjectNo1Map(),
         Column(
           //편의시설
           children: [
             SizedBox(height: 30.0),
             Text(
               project1_4_1,
-              style: GoogleFonts.prompt(
+              style: GoogleFonts.kanit(
                 fontSize: 20.0,
                 fontWeight: FontWeight.bold,
                 color: topBarTextColor,
@@ -615,15 +615,15 @@ class ProjectDetailMobile extends StatelessWidget {
                       ),
                       Text(
                         project1_4_2,
-                        style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold, fontSize: 18.0),
+                        style: GoogleFonts.kanit(color: topBarTextColor, fontWeight: FontWeight.bold, fontSize: 18.0),
                       ),
                       Text(
                         project1_4_3,
-                        style: GoogleFonts.prompt(fontWeight: FontWeight.w500, fontSize: 16.0),
+                        style: GoogleFonts.kanit(fontWeight: FontWeight.w500, fontSize: 16.0),
                       ),
                       Text(
                         project1_4_4,
-                        style: GoogleFonts.prompt(fontWeight: FontWeight.w500, fontSize: 16.0),
+                        style: GoogleFonts.kanit(fontWeight: FontWeight.w500, fontSize: 16.0),
                       ),
                     ],
                   ),
@@ -638,15 +638,15 @@ class ProjectDetailMobile extends StatelessWidget {
                       ),
                       Text(
                         project1_4_5,
-                        style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold, fontSize: 18.0),
+                        style: GoogleFonts.kanit(color: topBarTextColor, fontWeight: FontWeight.bold, fontSize: 18.0),
                       ),
                       Text(
                         project1_4_3,
-                        style: GoogleFonts.prompt(fontWeight: FontWeight.w500, fontSize: 16.0),
+                        style: GoogleFonts.kanit(fontWeight: FontWeight.w500, fontSize: 16.0),
                       ),
                       Text(
                         project1_4_4,
-                        style: GoogleFonts.prompt(fontWeight: FontWeight.w500, fontSize: 16.0),
+                        style: GoogleFonts.kanit(fontWeight: FontWeight.w500, fontSize: 16.0),
                       ),
                     ],
                   ),
@@ -661,15 +661,15 @@ class ProjectDetailMobile extends StatelessWidget {
                       ),
                       Text(
                         project1_4_5,
-                        style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold, fontSize: 18.0),
+                        style: GoogleFonts.kanit(color: topBarTextColor, fontWeight: FontWeight.bold, fontSize: 18.0),
                       ),
                       Text(
                         proejct1_4_6,
-                        style: GoogleFonts.prompt(fontWeight: FontWeight.w500, fontSize: 16.0),
+                        style: GoogleFonts.kanit(fontWeight: FontWeight.w500, fontSize: 16.0),
                       ),
                       Text(
                         project1_4_7,
-                        style: GoogleFonts.prompt(fontWeight: FontWeight.w500, fontSize: 16.0),
+                        style: GoogleFonts.kanit(fontWeight: FontWeight.w500, fontSize: 16.0),
                       ),
                     ],
                   ),
@@ -677,7 +677,7 @@ class ProjectDetailMobile extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20.0),
-            ProjectPageView()
+            ProjectNo1PageView()
           ],
         )
       ],
@@ -685,8 +685,8 @@ class ProjectDetailMobile extends StatelessWidget {
   }
 }
 
-class ProjectMap extends StatelessWidget {
-  const ProjectMap({super.key});
+class ProjectNo1Map extends StatelessWidget {
+  const ProjectNo1Map({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -695,7 +695,7 @@ class ProjectMap extends StatelessWidget {
         SizedBox(height: 40),
         Text(
           project1_map_text,
-          style: GoogleFonts.prompt(
+          style: GoogleFonts.kanit(
             fontSize: 23.0,
             fontWeight: FontWeight.bold,
             color: topBarTextColor,
@@ -711,13 +711,13 @@ class ProjectMap extends StatelessWidget {
             height: isDesktop(context)
                 ? DeviceSize.getWidth(context) * 0.4
                 : isTab(context)
-                    ? DeviceSize.getWidth(context) * 0.55
-                    : DeviceSize.getWidth(context) * 0.75,
+                ? DeviceSize.getWidth(context) * 0.55
+                : DeviceSize.getWidth(context) * 0.75,
             width: isDesktop(context)
                 ? DeviceSize.getWidth(context) * 0.4
                 : isTab(context)
-                    ? DeviceSize.getWidth(context) * 0.55
-                    : DeviceSize.getWidth(context) * 0.75,
+                ? DeviceSize.getWidth(context) * 0.55
+                : DeviceSize.getWidth(context) * 0.75,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(15.0),
               // child: Shimmer.fromColors(
@@ -750,14 +750,14 @@ class ProjectMap extends StatelessWidget {
   }
 }
 
-class ProjectPageView extends StatefulWidget {
-  const ProjectPageView({Key? key}) : super(key: key);
+class ProjectNo1PageView extends StatefulWidget {
+  const ProjectNo1PageView({Key? key}) : super(key: key);
 
   @override
-  State<ProjectPageView> createState() => _ProjectPageViewState();
+  State<ProjectNo1PageView> createState() => _ProjectNo1PageViewState();
 }
 
-class _ProjectPageViewState extends State<ProjectPageView> {
+class _ProjectNo1PageViewState extends State<ProjectNo1PageView> {
   final PageController _pageController = PageController();
   int _currentPage = 1;
   String pages = '1/10';
@@ -785,7 +785,7 @@ class _ProjectPageViewState extends State<ProjectPageView> {
         SizedBox(height: 20.0),
         Text(
           project1_pageview,
-          style: GoogleFonts.prompt(color: topBarTextColor, fontWeight: FontWeight.bold, fontSize: 18.0),
+          style: GoogleFonts.kanit(color: topBarTextColor, fontWeight: FontWeight.bold, fontSize: 18.0),
         ),
         SizedBox(height: 20.0),
         Row(
@@ -859,7 +859,7 @@ class _ProjectPageViewState extends State<ProjectPageView> {
                       padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 3.0),
                       child: Text(
                         pages,
-                        style: GoogleFonts.prompt(color: whiteColor),
+                        style: GoogleFonts.kanit(color: whiteColor),
                       ),
                     ),
                   ),
@@ -891,14 +891,14 @@ class _ProjectPageViewState extends State<ProjectPageView> {
   }
 }
 
-class Project1Video extends StatefulWidget {
-  const Project1Video({super.key});
+class ProjectNo1Video extends StatefulWidget {
+  const ProjectNo1Video({super.key});
 
   @override
-  State<Project1Video> createState() => _Project1VideoState();
+  State<ProjectNo1Video> createState() => _ProjectNo1VideoState();
 }
 
-class _Project1VideoState extends State<Project1Video> {
+class _ProjectNo1VideoState extends State<ProjectNo1Video> {
   late CustomVideoPlayerWebController _customVideoPlayerWebController;
   final CustomVideoPlayerWebSettings _customVideoPlayerWebSettings = CustomVideoPlayerWebSettings(src: project1_video_url);
 
@@ -917,8 +917,8 @@ class _Project1VideoState extends State<Project1Video> {
           isDesktop(context)
               ? 50
               : isTab(context)
-                  ? 40
-                  : 30,
+              ? 40
+              : 30,
           0,
           0),
       child: Center(

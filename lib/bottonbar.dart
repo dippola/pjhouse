@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pjhouse/style.dart';
-import 'package:pjhouse/text.dart';
+import 'package:pjhouse/strings.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:clipboard/clipboard.dart';
@@ -164,8 +164,8 @@ class AboutDetail2 extends StatelessWidget {
           }
         }),
         AboutDetailButton(text: text_project, click: () {
-          if (ModalRoute.of(context)!.settings.name != '/projects') {
-            Navigator.pushNamed(context, '/projects');
+          if (ModalRoute.of(context)!.settings.name != '/project/no1') {
+            Navigator.pushNamed(context, '/project/no1');
           }
         }),
         AboutDetailButton(text: text_message, click: () {
@@ -194,8 +194,8 @@ class AboutDetail3 extends StatelessWidget {
           ),
         ),
         AboutDetailButton(text: text_saraburi_project, click: () {
-          if (ModalRoute.of(context)!.settings.name != '/projects') {
-            Navigator.pushNamed(context, '/projects');
+          if (ModalRoute.of(context)!.settings.name != '/project/no1') {
+            Navigator.pushNamed(context, '/project/no1');
           }
         }),
       ],
@@ -234,7 +234,7 @@ class BottomLicense extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 30.0),
       child: Center(
-        child: Text(license, style: GoogleFonts.prompt(fontSize: 13.0)),
+        child: Text(license, style: GoogleFonts.kanit(fontSize: 13.0)),
       ),
     );
   }
