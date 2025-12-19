@@ -290,7 +290,7 @@ class ProjectsPageBody extends StatelessWidget {
           'assets/images/no2/no2main.jpg',
           pj2_saraburi_project,
           "หนองจักร อำเภอเมืองสระบุรี",
-          pj1_livingroom + " | " + pj1_kitchen + " | " + pj1_bedroom + "\n" + pj1_toilet + " | " + pj1_parkcar + " | " + pj1_yard,
+          pj2_livingroom + " | " + pj2_kitchen + " | " + pj2_bedroom + "\n" + pj2_toilet + " | " + pj2_parkcar + " | " + pj2_yard,
           false,
           'preparing'),
       isDesktop(context)
