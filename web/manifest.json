@@ -1,6 +1,6 @@
 {
-    "name": "pjhouse",
-    "short_name": "pjhouse",
+    "name": "PJ House บ้านเดี่ยวสระบุรี",
+    "short_name": "PJ House",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
