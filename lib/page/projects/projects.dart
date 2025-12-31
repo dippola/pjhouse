@@ -292,7 +292,8 @@ class ProjectsPageBody extends StatelessWidget {
           "หนองจักร อำเภอเมืองสระบุรี",
           pj2_livingroom + " | " + pj2_kitchen + " | " + pj2_bedroom + "\n" + pj2_toilet + " | " + pj2_parkcar + " | " + pj2_yard,
           false,
-          'preparing'),
+          // 'preparing'),
+          '/project/no2'),
       isDesktop(context)
           ? SizedBox(width: 30.0)
           : isTab(context)

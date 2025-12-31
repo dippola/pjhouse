@@ -125,7 +125,7 @@ var about_project_box2 = 'ขับรถ 5 นาทีถึงถนนให
 var about_project_box3 = 'อยู่ใกล้บริษัทนมเมจิ';
 var about_project_box4 = 'เพียง 8 กม. ถึงตัวเมืองสระบุรี';
 
-//project
+//project no.1
 var project1_1_1 = 'สระบุรี @ บ้านในบรรยากาศชนบท';
 var project1_1_2 = 'หากคุณกำลังมองหาบ้านที่มีวิวสวย อยู่ใกล้เมือง พีเจ เฮ้าส์ คือคำตอบ';
 var project1_1_3 = 'เดินทางสะดวก ใกล้ร้านสะดวกซื้อ ตลาด และตัวเมือง';
@@ -139,6 +139,21 @@ var proejct1_4_6 = 'ระยะทาง 8 กม.';
 var project1_4_7 = 'ใช้เวลา 10 นาที';
 var project1_pageview = 'แกลเลอรีรูปภาพ';
 var project1_map_text = 'แผนที่โครงการ';
+
+//project no.2
+var project2_1_1 = 'สระบุรี @ บ้านในบรรยากาศชนบท';
+var project2_1_2 = 'หากคุณกำลังมองหาบ้านที่มีวิวสวย อยู่ใกล้เมือง พีเจ เฮ้าส์ คือคำตอบ';
+var project2_1_3 = 'เดินทางสะดวก ใกล้ร้านสะดวกซื้อ ตลาด และตัวเมือง';
+var project2_1_4 = 'มีรั้วรอบบ้านทุกด้าน เพื่อความเป็นส่วนตัวและปลอดภัย';
+var project2_4_1 = 'สิ่งอำนวยความสะดวก';
+var project2_4_2 = 'ร้านสะดวกซื้อ 7/11';
+var project2_4_3 = 'ระยะทาง 5 กม.';
+var project2_4_4 = 'ใช้เวลา 5 นาที';
+var project2_4_5 = 'ตลาดสด';
+var proejct2_4_6 = 'ระยะทาง 8 กม.';
+var project2_4_7 = 'ใช้เวลา 10 นาที';
+var project2_pageview = 'แกลเลอรีรูปภาพ';
+var project2_map_text = 'แผนที่โครงการ';
 
 //contact
 var contact1_1 = 'กรอกข้อมูลติดต่อของคุณ';
@@ -217,3 +232,17 @@ var project1_pageview7 = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb
 var project1_pageview8 = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj1%2Fpageview08.jpg?alt=media&token=f2965561-3330-4686-95fa-daaa417b436d';
 var project1_pageview9 = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj1%2Fpageview09.jpg?alt=media&token=0e0dbba1-4335-497b-865f-c24bfd915fda';
 var project1_pageview10 = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj1%2Fpageview10.jpg?alt=media&token=d92e6083-9cb6-403e-8704-4b0a284a00a1';
+
+var project2_top1 = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj2%2Fpj2top.jpg?alt=media&token=0c3bd086-2260-4a76-824b-561d75420ff7';
+var project2_video_url = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj2%2Fpj2web%20video.mp4?alt=media&token=b8c78f86-9edb-4bdf-9877-51e002449b5c';
+var project2_map = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj2%2Fmap.png?alt=media&token=89bca118-788c-42e9-9de0-f09a0107be02';
+var project2_1pic = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj2%2F1pic.png?alt=media&token=04ef8a19-1ba9-4a02-9667-d3c4c6b67817';
+var project2_2pic = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj2%2F2pic.jpg?alt=media&token=a0715e38-1867-4815-9f2b-b6831c25ecb2';
+var project2_3pic = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj2%2F3pic.jpg?alt=media&token=55f66387-d69c-43f1-be59-cfa9988b1d6d';
+var project2_4pic = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj2%2F4pic.png?alt=media&token=b902794f-733e-4102-b995-2f6e34fa24cb';
+var project2_pageview1 = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj2%2Fpageview01.jpg?alt=media&token=e7a622b5-e03f-48df-a4ae-006a1e0ac009';
+var project2_pageview2 = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj2%2Fpageview02.jpg?alt=media&token=58ea28d9-2aa2-4781-8916-80af2f4b44e0';
+var project2_pageview3 = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj2%2Fpageview03.JPG?alt=media&token=c2164ea6-776b-470d-b656-ad7cb5e9eaa9';
+var project2_pageview4 = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj2%2Fpageview04.JPG?alt=media&token=062354fb-ddb9-4aa5-a3dd-43d81f43a4a7';
+var project2_pageview5 = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj2%2Fpageview05.jpg?alt=media&token=d1b47305-3330-4146-9754-80c1b985acdf';
+var project2_pageview6 = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj2%2Fpageview06.jpg?alt=media&token=aac20913-4367-4c4e-beff-bf9efff84313';
