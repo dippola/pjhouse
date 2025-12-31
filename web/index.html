@@ -50,17 +50,12 @@
     <title>PJ House บ้านเดี่ยวสระบุรี</title>
     <link rel="manifest" href="manifest.json">
 
-    <script>
-    // The value below is injected by flutter build, do not touch.
-    var serviceWorkerVersion = null;
-
-    </script>
     <!-- This script adds the flutter initialization JS code -->
     <script src="flutter.js" defer></script>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <div class="lds-roller">
+    <div id="loading-indicator" class="lds-roller">
         <div></div>
         <div></div>
         <div></div>
@@ -71,19 +66,35 @@
         <div></div>
     </div>
     <script>
-        window.addEventListener('load', function(ev) {
-          // Download main.dart.js
-          _flutter.loader.loadEntrypoint({
-            serviceWorker: {
-              serviceWorkerVersion: serviceWorkerVersion,
-            }
-          }).then(function(engineInitializer) {
-            return engineInitializer.initializeEngine();
-          }).then(function(appRunner) {
-            return appRunner.runApp();
-          });
-        });
+        // 1. Flutter 빌드 엔진이 이 자리에 설정 정보를 자동으로 주입합니다.
+        // 이 토큰이 없으면 "buildConfig to be set" 에러가 발생합니다.
+        {{flutter_build_config}}
 
+        window.addEventListener('load', function(ev) {
+            console.log("1. 페이지 로드 완료");
+
+            _flutter.loader.load({
+                serviceWorkerSettings: {
+                    serviceWorkerVersion: "{{flutter_service_worker_version}}",
+                },
+                onEntrypointLoaded: function(engineInitializer) {
+                    console.log("2. 엔트리포인트 로드 완료");
+
+                    engineInitializer.initializeEngine().then(function(appRunner) {
+                        console.log("3. 엔진 초기화 성공");
+                        return appRunner.runApp();
+                    }).then(function() {
+                        console.log("4. 앱 실행 완료 - 로딩창 제거");
+                        const loader = document.getElementById('loading-indicator');
+                        if (loader) {
+                            loader.remove();
+                        }
+                    }).catch(function(e) {
+                        console.error("실행 중 에러 발생:", e);
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>

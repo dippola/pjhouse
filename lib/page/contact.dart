@@ -1,4 +1,4 @@
-import 'dart:js';
+import 'dart:js_interop';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';

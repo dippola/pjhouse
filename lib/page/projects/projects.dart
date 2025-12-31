@@ -1,14 +1,7 @@
-import 'dart:js';
-import 'dart:ui_web';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pjhouse/page/project_img_dialog.dart';
-import 'package:appinio_video_player/appinio_video_player.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:shimmer/shimmer.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
 
 import '../../bottonbar.dart';
@@ -16,7 +9,6 @@ import '../../navItem.dart';
 import '../../style.dart';
 import '../../strings.dart';
 import '../../topbar.dart';
-import '../home.dart';
 
 class ProjectsPage extends StatelessWidget {
   const ProjectsPage({super.key});

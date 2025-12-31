@@ -1,13 +1,15 @@
-import 'dart:js';
+import 'dart:js_interop';
 import 'dart:ui_web';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pjhouse/page/project_img_dialog.dart';
-import 'package:appinio_video_player/appinio_video_player.dart';
+import 'package:chewie/chewie.dart';
+import 'package:video_player/video_player.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../bottonbar.dart';
 import '../../navItem.dart';
@@ -44,8 +46,8 @@ class ProjectNo1Page extends StatelessWidget {
               isDesktop(context)
                   ? ProjectNo1DetailDesktop()
                   : isTab(context)
-                  ? ProjectNo1DetailTab()
-                  : ProjectNo1DetailMobile(),
+                      ? ProjectNo1DetailTab()
+                      : ProjectNo1DetailMobile(),
               ProjectNo1Video(),
               BottomBar()
             ],
@@ -73,7 +75,7 @@ class ProjectNo1DetailDesktop extends StatelessWidget {
                 child: CachedNetworkImage(
                   fit: BoxFit.fill,
                   imageUrl: project1_top1,
-                  placeholder: (context, url)=>Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
+                  placeholder: (context, url) => Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
                 ),
               ),
               Center(
@@ -276,7 +278,7 @@ class ProjectNo1DetailTab extends StatelessWidget {
                 child: CachedNetworkImage(
                   fit: BoxFit.fill,
                   imageUrl: project1_top1,
-                  placeholder: (context, url)=>Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
+                  placeholder: (context, url) => Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
                 ),
               ),
               Center(
@@ -484,7 +486,7 @@ class ProjectNo1DetailMobile extends StatelessWidget {
                 child: CachedNetworkImage(
                   fit: BoxFit.fill,
                   imageUrl: project1_top1,
-                  placeholder: (context, url)=>Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
+                  placeholder: (context, url) => Shimmer.fromColors(child: Container(color: Colors.grey), baseColor: Colors.grey, highlightColor: Colors.white),
                 ),
               ),
               Center(
@@ -711,13 +713,13 @@ class ProjectNo1Map extends StatelessWidget {
             height: isDesktop(context)
                 ? DeviceSize.getWidth(context) * 0.4
                 : isTab(context)
-                ? DeviceSize.getWidth(context) * 0.55
-                : DeviceSize.getWidth(context) * 0.75,
+                    ? DeviceSize.getWidth(context) * 0.55
+                    : DeviceSize.getWidth(context) * 0.75,
             width: isDesktop(context)
                 ? DeviceSize.getWidth(context) * 0.4
                 : isTab(context)
-                ? DeviceSize.getWidth(context) * 0.55
-                : DeviceSize.getWidth(context) * 0.75,
+                    ? DeviceSize.getWidth(context) * 0.55
+                    : DeviceSize.getWidth(context) * 0.75,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(15.0),
               // child: Shimmer.fromColors(
@@ -899,14 +901,41 @@ class ProjectNo1Video extends StatefulWidget {
 }
 
 class _ProjectNo1VideoState extends State<ProjectNo1Video> {
-  late CustomVideoPlayerWebController _customVideoPlayerWebController;
-  final CustomVideoPlayerWebSettings _customVideoPlayerWebSettings = CustomVideoPlayerWebSettings(src: project1_video_url);
+  late VideoPlayerController _videoPlayerController;
+  ChewieController? _chewieController;
 
   @override
   void initState() {
     super.initState();
+    initializePlayer();
+  }
 
-    _customVideoPlayerWebController = CustomVideoPlayerWebController(webVideoPlayerSettings: _customVideoPlayerWebSettings);
+  Future<void> initializePlayer() async {
+    // 1. 영상 소스 설정 (네트워크 경로)
+    _videoPlayerController = VideoPlayerController.networkUrl(Uri.parse(project1_video_url));
+
+    await _videoPlayerController.initialize();
+
+    // 2. Chewie 설정 (여기서 컨트롤 바 기능을 제어합니다)
+    _chewieController = ChewieController(
+      videoPlayerController: _videoPlayerController,
+      aspectRatio: _videoPlayerController.value.aspectRatio,
+      // 영상 비율에 맞게 조절
+      autoPlay: false,
+      // 자동 재생 여부
+      looping: false,
+      // 반복 재생 여부
+
+      showControls: true,
+      // 하단 컨트롤 바 보이기 (재생, 일시정지, 구간이동 포함)
+      allowFullScreen: true,
+      // 전체화면 버튼 허용
+      allowPlaybackSpeedChanging: false,
+      // 재생 속도 조절 (필요 없으시면 false)
+      allowMuting: true, // 음소거 버튼 허용
+    );
+
+    setState(() {});
   }
 
   @override
@@ -917,8 +946,8 @@ class _ProjectNo1VideoState extends State<ProjectNo1Video> {
           isDesktop(context)
               ? 50
               : isTab(context)
-              ? 40
-              : 30,
+                  ? 40
+                  : 30,
           0,
           0),
       child: Center(
@@ -927,11 +956,26 @@ class _ProjectNo1VideoState extends State<ProjectNo1Video> {
           constraints: BoxConstraints(
               maxHeight: !isMobile(context) ? DeviceSize.getHeight(context) * 0.8 : (DeviceSize.getWidth(context) * 0.9) * 1.25,
               maxWidth: !isMobile(context) ? DeviceSize.getHeight(context) * 0.8 * 0.8 : DeviceSize.getWidth(context) * 0.9),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(15.0),
-            child: CupertinoPageScaffold(
-              child: SafeArea(
-                child: CustomVideoPlayerWeb(customVideoPlayerWebController: _customVideoPlayerWebController),
+          child: VisibilityDetector(
+            key: const Key('project-video-key'),
+            onVisibilityChanged: (visibilityInfo) {
+              var visiblePercentage = visibilityInfo.visibleFraction * 100;
+              // 화면에서 위젯이 0% 보이면 (즉, 완전히 가려지거나 이동하면) 영상 정지
+              if (visiblePercentage == 0) {
+                _videoPlayerController.pause();
+              }
+            },
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(15.0),
+              child: CupertinoPageScaffold(
+                child: SafeArea(
+                  child: _chewieController != null && _chewieController!.videoPlayerController.value.isInitialized
+                      ? AspectRatio(
+                          aspectRatio: _videoPlayerController.value.aspectRatio,
+                          child: Chewie(controller: _chewieController!),
+                        )
+                      : const CircularProgressIndicator(),
+                ),
               ),
             ),
           ),
@@ -942,6 +986,64 @@ class _ProjectNo1VideoState extends State<ProjectNo1Video> {
 
   @override
   void dispose() {
+    // 메모리 누수 방지를 위해 반드시 dispose 해줘야 합니다.
+    _videoPlayerController.dispose();
+    _chewieController?.dispose();
     super.dispose();
   }
 }
+
+// class ProjectNo1Video extends StatefulWidget {
+//   const ProjectNo1Video({super.key});
+//
+//   @override
+//   State<ProjectNo1Video> createState() => _ProjectNo1VideoState();
+// }
+//
+// class _ProjectNo1VideoState extends State<ProjectNo1Video> {
+//   late CustomVideoPlayerWebController _customVideoPlayerWebController;
+//   final CustomVideoPlayerWebSettings _customVideoPlayerWebSettings = CustomVideoPlayerWebSettings(src: project1_video_url);
+//
+//   @override
+//   void initState() {
+//     super.initState();
+//
+//     _customVideoPlayerWebController = CustomVideoPlayerWebController(webVideoPlayerSettings: _customVideoPlayerWebSettings);
+//   }
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Padding(
+//       padding: EdgeInsets.fromLTRB(
+//           0,
+//           isDesktop(context)
+//               ? 50
+//               : isTab(context)
+//               ? 40
+//               : 30,
+//           0,
+//           0),
+//       child: Center(
+//         child: Container(
+//           decoration: BoxDecoration(borderRadius: BorderRadius.circular(15.0), boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.2), spreadRadius: 5, blurRadius: 5, offset: Offset(3, 3))]),
+//           constraints: BoxConstraints(
+//               maxHeight: !isMobile(context) ? DeviceSize.getHeight(context) * 0.8 : (DeviceSize.getWidth(context) * 0.9) * 1.25,
+//               maxWidth: !isMobile(context) ? DeviceSize.getHeight(context) * 0.8 * 0.8 : DeviceSize.getWidth(context) * 0.9),
+//           child: ClipRRect(
+//             borderRadius: BorderRadius.circular(15.0),
+//             child: CupertinoPageScaffold(
+//               child: SafeArea(
+//                 child: CustomVideoPlayerWeb(customVideoPlayerWebController: _customVideoPlayerWebController),
+//               ),
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+//
+//   @override
+//   void dispose() {
+//     super.dispose();
+//   }
+// }
