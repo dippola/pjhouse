@@ -22,8 +22,14 @@
           },
           {
             "key": "Cross-Origin-Embedder-Policy",
-            "value": "credentialless"
+            "value": "require-corp"
           }
+        ]
+      },
+      {
+        "source": "/videos/**",
+        "headers": [
+          { "key": "Cross-Origin-Resource-Policy", "value": "cross-origin" }
         ]
       }
     ]

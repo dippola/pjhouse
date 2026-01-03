@@ -216,7 +216,7 @@ var text_saraburi_project = 'โครงการสระบุรี';
 var license = 'All content © PJ House 2023 • All rights reserved';
 
 var project1_top1 = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj1%2Fproject1_top1.jpg?alt=media&token=d18c4edd-f703-4915-9ba8-d725977a8667';
-var project1_video_url = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj1%2Fv2%20%ED%86%A4%EB%B3%80%EA%B2%BD.mp4?alt=media&token=cd916bd2-162f-46d6-9c50-8747f75f67c7';
+var project1_video_url = '/videos/pj1video.mp4';
 var project1_map = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj1%2Fmap2project%20result.png?alt=media&token=b6c62d4d-b35b-4d87-be10-d4bec96b198e';
 var project1_1pic = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj1%2F1pic.png?alt=media&token=40f56e41-7eb4-4615-ad8c-47e29aef0cfa';
 var project1_2pic = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj1%2F2pic.jpg?alt=media&token=f8775434-8d75-4d3b-9c9e-a26e6fe0c2db';
@@ -234,7 +234,7 @@ var project1_pageview9 = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb
 var project1_pageview10 = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj1%2Fpageview10.jpg?alt=media&token=d92e6083-9cb6-403e-8704-4b0a284a00a1';
 
 var project2_top1 = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj2%2Fpj2top.jpg?alt=media&token=0c3bd086-2260-4a76-824b-561d75420ff7';
-var project2_video_url = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj2%2Fpj2web%20video.mp4?alt=media&token=b8c78f86-9edb-4bdf-9877-51e002449b5c';
+var project2_video_url = '/videos/pj2video.mp4';
 var project2_map = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj2%2Fmap.png?alt=media&token=89bca118-788c-42e9-9de0-f09a0107be02';
 var project2_1pic = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj2%2F1pic.png?alt=media&token=04ef8a19-1ba9-4a02-9667-d3c4c6b67817';
 var project2_2pic = 'https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/pj2%2F2pic.jpg?alt=media&token=a0715e38-1867-4815-9f2b-b6831c25ecb2';

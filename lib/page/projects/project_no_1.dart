@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:js_interop';
 import 'dart:ui_web';
 
@@ -5,7 +6,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pjhouse/page/project_img_dialog.dart';
-import 'package:chewie/chewie.dart';
 import 'package:video_player/video_player.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:shimmer/shimmer.dart';
@@ -17,6 +17,25 @@ import '../../style.dart';
 import '../../strings.dart';
 import '../../topbar.dart';
 import '../home.dart';
+
+@JS('document')
+external JSObject get doc;
+
+extension DocumentExtension on JSObject {
+  @JS('documentElement')
+  external JSObject get documentElement;
+
+  @JS('fullscreenElement')
+  external JSObject? get fullscreenElement;
+
+  @JS('exitFullscreen')
+  external void exitFullscreen();
+}
+
+extension ElementExtension on JSObject {
+  @JS('requestFullscreen')
+  external void requestFullscreen();
+}
 
 bool back1 = false;
 bool pic1 = false;
@@ -901,45 +920,197 @@ class ProjectNo1Video extends StatefulWidget {
 }
 
 class _ProjectNo1VideoState extends State<ProjectNo1Video> {
-  late VideoPlayerController _videoPlayerController;
-  ChewieController? _chewieController;
+  late VideoPlayerController _controller;
+  bool _showControls = true;
+  bool _isDragging = false; // ⭐ 식바 드래그 상태 확인용
+  double _dragValue = 0.0; // ⭐ 드래그 중인 임시 값
+  Timer? _hideTimer;
+  bool isFullScreen = false;
+  bool _isInitializedOnce = false;
+
+  // ⭐ 전체화면 종료 후 영상 투명화 방지를 위한 키
+  Key _videoPlayerKey = UniqueKey();
 
   @override
   void initState() {
     super.initState();
-    initializePlayer();
+    _controller = VideoPlayerController.networkUrl(
+      Uri.parse(project1_video_url),
+      videoPlayerOptions: VideoPlayerOptions(mixWithOthers: true), // 웹 브라우저 호환성 향상
+    )..initialize().then((_) {
+      if (mounted) {
+        setState(() {
+          _isInitializedOnce = true;
+        });
+      }
+    });
+    _controller.addListener(_videoListener);
   }
 
-  Future<void> initializePlayer() async {
-    // 1. 영상 소스 설정 (네트워크 경로)
-    _videoPlayerController = VideoPlayerController.networkUrl(Uri.parse(project1_video_url));
+  void _videoListener() {
+    if (_isDragging || !mounted) return;
 
-    await _videoPlayerController.initialize();
+    final pos = _controller.value.position;
+    final dur = _controller.value.duration;
 
-    // 2. Chewie 설정 (여기서 컨트롤 바 기능을 제어합니다)
-    _chewieController = ChewieController(
-      videoPlayerController: _videoPlayerController,
-      aspectRatio: _videoPlayerController.value.aspectRatio,
-      // 영상 비율에 맞게 조절
-      autoPlay: false,
-      // 자동 재생 여부
-      looping: false,
-      // 반복 재생 여부
+    // 엔진이 아직 유효한 위치를 찾지 못했을 때(0초이면서 초기화 직후인 상황) 업데이트 차단
+    if (pos == Duration.zero && !_controller.value.isPlaying) {
+      return;
+    }
 
-      showControls: true,
-      // 하단 컨트롤 바 보이기 (재생, 일시정지, 구간이동 포함)
-      allowFullScreen: true,
-      // 전체화면 버튼 허용
-      allowPlaybackSpeedChanging: false,
-      // 재생 속도 조절 (필요 없으시면 false)
-      allowMuting: true, // 음소거 버튼 허용
-    );
+    // 영상의 끝에 도달했을 때 0으로 튕기는 현상 방지
+    if (pos >= dur && dur != Duration.zero) return;
 
     setState(() {});
   }
 
+  void _startHideTimer() {
+    _hideTimer?.cancel();
+    if (!_controller.value.isPlaying) return;
+    _hideTimer = Timer(const Duration(seconds: 3), () {
+      if (mounted) setState(() => _showControls = false);
+    });
+  }
+
+  void _togglePlay() {
+    setState(() {
+      _controller.value.isPlaying ? _controller.pause() : _controller.play();
+      _startHideTimer();
+    });
+  }
+
+// ⭐ 최종 수정 1: 위치 저장 및 복구 로직 추가
+  void _toggleFullScreen(double maxDuration, double currentPos) {
+    // 1. 브라우저 전체화면 요청
+    try {
+      if (doc.fullscreenElement == null) {
+        // ⭐ 수정된 부분: 브라우저 fullscreen만 사용
+        doc.documentElement.requestFullscreen();
+      } else {
+        doc.exitFullscreen();
+      }
+    } catch (_) {}
+    isFullScreen = true;
+    // 2. 플러터 페이지 이동
+    Navigator.of(context)
+        .push(
+      MaterialPageRoute(
+        builder: (context) => Scaffold(
+          backgroundColor: Colors.black,
+          body: Center(
+            child: AspectRatio(
+              aspectRatio: _controller.value.aspectRatio,
+              // child: VideoPlayer(_controller),
+              child: Stack(
+                children: [
+                  Positioned.fill(
+                    child: FittedBox(
+                      fit: BoxFit.cover,
+                      clipBehavior: Clip.hardEdge,
+                      child: SizedBox(
+                        width: _controller.value.size.width,
+                        height: _controller.value.size.height,
+                        child: VideoPlayer(
+                          _controller,
+                          key: _videoPlayerKey, // ⭐ 투명화 방지 키 적용
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  // 2. 터치 및 컨트롤 레이어
+                  Positioned.fill(
+                    child: GestureDetector(
+                      behavior: HitTestBehavior.opaque,
+                      onTap: () => setState(() {
+                        _showControls = !_showControls;
+                        if (_showControls) _startHideTimer();
+                      }),
+                      child: AnimatedOpacity(
+                        opacity: _showControls ? 1.0 : 0.0,
+                        duration: const Duration(milliseconds: 300),
+                        child: Stack(
+                          children: [
+                            Center(
+                              child: IconButton(
+                                icon: Icon(_controller.value.isPlaying ? Icons.pause : Icons.play_arrow, size: 60, color: Colors.white),
+                                onPressed: _togglePlay,
+                              ),
+                            ),
+                            Positioned(
+                              bottom: 0,
+                              left: 0,
+                              right: 0,
+                              child: _buildControlBar(currentPos, maxDuration),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    )
+        .then(
+      (_) async {
+        // 3. 돌아왔을 때 처리
+        try {
+          if (doc.fullscreenElement != null) {
+            doc.exitFullscreen();
+          }
+        } catch (_) {}
+
+        // [중요] 현재 재생 상태와 위치를 미리 저장해둡니다.
+        final wasPlaying = _controller.value.isPlaying;
+        final savedPosition = _controller.value.position;
+
+        // 브라우저 애니메이션 대기
+        await Future.delayed(const Duration(milliseconds: 500));
+
+        if (mounted) {
+          setState(() {
+            // 키 교체 (이때 비디오가 리셋됨)
+            _videoPlayerKey = UniqueKey();
+          });
+        }
+
+        // [중요] 키 교체 후 비디오가 다시 로드될 시간을 살짝 기다린 뒤 위치 복구
+        await Future.delayed(const Duration(milliseconds: 100));
+
+        await _controller.seekTo(savedPosition); // 저장된 위치로 이동
+        if (wasPlaying) {
+          await _controller.play(); // 재생 중이었다면 다시 재생
+        }
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    // 1. 컨트롤러가 초기화되지 않았을 때의 처리 (중요: size 값을 가져오기 위함)
+    if (!_controller.value.isInitialized) {
+      return const Center(child: CircularProgressIndicator());
+    }
+
+// ⭐ 해결책 A: duration이 0으로 잡히는 초기 로딩 오류 방지
+    final double durationInMs = _controller.value.duration.inMilliseconds.toDouble();
+    final double maxDuration = durationInMs > 0 ? durationInMs : 1.0;
+
+    // ⭐ 해결책 B: 드래그 중엔 임시값, 아닐 땐 실제 위치를 사용하되 전체 길이를 넘지 않게 고정
+    double currentPos;
+    if (_isDragging) {
+      currentPos = _dragValue;
+    } else {
+      // 초기화 전이면 0, 초기화 후면 실제 위치 사용
+      currentPos = _controller.value.isInitialized
+          ? _controller.value.position.inMilliseconds.toDouble()
+          : 0.0;
+    }
+
     return Padding(
       padding: EdgeInsets.fromLTRB(
           0,
@@ -952,29 +1123,90 @@ class _ProjectNo1VideoState extends State<ProjectNo1Video> {
           0),
       child: Center(
         child: Container(
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(15.0), boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.2), spreadRadius: 5, blurRadius: 5, offset: Offset(3, 3))]),
+          // 컨테이너 장식
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15.0),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.2),
+                spreadRadius: 5,
+                blurRadius: 5,
+                offset: const Offset(3, 3),
+              )
+            ],
+          ),
+          // 컨테이너 제약 조건 (4:5 비율 유지를 위한 설정)
           constraints: BoxConstraints(
-              maxHeight: !isMobile(context) ? DeviceSize.getHeight(context) * 0.8 : (DeviceSize.getWidth(context) * 0.9) * 1.25,
-              maxWidth: !isMobile(context) ? DeviceSize.getHeight(context) * 0.8 * 0.8 : DeviceSize.getWidth(context) * 0.9),
+            maxHeight: !isMobile(context) ? DeviceSize.getHeight(context) * 0.8 : (DeviceSize.getWidth(context) * 0.9) * 1.25,
+            maxWidth: !isMobile(context) ? DeviceSize.getHeight(context) * 0.8 * 0.8 : DeviceSize.getWidth(context) * 0.9,
+          ),
           child: VisibilityDetector(
             key: const Key('project-video-key'),
             onVisibilityChanged: (visibilityInfo) {
-              var visiblePercentage = visibilityInfo.visibleFraction * 100;
-              // 화면에서 위젯이 0% 보이면 (즉, 완전히 가려지거나 이동하면) 영상 정지
-              if (visiblePercentage == 0) {
-                _videoPlayerController.pause();
+              if (visibilityInfo.visibleFraction == 0) {
+                _controller.pause();
               }
             },
             child: ClipRRect(
               borderRadius: BorderRadius.circular(15.0),
-              child: CupertinoPageScaffold(
-                child: SafeArea(
-                  child: _chewieController != null && _chewieController!.videoPlayerController.value.isInitialized
-                      ? AspectRatio(
-                          aspectRatio: _videoPlayerController.value.aspectRatio,
-                          child: Chewie(controller: _chewieController!),
-                        )
-                      : const CircularProgressIndicator(),
+              // ⭐ 불필요한 CupertinoPageScaffold와 SafeArea를 제거했습니다.
+              child: MouseRegion(
+                onEnter: (_) => setState(() {
+                  _showControls = true;
+                  _startHideTimer();
+                }),
+                child: AspectRatio(
+                  aspectRatio: 4 / 5,
+                  child: Stack(
+                    children: [
+                      // 1. 배경 영상 레이어
+                      Positioned.fill(
+                        child: FittedBox(
+                          fit: BoxFit.cover,
+                          clipBehavior: Clip.hardEdge,
+                          child: SizedBox(
+                            width: _controller.value.size.width,
+                            height: _controller.value.size.height,
+                            child: VideoPlayer(
+                              _controller,
+                              key: _videoPlayerKey, // ⭐ 투명화 방지 키 적용
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      // 2. 터치 및 컨트롤 레이어
+                      Positioned.fill(
+                        child: GestureDetector(
+                          behavior: HitTestBehavior.opaque,
+                          onTap: () => setState(() {
+                            _showControls = !_showControls;
+                            if (_showControls) _startHideTimer();
+                          }),
+                          child: AnimatedOpacity(
+                            opacity: _showControls ? 1.0 : 0.0,
+                            duration: const Duration(milliseconds: 300),
+                            child: Stack(
+                              children: [
+                                Center(
+                                  child: IconButton(
+                                    icon: Icon(_controller.value.isPlaying ? Icons.pause : Icons.play_arrow, size: 60, color: Colors.white),
+                                    onPressed: _togglePlay,
+                                  ),
+                                ),
+                                Positioned(
+                                  bottom: 0,
+                                  left: 0,
+                                  right: 0,
+                                  child: _buildControlBar(currentPos, maxDuration),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -984,11 +1216,103 @@ class _ProjectNo1VideoState extends State<ProjectNo1Video> {
     );
   }
 
+  Widget _buildControlBar(double currentPos, double maxDuration) {
+    return Container(
+      padding: const EdgeInsets.all(10),
+      color: Colors.black45,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          SliderTheme(
+            data: SliderTheme.of(context).copyWith(
+              trackHeight: 4,
+              activeTrackColor: Colors.amber,
+              inactiveTrackColor: Colors.white30,
+              thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 8.0),
+            ),
+            child: Slider(
+              key: ValueKey('slider_main_${_controller.hashCode}'),
+              value: currentPos,
+              min: 0.0,
+              max: maxDuration,
+
+              // ⭐ 최종 수정 2: 식바 0초 점프 문제 해결
+              // 터치가 시작되는 순간, _dragValue를 0이 아닌 '현재 슬라이더 값'으로 초기화해야 합니다.
+              onChangeStart: (value) {
+                setState(() {
+                  _isDragging = true;
+                  _dragValue = value; // 0.0이 아니라 터치한 시점의 값으로 초기화
+                });
+              },
+
+              onChanged: (value) {
+                setState(() {
+                  _dragValue = value; // 드래그 중 값 업데이트
+                });
+              },
+
+              onChangeEnd: (value) async {
+                setState(() { _isDragging = true; });
+
+                try {
+                  // 1. 웹 브라우저에게 "이 영상은 활성 상태다"라고 알리기 위해 재생 먼저 시도
+                  if (!_controller.value.isPlaying) {
+                    await _controller.play();
+                  }
+
+                  // 2. 이동
+                  await _controller.seekTo(Duration(milliseconds: value.toInt()));
+
+                  // 3. ⭐ 이동한 위치의 버퍼를 가져올 시간을 더 넉넉히 줌 (웹 사양에 따라 조절)
+                  await Future.delayed(const Duration(milliseconds: 500));
+
+                } finally {
+                  // 만약 원래 정지 상태였다면 다시 멈춤 (원하는 동작에 따라 선택)
+                  // await _controller.pause();
+
+                  Future.delayed(const Duration(milliseconds: 300), () {
+                    if (mounted) setState(() { _isDragging = false; });
+                  });
+                }
+              },
+            ),
+          ),
+          Row(
+            children: [
+              Text(
+                "${_formatDuration(Duration(milliseconds: currentPos.toInt()))} / ${_formatDuration(Duration(milliseconds: maxDuration.toInt()))}",
+                style: const TextStyle(color: Colors.white),
+              ),
+              const Spacer(),
+              IconButton(
+                  icon: const Icon(Icons.fullscreen, color: Colors.white),
+                  onPressed: () {
+                    if (!isFullScreen) {
+                      _toggleFullScreen(maxDuration, currentPos);
+                    } else {
+                      isFullScreen = false;
+                      Navigator.pop(context);
+                    }
+                  }),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  String _formatDuration(Duration duration) {
+    String twoDigits(int n) => n.toString().padLeft(2, "0");
+    String twoDigitMinutes = twoDigits(duration.inMinutes.remainder(60));
+    String twoDigitSeconds = twoDigits(duration.inSeconds.remainder(60));
+    return "$twoDigitMinutes:$twoDigitSeconds";
+  }
+
   @override
   void dispose() {
-    // 메모리 누수 방지를 위해 반드시 dispose 해줘야 합니다.
-    _videoPlayerController.dispose();
-    _chewieController?.dispose();
+    _hideTimer?.cancel();
+    _controller.removeListener(_videoListener);
+    _controller.dispose();
     super.dispose();
   }
 }
